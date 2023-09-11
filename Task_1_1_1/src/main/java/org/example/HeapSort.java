@@ -7,11 +7,11 @@ package org.example;
 //Heapsort in java.
 public class HeapSort {
     /**
-     * @param arr
-     * @return
-     * aaaa.
-     */
-    public static int[] sort(int[] arr){
+    * @param arr array of ints
+    * @return
+    * * * aaaa.
+    */
+    public static int[] sort(int[] arr) {
         int n = arr.length;
         for (int i = n / 2 - 1; i >= 0; i--) {
             heapify(arr, n, i);
@@ -26,9 +26,9 @@ public class HeapSort {
     }
 
     /**
-     * @param arr
-     * @param n
-     * @param i
+     * @param arr array of ints
+     * @param n count
+     * @param i root
      * doing binary tree from subtree with root i.
      */
     //
