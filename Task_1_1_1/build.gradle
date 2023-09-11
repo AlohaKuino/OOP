@@ -18,7 +18,9 @@ dependencies {
 test {
     useJUnitPlatform()
 }
-
+javadoc {
+    destinationDir = file("${buildDir}/docs/javadoc")
+}
 jacocoTestReport {
     reports {
         xml.required = true
