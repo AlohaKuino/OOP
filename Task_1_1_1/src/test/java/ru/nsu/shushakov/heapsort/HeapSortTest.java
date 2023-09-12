@@ -13,18 +13,18 @@ class HeapSortTest {
     }
 
     @Test
-    void sort() {
+    void easySort() {
         assertArrayEquals(new int[] {1, 2, 3, 4}, HeapSort.sort(new int[] {3, 1, 2, 4}));
     }
 
     @Test
-    void sort2() {
+    void hardSort() {
         assertArrayEquals(new int[] {-10, -2, 2, 5, 7, 100}, HeapSort.sort(new int[] {-10, 7, 100, 2, -2, 5}));
     }
-    void sort3() {
+    void emptySort() {
         assertArrayEquals(new int[] {}, HeapSort.sort(new int[] {}));
     }
-    void sort4() {
+    void zeroSort() {
         assertArrayEquals(new int[] {0, 0, 0}, HeapSort.sort(new int[] {0, 0, 0}));
     }
     @AfterAll
