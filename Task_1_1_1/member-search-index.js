@@ -1,1 +1,1 @@
-memberSearchIndex = [{"p":"org.example","c":"HeapSort","l":"HeapSort()","url":"%3Cinit%3E()"},{"p":"org.example","c":"HeapSort","l":"sort(int[])"}]
+memberSearchIndex = [{"p":"ru.nsu.shushakov.heapsort","c":"HeapSort","l":"HeapSort()","url":"%3Cinit%3E()"},{"p":"ru.nsu.shushakov.heapsort","c":"HeapSort","l":"sort(int[])"}]
