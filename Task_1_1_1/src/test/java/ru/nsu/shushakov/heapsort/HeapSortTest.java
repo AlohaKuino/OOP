@@ -1,27 +1,33 @@
 package ru.nsu.shushakov.heapsort;
 
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
-import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
 import java.util.Random;
+
+import org.junit.jupiter.api.Test;
+
 class HeapSortTest {
     @Test
     void easySort() {
-        assertArrayEquals(new int[] {1, 2, 3, 4}, HeapSort.sort(new int[] {3, 1, 2, 4}));
+        assertArrayEquals(new int[] {1, 2, 3, 4},
+                HeapSort.sort(new int[] {3, 1, 2, 4}));
     }
 
     @Test
     void hardSort() {
-        assertArrayEquals(new int[] {-10, -2, 2, 5, 7, 100}, HeapSort.sort(new int[] {-10, 7, 100, 2, -2, 5}));
+        assertArrayEquals(new int[] {-10, -2, 2, 5, 7, 100},
+                HeapSort.sort(new int[] {-10, 7, 100, 2, -2, 5}));
     }
     @Test
     void emptySort() {
-        assertArrayEquals(new int[] {}, HeapSort.sort(new int[] {}));
+        assertArrayEquals(new int[] {},
+                HeapSort.sort(new int[] {}));
     }
     @Test
     void zeroSort() {
-        assertArrayEquals(new int[] {0, 0, 0}, HeapSort.sort(new int[] {0, 0, 0}));
+        assertArrayEquals(new int[] {0, 0, 0},
+                HeapSort.sort(new int[] {0, 0, 0}));
     }
     @Test
     void compareSort() {

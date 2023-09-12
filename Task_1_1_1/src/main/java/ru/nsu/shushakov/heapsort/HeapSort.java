@@ -19,7 +19,7 @@ public class HeapSort {
     * taking elements by one.
     * moving current root in the end.
     * calling heapify on smaller heap.
-    *</p>
+    * </p>
     */
     public static int[] sort(int[] arr) {
         int n = arr.length;
