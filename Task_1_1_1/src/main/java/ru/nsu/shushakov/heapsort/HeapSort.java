@@ -1,17 +1,25 @@
 package ru.nsu.shushakov.heapsort;
 
-
 /**
- * heapsort in java
+ * around the world.
+ *
+ * <p>heapsort in java.
+ * </p>
  */
 public class HeapSort {
     /**
-    * @param arr array of ints
+    * Robot Rock.
+    *
+    * <p>@param arr array of ints
+    * </p>
+    *
     * @return
-    * doing a heap.
+    *
+    * <p>doing a heap.
     * taking elements by one.
     * moving current root in the end.
     * calling heapify on smaller heap.
+    *</p>
     */
     public static int[] sort(int[] arr) {
         int n = arr.length;
@@ -28,11 +36,20 @@ public class HeapSort {
     }
 
     /**
-     * @param arr array of ints
-     * @param n count
-     * @param i root
-     * doing binary tree from subtree with root i.
+     * Harder, Better, Faster, Stronger.
+     *
+     * <p>@param arr array of ints
+     * </p>
+     *
+     * <p>@param n count
+     * </p>
+     *
+     * <p>@param i root
+     * </p>
+     *
+     * <p>doing binary tree from subtree with root i.
      * the largest is a root.
+     * </p>
      */
     //
     static void heapify(int[] arr, int n, int i) {
