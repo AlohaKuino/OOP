@@ -1,4 +1,4 @@
-package org.example;
+package ru.nsu.shushakov.heapsort;
 
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.AfterEach;

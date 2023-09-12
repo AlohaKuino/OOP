@@ -1,15 +1,17 @@
-package org.example;
+package ru.nsu.shushakov.heapsort;
+
 
 /**
- *doing a heap.
- * taking elements by one.
+ * heapsort in java
  */
-//Heapsort in java.
 public class HeapSort {
     /**
     * @param arr array of ints
     * @return
-    * * * aaaa.
+    * doing a heap.
+    * taking elements by one.
+    * moving current root in the end.
+    * calling heapify on smaller heap.
     */
     public static int[] sort(int[] arr) {
         int n = arr.length;
@@ -30,23 +32,24 @@ public class HeapSort {
      * @param n count
      * @param i root
      * doing binary tree from subtree with root i.
+     * the largest is a root.
      */
     //
     static void heapify(int[] arr, int n, int i) {
-        int largest = i;
-        int l = 2 * i + 1;
-        int r = 2 * i + 2;
-        if (l < n && arr[l] > arr[largest]) {
-            largest = l;
+        int root = i;
+        int left = 2 * i + 1;
+        int right = 2 * i + 2;
+        if (left < n && arr[left] > arr[root]) {
+            root = left;
         }
-        if (r < n && arr[r] > arr[largest]) {
-            largest = r;
+        if (right < n && arr[right] > arr[root]) {
+            root = right;
         }
-        if (largest != i) {
+        if (root != i) {
             int swap = arr[i];
-            arr[i] = arr[largest];
-            arr[largest] = swap;
-            heapify(arr, n, largest);
+            arr[i] = arr[root];
+            arr[root] = swap;
+            heapify(arr, n, root);
         }
     }
 }
