@@ -21,7 +21,12 @@ class HeapSortTest {
     void sort2() {
         assertArrayEquals(new int[] {-10, -2, 2, 5, 7, 100}, HeapSort.sort(new int[] {-10, 7, 100, 2, -2, 5}));
     }
-
+    void sort3() {
+        assertArrayEquals(new int[] {}, HeapSort.sort(new int[] {}));
+    }
+    void sort4() {
+        assertArrayEquals(new int[] {0, 0, 0}, HeapSort.sort(new int[] {0, 0, 0}));
+    }
     @AfterAll
     static void end(){
         System.out.println("hehehehihihihahaha");
