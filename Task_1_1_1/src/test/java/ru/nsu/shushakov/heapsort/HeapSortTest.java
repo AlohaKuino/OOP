@@ -1,11 +1,10 @@
 package ru.nsu.shushakov.heapsort;
 
-import java.util.Random;
-import java.util.Arrays;
-
-import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.Test;
 
+import java.util.Arrays;
+import java.util.Random;
 class HeapSortTest {
     @Test
     void easySort() {
