@@ -3,7 +3,7 @@ plugins {
     id 'jacoco'
 }
 
-group 'org.example'
+group 'ru.nsu.shushakov.heapsort'
 version '1.0-SNAPSHOT'
 
 repositories {
@@ -19,7 +19,7 @@ test {
     useJUnitPlatform()
 }
 javadoc {
-    destinationDir = file("${buildDir}/docs/javadoc")
+    destinationDir = file("${buildDir}/doc/javadoc")
 }
 jacocoTestReport {
     reports {
