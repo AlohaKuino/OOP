@@ -19,7 +19,7 @@ test {
     useJUnitPlatform()
 }
 javadoc {
-    destinationDir = file("${buildDir}/doc/javadoc")
+    destinationDir = file("${buildDir}/docs/javadoc")
 }
 jacocoTestReport {
     reports {
