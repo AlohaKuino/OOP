@@ -7,14 +7,8 @@ public class HeapSort {
     /**
      * sort.
      *
-     * @param arr array of ints
+     * @param arr array of ints.
      * @return arr.
-     *
-     * <p> doing a heap.
-     * taking elements by one.
-     * moving current root in the end.
-     * calling heapify on smaller heap.
-     * </p>
      */
     public static int[] sort(int[] arr) {
         int n = arr.length;
@@ -33,13 +27,9 @@ public class HeapSort {
     /**
      * heapify.
      *
-     * @param arr array of ints
-     * @param n count
-     * @param i root
-     *
-     * <p>doing binary tree from subtree with root i.
-     * the largest is a root.
-     * </p>
+     * @param arr array of ints.
+     * @param n count.
+     * @param i root.
      */
 
     static void heapify(int[] arr, int n, int i) {
@@ -63,7 +53,7 @@ public class HeapSort {
     /**
     * kinda plug.
     *
-    * @param args some magic
+    * @param args some magic.
     */
     public static void main(String[] args) {
     }
