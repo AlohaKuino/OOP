@@ -121,8 +121,8 @@ public class Polinomial {
      *
      * @return
      */
-    public String inSpot(){
-        return "ты дурак?";
+    public int inSpot(){
+        return 0;
     }
 
     /**
@@ -159,7 +159,7 @@ public class Polinomial {
     public String polToStr(){
         String res = "";
         if(this.polynomCof.length == 0)
-            return "ты дурак?";
+            return "...";
         if(this.polynomCof.length < 2) {
             res += this.polynomCof[0];
             return res;
