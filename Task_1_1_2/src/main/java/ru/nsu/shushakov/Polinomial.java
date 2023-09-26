@@ -189,16 +189,21 @@ public class Polinomial {
             res += Math.abs(this.polynomCof[0]);
             return res;
         } else {
-            if (this.polynomCof[this.polynomCof.length - 1] != 0)
-                res += this.polynomCof[this.polynomCof.length - 1] + "x" + "^" + Math.abs(this.polynomCof.length - 1) +
+            if (this.polynomCof[this.polynomCof.length - 1] != 0) {
+                res += this.polynomCof[this.polynomCof.length - 1] + "x" +
+                        "^" + Math.abs(this.polynomCof.length - 1) +
                         " " + sign(this.polynomCof[this.polynomCof.length - 2]) + " ";
-            for (int i = this.polynomCof.length - 2; i > 1; i--) {
-                if (this.polynomCof[i] == 0)
-                    continue;
-                res += Math.abs(this.polynomCof[i]) + "x" + "^" + i + " " + sign(this.polynomCof[i - 1]) + " ";
             }
-            if (this.polynomCof[1] != 0)
+            for (int i = this.polynomCof.length - 2; i > 1; i--) {
+                if (this.polynomCof[i] == 0) {
+                    continue;
+                }
+                res += Math.abs(this.polynomCof[i]) + "x" +
+                        "^" + i + " " + sign(this.polynomCof[i - 1]) + " ";
+            }
+            if (this.polynomCof[1] != 0) {
                 res += Math.abs(this.polynomCof[1]) + "x" + " " + sign(this.polynomCof[0]) + " ";
+            }
             res += Math.abs(this.polynomCof[0]);
             return res;
         }
