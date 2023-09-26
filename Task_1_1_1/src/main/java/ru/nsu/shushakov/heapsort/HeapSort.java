@@ -1,6 +1,9 @@
 package ru.nsu.shushakov.heapsort;
+
 public class HeapSort {
     /**
+    * sort.
+    *
     * <p>@param arr array of ints
     * </p>
     *
@@ -27,6 +30,8 @@ public class HeapSort {
     }
 
     /**
+    * heapify.
+    *
     * <p>@param arr array of ints
     * </p>
     *
@@ -60,6 +65,8 @@ public class HeapSort {
     }
 
     /**
+    * kinda plug.
+    *  
     * <p>@param args some magic
     * </p>
     */
