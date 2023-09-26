@@ -7,8 +7,8 @@ public class HeapSort {
     /**
      * sort.
      *
-     * @param - arr array of ints
-     * @return - arr.
+     * @param arr array of ints
+     * @return arr.
      *
      * <p>doing a heap.
      * taking elements by one.
@@ -33,9 +33,9 @@ public class HeapSort {
     /**
      * heapify.
      *
-     * @param - arr array of ints
-     * @param - n count
-     * @param - i root
+     * @param arr array of ints
+     * @param n count
+     * @param i root
      *
      *          <p>doing binary tree from subtree with root i.
      *          the largest is a root.
@@ -63,7 +63,7 @@ public class HeapSort {
     /**
      * kinda plug.
      *
-     * @param - args some magic
+     * @param args some magic
      */
     public static void main(String[] args) {
     }
