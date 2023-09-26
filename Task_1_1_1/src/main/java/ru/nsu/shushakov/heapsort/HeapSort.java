@@ -1,20 +1,21 @@
 package ru.nsu.shushakov.heapsort;
 
+/**
+ * heapsort class.
+ */
 public class HeapSort {
     /**
-    * sort.
-    *
-    * <p>@param arr array of ints
-    * </p>
-    *
-    * @return - arr.
-    *
-    * <p>doing a heap.
-    * taking elements by one.
-    * moving current root in the end.
-    * calling heapify on smaller heap.
-    * </p>
-    */
+     * sort.
+     *
+     * @param - arr array of ints
+     * @return - arr.
+     *
+     * <p>doing a heap.
+     * taking elements by one.
+     * moving current root in the end.
+     * calling heapify on smaller heap.
+     * </p>
+     */
     public static int[] sort(int[] arr) {
         int n = arr.length;
         for (int i = n / 2 - 1; i >= 0; i--) {
@@ -30,21 +31,16 @@ public class HeapSort {
     }
 
     /**
-    * heapify.
-    *
-    * <p>@param arr array of ints
-    * </p>
-    *
-    * <p>@param n count
-    * </p>
-    *
-    * <p>@param i root
-    * </p>
-    *
-    * <p>doing binary tree from subtree with root i.
-    * the largest is a root.
-    * </p>
-    */
+     * heapify.
+     *
+     * @param - arr array of ints
+     * @param - n count
+     * @param - i root
+     *
+     *          <p>doing binary tree from subtree with root i.
+     *          the largest is a root.
+     *          </p>
+     */
 
     static void heapify(int[] arr, int n, int i) {
         int root = i;
@@ -65,11 +61,10 @@ public class HeapSort {
     }
 
     /**
-    * kinda plug.
-    *  
-    * <p>@param args some magic
-    * </p>
-    */
+     * kinda plug.
+     *
+     * @param - args some magic
+     */
     public static void main(String[] args) {
     }
 }
