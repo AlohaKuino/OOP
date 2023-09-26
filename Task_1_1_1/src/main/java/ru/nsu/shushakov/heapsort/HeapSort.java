@@ -27,7 +27,6 @@ public class HeapSort {
     }
 
     /**
-    * Harder, Better, Faster, Stronger.
     *
     * <p>@param arr array of ints
     * </p>
@@ -62,8 +61,7 @@ public class HeapSort {
     }
 
     /**
-    * hello.
-    *
+     * 
     * <p>@param args some magic
     * </p>
     */
