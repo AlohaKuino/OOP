@@ -38,12 +38,12 @@ class HeapSortTest {
         int[] copyArr = {23, 45, 6, -1, 3, 4, -10, 6, 14, 8, 1, 67, -190, 34, 23, 1, 0, -100};
         assertArrayEquals(arr, HeapSort.sort(copyArr));
     }
+    
     @Test
     void largeSort() {
         int length = 1000; // длина последовательности
         int min = -1000; // минимальное значение числа
         int max = 1000; // максимальное значение числа
-
         Random random = new Random();
         int[] arr = new int[length];
         int[] copyArr = new int[length];
