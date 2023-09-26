@@ -28,7 +28,8 @@ public class Polinomial {
      * adding one polynom to another.
      *
      * @param pol2 - second polynom.
-     * @return
+     *
+     * @return pol1 + pol2.
      */
     public Polinomial plus(Polinomial pol2) {
         int[] newPol = new int[Math.max(this.pow, pol2.pow)];
@@ -52,7 +53,8 @@ public class Polinomial {
      * substract one polynom from another.
      *
      * @param pol2 - second polynom.
-     * @return
+     *
+     * @return pol1 - pol2.
      */
     public Polinomial minus(Polinomial pol2) {
         int[] newPol = new int[Math.max(this.pow, pol2.pow)];
@@ -73,19 +75,22 @@ public class Polinomial {
     }
 
     /**
-     * multiply one polynom to another.
+     * multiply one polynom on another.
      *
      * @param pol2 - second polynom.
-     * @return
+     *
+     * @return pol1 * pol2.
      */
     public Polinomial mult(Polinomial pol2) {
-        if (this.polynomCof.length == 0 && pol2.polynomCof.length == 0)
+        if (this.polynomCof.length == 0 && pol2.polynomCof.length == 0) {
             return pol2;
-        else if (this.polynomCof.length == 0)
+        }
+        else if (this.polynomCof.length == 0) {
             return pol2;
-        else if (pol2.polynomCof.length == 0)
+        }
+        else if (pol2.polynomCof.length == 0) {
             return this;
-
+        }
         int[] newPol = new int[this.polynomCof.length + pol2.polynomCof.length - 1];
         for (int i = 0; i < this.polynomCof.length; i++) {
             for (int j = 0; j < pol2.polynomCof.length; j++) {
@@ -100,7 +105,8 @@ public class Polinomial {
      * gives value in spot.
      *
      * @param spot - point that we replace x with.
-     * @return
+     *
+     * @return y = pol(x).
      */
     public int inSpot(int spot) {
         int resInSpot = this.polynomCof[0];
@@ -113,7 +119,7 @@ public class Polinomial {
     /**
      * check for fools.
      *
-     * @return
+     * @return 0 every time.
      */
     public int inSpot() {
         return 0;
@@ -121,11 +127,12 @@ public class Polinomial {
 
     /**
      * gives an i derivative.
-     *
-     * @param order - order of derivative.
-     * @return <p>
+     * <p>
      * takes order than multiply coef on it's position
      * </p>
+     * @param order - order of derivative.
+     *
+     * @return this'.
      */
     public Polinomial iDerivative(int order) {
         for (int i = 0; i < order; i++) {
@@ -138,18 +145,37 @@ public class Polinomial {
         return this;
     }
 
+    /**
+     * check equality.
+     *
+     * @param pol2 - second polynom.
+     *
+     * @return true or false.
+     */
     public Boolean isEqual(Polinomial pol2) {
         if (pol2 == null)
             return false;
         return Arrays.equals(this.polynomCof, pol2.polynomCof);
     }
 
+    /**
+     * check sign.
+     *
+     * @param checkSign - checks if int > 0 or not.
+     *
+     * @return string + or -.
+     */
     public String sign(int checkSign) {
         if (checkSign > 0)
             return "+";
         return "-";
     }
 
+    /**
+     * gives a string representation of polynom.
+     *
+     * @return string polynom.
+     */
     public String polToStr() {
         String res = "";
         if (this.polynomCof.length == 0)
