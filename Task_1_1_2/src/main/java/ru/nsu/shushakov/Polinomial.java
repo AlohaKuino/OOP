@@ -161,7 +161,7 @@ public class Polinomial {
     /**
      * check sign.
      *
-     * @param checkSign - checks if int > 0 or not.
+     * @param checkSign - checks if int '>' 0 or not.
      *
      * @return string + or -.
      */
