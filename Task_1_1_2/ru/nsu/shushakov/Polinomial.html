@@ -205,7 +205,9 @@ extends java.lang.Object</pre>
 <tr id="i3" class="rowColor">
 <td class="colFirst"><code>java.lang.Boolean</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#isEqual(ru.nsu.shushakov.Polinomial)">isEqual</a></span>&#8203;(<a href="Polinomial.html" title="class in ru.nsu.shushakov">Polinomial</a>&nbsp;pol2)</code></th>
-<td class="colLast">&nbsp;</td>
+<td class="colLast">
+<div class="block">check equality.</div>
+</td>
 </tr>
 <tr id="i4" class="altColor">
 <td class="colFirst"><code><a href="Polinomial.html" title="class in ru.nsu.shushakov">Polinomial</a></code></td>
@@ -218,7 +220,7 @@ extends java.lang.Object</pre>
 <td class="colFirst"><code><a href="Polinomial.html" title="class in ru.nsu.shushakov">Polinomial</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#mult(ru.nsu.shushakov.Polinomial)">mult</a></span>&#8203;(<a href="Polinomial.html" title="class in ru.nsu.shushakov">Polinomial</a>&nbsp;pol2)</code></th>
 <td class="colLast">
-<div class="block">multiply one polynom to another.</div>
+<div class="block">multiply one polynom on another.</div>
 </td>
 </tr>
 <tr id="i6" class="altColor">
@@ -231,12 +233,16 @@ extends java.lang.Object</pre>
 <tr id="i7" class="rowColor">
 <td class="colFirst"><code>java.lang.String</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#polToStr()">polToStr</a></span>()</code></th>
-<td class="colLast">&nbsp;</td>
+<td class="colLast">
+<div class="block">gives a string representation of polynom.</div>
+</td>
 </tr>
 <tr id="i8" class="altColor">
 <td class="colFirst"><code>java.lang.String</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#sign(int)">sign</a></span>&#8203;(int&nbsp;checkSign)</code></th>
-<td class="colLast">&nbsp;</td>
+<td class="colLast">
+<div class="block">check sign.</div>
+</td>
 </tr>
 </table>
 <ul class="blockList">
@@ -272,7 +278,7 @@ extends java.lang.Object</pre>
 <div class="block">constructor of class Polinomial.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>cofs</code> - - we take int[] to make a polynom.</dd>
+<dd><code>cofs</code> - we take int[] to make a polynom.</dd>
 </dl>
 </li>
 </ul>
@@ -296,8 +302,9 @@ extends java.lang.Object</pre>
 <div class="block">adding one polynom to another.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>pol2</code> - - second polynom.</dd>
+<dd><code>pol2</code> - second polynom.</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
+<dd>pol1 plus pol2.</dd>
 </dl>
 </li>
 </ul>
@@ -311,8 +318,9 @@ extends java.lang.Object</pre>
 <div class="block">substract one polynom from another.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>pol2</code> - - second polynom.</dd>
+<dd><code>pol2</code> - second polynom.</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
+<dd>pol1 minus pol2.</dd>
 </dl>
 </li>
 </ul>
@@ -323,11 +331,12 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>mult</h4>
 <pre class="methodSignature">public&nbsp;<a href="Polinomial.html" title="class in ru.nsu.shushakov">Polinomial</a>&nbsp;mult&#8203;(<a href="Polinomial.html" title="class in ru.nsu.shushakov">Polinomial</a>&nbsp;pol2)</pre>
-<div class="block">multiply one polynom to another.</div>
+<div class="block">multiply one polynom on another.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>pol2</code> - - second polynom.</dd>
+<dd><code>pol2</code> - second polynom.</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
+<dd>pol1 mult pol2.</dd>
 </dl>
 </li>
 </ul>
@@ -341,8 +350,9 @@ extends java.lang.Object</pre>
 <div class="block">gives value in spot.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>spot</code> - - point that we replace x with.</dd>
+<dd><code>spot</code> - point that we replace x with.</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
+<dd>y equals pol(x).</dd>
 </dl>
 </li>
 </ul>
@@ -356,6 +366,7 @@ extends java.lang.Object</pre>
 <div class="block">check for fools.</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
+<dd>0 every time.</dd>
 </dl>
 </li>
 </ul>
@@ -366,14 +377,15 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>iDerivative</h4>
 <pre class="methodSignature">public&nbsp;<a href="Polinomial.html" title="class in ru.nsu.shushakov">Polinomial</a>&nbsp;iDerivative&#8203;(int&nbsp;order)</pre>
-<div class="block">gives an i derivative.</div>
+<div class="block">gives an i derivative.
+ <p>
+ takes order than multiply coef on it's position
+ </p></div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>order</code> - - order of derivative.</dd>
+<dd><code>order</code> - order of derivative.</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
-<dd><p>
- takes order than multiply coef on it's position
- </p></dd>
+<dd>this'.</dd>
 </dl>
 </li>
 </ul>
@@ -384,6 +396,13 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>isEqual</h4>
 <pre class="methodSignature">public&nbsp;java.lang.Boolean&nbsp;isEqual&#8203;(<a href="Polinomial.html" title="class in ru.nsu.shushakov">Polinomial</a>&nbsp;pol2)</pre>
+<div class="block">check equality.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>pol2</code> - second polynom.</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>true or false.</dd>
+</dl>
 </li>
 </ul>
 <a id="sign(int)">
@@ -393,6 +412,13 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>sign</h4>
 <pre class="methodSignature">public&nbsp;java.lang.String&nbsp;sign&#8203;(int&nbsp;checkSign)</pre>
+<div class="block">check sign.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>checkSign</code> - checks if int greater than 0 or not.</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>string + or -.</dd>
+</dl>
 </li>
 </ul>
 <a id="polToStr()">
@@ -402,6 +428,11 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>polToStr</h4>
 <pre class="methodSignature">public&nbsp;java.lang.String&nbsp;polToStr()</pre>
+<div class="block">gives a string representation of polynom.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>string polynom.</dd>
+</dl>
 </li>
 </ul>
 </li>
