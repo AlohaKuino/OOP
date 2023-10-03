@@ -117,7 +117,7 @@ public class Polinomial {
      * @param order order of derivative.
      * @return this'.
      */
-    public Polinomial iDerivative(int order) {
+    public Polinomial ithDerivative(int order) {
         for (int i = 0; i < order; i++) {
             for (int j = 0; j < this.polynomCof.length; j++) {
                 this.polynomCof[j] = this.polynomCof[j] * j;

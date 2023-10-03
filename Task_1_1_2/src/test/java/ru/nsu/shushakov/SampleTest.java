@@ -145,43 +145,43 @@ class SampleTest {
     @Test
     void checkDer() {
         Polinomial pol1 = new Polinomial(new int[]{1, 3, 5});
-        assertArrayEquals(new int[]{3, 10}, pol1.iDerivative(1).polynomCof);
+        assertArrayEquals(new int[]{3, 10}, pol1.ithDerivative(1).polynomCof);
     }
 
     @Test
     void checkDerForNthng() {
         Polinomial pol1 = new Polinomial(new int[]{1});
-        assertArrayEquals(new int[]{0}, pol1.iDerivative(1).polynomCof);
+        assertArrayEquals(new int[]{0}, pol1.ithDerivative(1).polynomCof);
     }
 
     @Test
     void checkDer2() {
         Polinomial pol1 = new Polinomial(new int[]{1, 3, 5});
-        assertArrayEquals(new int[]{10}, pol1.iDerivative(2).polynomCof);
+        assertArrayEquals(new int[]{10}, pol1.ithDerivative(2).polynomCof);
     }
 
     @Test
     void checkDer3() {
         Polinomial pol1 = new Polinomial(new int[]{1, 3, 5});
-        assertArrayEquals(new int[]{0}, pol1.iDerivative(3).polynomCof);
+        assertArrayEquals(new int[]{0}, pol1.ithDerivative(3).polynomCof);
     }
 
     @Test
     void checkDerNeg() {
         Polinomial pol1 = new Polinomial(new int[]{1, -2, 5});
-        assertArrayEquals(new int[]{-2, 10}, pol1.iDerivative(1).polynomCof);
+        assertArrayEquals(new int[]{-2, 10}, pol1.ithDerivative(1).polynomCof);
     }
 
     @Test
     void checkDerZero() {
         Polinomial pol1 = new Polinomial(new int[]{0, 0, 0});
-        assertArrayEquals(new int[]{0, 0}, pol1.iDerivative(1).polynomCof);
+        assertArrayEquals(new int[]{0, 0}, pol1.ithDerivative(1).polynomCof);
     }
 
     @Test
     void checkDerEmpty() {
         Polinomial pol1 = new Polinomial(new int[]{});
-        assertArrayEquals(new int[]{}, pol1.iDerivative(1).polynomCof);
+        assertArrayEquals(new int[]{}, pol1.ithDerivative(1).polynomCof);
     }
 
     @Test
