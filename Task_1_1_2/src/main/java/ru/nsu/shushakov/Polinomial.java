@@ -1,10 +1,6 @@
 package ru.nsu.shushakov;
 
 import java.util.Arrays;
-
-import static java.lang.Math.abs;
-import static java.lang.Math.max;
-
 /**
  * main class.
  *
@@ -125,14 +121,17 @@ public class Polinomial {
             for (int j = 0; j < this.polynomCof.length; j++) {
                 this.polynomCof[j] = this.polynomCof[j] * j;
             }
-            if (this.polynomCof.length > 1)
+            if (this.polynomCof.length > 1) {
                 this.polynomCof = Arrays.copyOfRange(this.polynomCof, 1, this.polynomCof.length);
+            }
         }
         return this;
     }
 
 
     /**
+     * checks equality.
+     *
      * @param obj - object of Oblject.
      * @return true or false.
      */
@@ -179,14 +178,16 @@ public class Polinomial {
     @Override
     public String toString() {
         String res = "";
-        if (this.polynomCof.length == 0)
+        if (this.polynomCof.length == 0) {
             return "...";
+        }
         if (this.polynomCof.length < 2) {
             res += this.polynomCof[0];
             return res;
         } else if (this.polynomCof.length == 2) {
-            if (this.polynomCof[1] != 0)
+            if (this.polynomCof[1] != 0) {
                 res += this.polynomCof[1] + "x" + " " + sign(polynomCof[0]) + " ";
+            }
             res += Math.abs(this.polynomCof[0]);
             return res;
         } else {
