@@ -136,7 +136,7 @@ extends java.lang.Object</pre>
 
  <p>
  polynomCof - array of polynom's coefficients.
- pow - the greatest polynim's power.
+ pow - the greatest polynom's power.
  </p></div>
 </li>
 </ul>
@@ -182,31 +182,29 @@ extends java.lang.Object</pre>
 <th class="colLast" scope="col">Description</th>
 </tr>
 <tr id="i0" class="altColor">
+<td class="colFirst"><code>boolean</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#equals(java.lang.Object)">equals</a></span>&#8203;(java.lang.Object&nbsp;obj)</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr id="i1" class="rowColor">
 <td class="colFirst"><code><a href="Polinomial.html" title="class in ru.nsu.shushakov">Polinomial</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#iDerivative(int)">iDerivative</a></span>&#8203;(int&nbsp;order)</code></th>
 <td class="colLast">
 <div class="block">gives an i derivative.</div>
 </td>
 </tr>
-<tr id="i1" class="rowColor">
+<tr id="i2" class="altColor">
 <td class="colFirst"><code>int</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#inSpot()">inSpot</a></span>()</code></th>
 <td class="colLast">
 <div class="block">check for fools.</div>
 </td>
 </tr>
-<tr id="i2" class="altColor">
+<tr id="i3" class="rowColor">
 <td class="colFirst"><code>int</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#inSpot(int)">inSpot</a></span>&#8203;(int&nbsp;spot)</code></th>
 <td class="colLast">
 <div class="block">gives value in spot.</div>
-</td>
-</tr>
-<tr id="i3" class="rowColor">
-<td class="colFirst"><code>java.lang.Boolean</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#isEqual(ru.nsu.shushakov.Polinomial)">isEqual</a></span>&#8203;(<a href="Polinomial.html" title="class in ru.nsu.shushakov">Polinomial</a>&nbsp;pol2)</code></th>
-<td class="colLast">
-<div class="block">check equality.</div>
 </td>
 </tr>
 <tr id="i4" class="altColor">
@@ -232,16 +230,16 @@ extends java.lang.Object</pre>
 </tr>
 <tr id="i7" class="rowColor">
 <td class="colFirst"><code>java.lang.String</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#polToStr()">polToStr</a></span>()</code></th>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#sign(int)">sign</a></span>&#8203;(int&nbsp;checkSign)</code></th>
 <td class="colLast">
-<div class="block">gives a string representation of polynom.</div>
+<div class="block">check sign.</div>
 </td>
 </tr>
 <tr id="i8" class="altColor">
 <td class="colFirst"><code>java.lang.String</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#sign(int)">sign</a></span>&#8203;(int&nbsp;checkSign)</code></th>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#toString()">toString</a></span>()</code></th>
 <td class="colLast">
-<div class="block">check sign.</div>
+<div class="block">gives a string representation of polynom.</div>
 </td>
 </tr>
 </table>
@@ -250,7 +248,7 @@ extends java.lang.Object</pre>
 <!--   -->
 </a>
 <h3>Methods inherited from class&nbsp;java.lang.Object</h3>
-<code>clone, equals, finalize, getClass, hashCode, notify, notifyAll, toString, wait, wait, wait</code></li>
+<code>clone, finalize, getClass, hashCode, notify, notifyAll, wait, wait, wait</code></li>
 </ul>
 </li>
 </ul>
@@ -389,17 +387,18 @@ extends java.lang.Object</pre>
 </dl>
 </li>
 </ul>
-<a id="isEqual(ru.nsu.shushakov.Polinomial)">
+<a id="equals(java.lang.Object)">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
-<h4>isEqual</h4>
-<pre class="methodSignature">public&nbsp;java.lang.Boolean&nbsp;isEqual&#8203;(<a href="Polinomial.html" title="class in ru.nsu.shushakov">Polinomial</a>&nbsp;pol2)</pre>
-<div class="block">check equality.</div>
+<h4>equals</h4>
+<pre class="methodSignature">public&nbsp;boolean&nbsp;equals&#8203;(java.lang.Object&nbsp;obj)</pre>
 <dl>
+<dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
+<dd><code>equals</code>&nbsp;in class&nbsp;<code>java.lang.Object</code></dd>
 <dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>pol2</code> - second polynom.</dd>
+<dd><code>obj</code> - - object of Oblject.</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>true or false.</dd>
 </dl>
@@ -421,15 +420,17 @@ extends java.lang.Object</pre>
 </dl>
 </li>
 </ul>
-<a id="polToStr()">
+<a id="toString()">
 <!--   -->
 </a>
 <ul class="blockListLast">
 <li class="blockList">
-<h4>polToStr</h4>
-<pre class="methodSignature">public&nbsp;java.lang.String&nbsp;polToStr()</pre>
+<h4>toString</h4>
+<pre class="methodSignature">public&nbsp;java.lang.String&nbsp;toString()</pre>
 <div class="block">gives a string representation of polynom.</div>
 <dl>
+<dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
+<dd><code>toString</code>&nbsp;in class&nbsp;<code>java.lang.Object</code></dd>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>string polynom.</dd>
 </dl>
