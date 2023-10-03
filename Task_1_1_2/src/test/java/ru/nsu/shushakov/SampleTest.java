@@ -125,20 +125,20 @@ class SampleTest {
     void checkEq() {
         Polinomial pol1 = new Polinomial(new int[]{1, 3, 5});
         Polinomial pol2 = new Polinomial(new int[]{1, 3, 5});
-        assertTrue(pol1.isEqual(pol2));
+        assertTrue(pol1.equals(pol2));
     }
 
     @Test
     void checkEqWrong() {
         Polinomial pol1 = new Polinomial(new int[]{1, 3, 5});
         Polinomial pol2 = new Polinomial(new int[]{1, 2, 5});
-        assertFalse(pol1.isEqual(pol2));
+        assertFalse(pol1.equals(pol2));
     }
 
     @Test
     void checkEqEmpty() {
         Polinomial pol1 = new Polinomial(new int[]{1, 3, 5});
-        assertEquals(false, pol1.isEqual(null));
+        assertEquals(false, pol1.equals(null));
     }
 
 
@@ -187,36 +187,36 @@ class SampleTest {
     @Test
     void checkStrSimple() {
         Polinomial pol1 = new Polinomial(new int[]{1});
-        assertEquals("1", pol1.polToStr());
+        assertEquals("1", pol1.toString());
     }
 
     @Test
     void checkStrMedium() {
         Polinomial pol1 = new Polinomial(new int[]{1, 3, 5});
-        assertEquals("5x^2 + 3x + 1", pol1.polToStr());
+        assertEquals("5x^2 + 3x + 1", pol1.toString());
     }
 
     @Test
     void checkStrHard() {
         Polinomial pol1 = new Polinomial(new int[]{1, -3, 5, -10, 15});
-        assertEquals("15x^4 - 10x^3 + 5x^2 - 3x + 1", pol1.polToStr());
+        assertEquals("15x^4 - 10x^3 + 5x^2 - 3x + 1", pol1.toString());
     }
 
     @Test
     void checkStrMinusIsFirst() {
         Polinomial pol1 = new Polinomial(new int[]{1, -3, 5, -10, -15});
-        assertEquals("-15x^4 - 10x^3 + 5x^2 - 3x + 1", pol1.polToStr());
+        assertEquals("-15x^4 - 10x^3 + 5x^2 - 3x + 1", pol1.toString());
     }
 
     @Test
     void checkStrZero() {
         Polinomial pol1 = new Polinomial(new int[]{0, 0, 0});
-        assertEquals("0", pol1.polToStr());
+        assertEquals("0", pol1.toString());
     }
 
     @Test
     void checkStrEmpty() {
         Polinomial pol1 = new Polinomial(new int[]{});
-        assertEquals("...", pol1.polToStr());
+        assertEquals("...", pol1.toString());
     }
 }

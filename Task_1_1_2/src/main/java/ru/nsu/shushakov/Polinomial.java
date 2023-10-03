@@ -2,12 +2,15 @@ package ru.nsu.shushakov;
 
 import java.util.Arrays;
 
+import static java.lang.Math.abs;
+import static java.lang.Math.max;
+
 /**
  * main class.
  *
  * <p>
  * polynomCof - array of polynom's coefficients.
- * pow - the greatest polynim's power.
+ * pow - the greatest polynom's power.
  * </p>
  */
 public class Polinomial {
@@ -55,21 +58,10 @@ public class Polinomial {
      * @return pol1 minus pol2.
      */
     public Polinomial minus(Polinomial pol2) {
-        int[] newPol = new int[Math.max(this.pow, pol2.pow)];
-        for (int i = 0; i < Math.min(this.pow, pol2.pow); i++) {
-            newPol[i] = this.polynomCof[i] - pol2.polynomCof[i];
+        for (int i = 0; i < pol2.polynomCof.length; i++) {
+            pol2.polynomCof[i] *= -1;
         }
-        if (this.polynomCof.length > pol2.polynomCof.length) {
-            for (int i = Math.min(this.pow, pol2.pow); i < Math.max(this.pow, pol2.pow); i++) {
-                newPol[i] = this.polynomCof[i];
-            }
-        } else {
-            for (int i = Math.min(this.pow, pol2.pow); i < Math.max(this.pow, pol2.pow); i++) {
-                newPol[i] = -pol2.polynomCof[i];
-            }
-        }
-        Polinomial retPol = new Polinomial(newPol);
-        return retPol;
+        return this.plus(pol2);
     }
 
     /**
@@ -139,16 +131,32 @@ public class Polinomial {
         return this;
     }
 
+
     /**
-     * check equality.
-     *
-     * @param pol2 second polynom.
+     * @param obj - object of Oblject.
      * @return true or false.
      */
-    public Boolean isEqual(Polinomial pol2) {
-        if (pol2 == null)
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
             return false;
-        return Arrays.equals(this.polynomCof, pol2.polynomCof);
+        }
+        if (obj.getClass() != this.getClass()) {
+            return false;
+        }
+        Polinomial pol = (Polinomial) obj;
+        if (this.polynomCof.length != pol.polynomCof.length) {
+            return false;
+        }
+        for (int i = 0; i < pol.polynomCof.length; i++) {
+            if (this.polynomCof[i] != pol.polynomCof[i]) {
+                return false;
+            }
+        }
+        return true;
     }
 
     /**
@@ -168,7 +176,8 @@ public class Polinomial {
      *
      * @return string polynom.
      */
-    public String polToStr() {
+    @Override
+    public String toString() {
         String res = "";
         if (this.polynomCof.length == 0)
             return "...";
