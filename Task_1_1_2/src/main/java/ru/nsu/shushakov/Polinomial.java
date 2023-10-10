@@ -11,8 +11,15 @@ import java.util.Arrays;
  */
 
 public class Polinomial {
-    int[] polynomCof;
-    int pow;
+    private int[] polynomCof;
+
+    /**
+     * just getter.
+     * @return coefs of polynom
+     */
+    public int[] getPolynomCof() {
+        return polynomCof;
+    }
 
     /**
      * constructor of class Polinomial.
@@ -21,7 +28,6 @@ public class Polinomial {
      */
     public Polinomial(int[] cofs) {
         this.polynomCof = cofs;
-        this.pow = cofs.length;
     }
 
     /**
@@ -31,16 +37,16 @@ public class Polinomial {
      * @return pol1 plus pol2.
      */
     public Polinomial plus(Polinomial pol2) {
-        int[] newPol = new int[Math.max(this.pow, pol2.pow)];
-        for (int i = 0; i < Math.min(this.pow, pol2.pow); i++) {
+        int[] newPol = new int[Math.max(this.polynomCof.length, pol2.polynomCof.length)];
+        for (int i = 0; i < Math.min(this.polynomCof.length, pol2.polynomCof.length); i++) {
             newPol[i] = this.polynomCof[i] + pol2.polynomCof[i];
         }
         if (this.polynomCof.length > pol2.polynomCof.length) {
-            for (int i = Math.min(this.pow, pol2.pow); i < Math.max(this.pow, pol2.pow); i++) {
+            for (int i = Math.min(this.polynomCof.length, pol2.polynomCof.length); i < Math.max(this.polynomCof.length, pol2.polynomCof.length); i++) {
                 newPol[i] = this.polynomCof[i];
             }
         } else {
-            for (int i = Math.min(this.pow, pol2.pow); i < Math.max(this.pow, pol2.pow); i++) {
+            for (int i = Math.min(this.polynomCof.length, pol2.polynomCof.length); i < Math.max(this.polynomCof.length, pol2.polynomCof.length); i++) {
                 newPol[i] = pol2.polynomCof[i];
             }
         }
@@ -165,7 +171,7 @@ public class Polinomial {
      * @param checkSign checks if int greater than 0 or not.
      * @return string + or -.
      */
-    public String sign(int checkSign) {
+    private static String sign(int checkSign) {
         if (checkSign > 0) {
             return "+";
         }
