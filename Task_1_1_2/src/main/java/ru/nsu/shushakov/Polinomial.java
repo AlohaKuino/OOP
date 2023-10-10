@@ -15,6 +15,7 @@ public class Polinomial {
 
     /**
      * just getter.
+     * 
      * @return coefs of polynom.
      */
     public int[] getPolynomCof() {
@@ -42,13 +43,13 @@ public class Polinomial {
             newPol[i] = this.polynomCof[i] + pol2.polynomCof[i];
         }
         if (this.polynomCof.length > pol2.polynomCof.length) {
-            for (int i = Math.min(this.polynomCof.length, pol2.polynomCof.length); i <
-                    Math.max(this.polynomCof.length, pol2.polynomCof.length); i++) {
+            for (int i = Math.min(this.polynomCof.length, pol2.polynomCof.length); i
+                    < Math.max(this.polynomCof.length, pol2.polynomCof.length); i++) {
                 newPol[i] = this.polynomCof[i];
             }
         } else {
-            for (int i = Math.min(this.polynomCof.length, pol2.polynomCof.length); i <
-                    Math.max(this.polynomCof.length, pol2.polynomCof.length); i++) {
+            for (int i = Math.min(this.polynomCof.length, pol2.polynomCof.length); i
+                    < Math.max(this.polynomCof.length, pol2.polynomCof.length); i++) {
                 newPol[i] = pol2.polynomCof[i];
             }
         }
