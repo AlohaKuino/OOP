@@ -1,4 +1,4 @@
-package ru.nsu.shushakov.Tree;
+package ru.nsu.shushakov.tree;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -79,14 +79,14 @@ class TreeTest {
     @Test
     void equalTest() {
         var a = new Tree<>("A");
-        var aChild = a.addChild("a");
-        aChild.addChild("aa");
+        var child = a.addChild("a");
+        child.addChild("aa");
 
-        var aCopy = new Tree<>("A");
-        var aChildCopy = aCopy.addChild("a");
-        aChildCopy.addChild("aa");
+        var treeCopy = new Tree<>("A");
+        var childCopy = treeCopy.addChild("a");
+        childCopy.addChild("aa");
 
-        assertEquals(a, aCopy);
+        assertEquals(a, treeCopy);
     }
 
     @Test

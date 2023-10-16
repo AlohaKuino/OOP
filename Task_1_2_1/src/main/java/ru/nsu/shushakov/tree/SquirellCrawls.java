@@ -1,4 +1,4 @@
-package ru.nsu.shushakov.Tree;
+package ru.nsu.shushakov.tree;
 
 import java.util.ArrayList;
 import java.util.ConcurrentModificationException;
@@ -58,8 +58,8 @@ public class SquirellCrawls<T> implements Iterable<Tree<T>> {
          */
         @Override
         public Tree<T> next() {
-            Tree<T> node = queue.get(queue.size()-1);
-            queue.remove(queue.size()-1);
+            Tree<T> node = queue.get(queue.size() - 1);
+            queue.remove(queue.size() - 1);
             if (node.getValue() == null) {
                 throw new ConcurrentModificationException();
             }

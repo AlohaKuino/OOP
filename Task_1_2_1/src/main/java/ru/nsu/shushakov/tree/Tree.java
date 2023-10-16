@@ -1,4 +1,4 @@
-package ru.nsu.shushakov.Tree;
+package ru.nsu.shushakov.tree;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -66,19 +66,19 @@ public class Tree<T> {
      * @param kid of type T.
      * @return added child.
      */
-    public Tree <T> addChild(T kid) {
+    public Tree<T> addChild(T kid) {
         this.children.add(new Tree<T>(kid));
         this.children.get(this.children.size() - 1).father = this;
         return this.children.get(this.children.size() - 1);
     }
 
     /**
-     * add child of type Tree<T>.
-     * 
+     * add child of type Tree\smth\.
+     *
      * @param kid subtree.
      * @return added kid.
      */
-    public Tree <T> addChild(Tree<T> kid) {
+    public Tree<T> addChild(Tree<T> kid) {
         this.children.add(kid);
         kid.father = this;
         return kid;
@@ -93,26 +93,30 @@ public class Tree<T> {
         this.father.children.remove(this);
         this.father = null;
     }
-    public Iterable<Tree<T>> bfs(){
+
+    public Iterable<Tree<T>> bfs() {
         return new SquirellCrawls<T>(this);
     }
-    public Iterable<Tree<T>> dfs() { return new SquirellCrawls<T>(this); }
+
+    public Iterable<Tree<T>> dfs() {
+        return new SquirellCrawls<T>(this);
+    }
 
     /**
      * modified equals for trees.
-     * 
+     *
      * @param obj thing to compare.
      * @return boolean if trees are equal.
      */
     @Override
-    public boolean equals(Object obj){
-        if(obj == null){
+    public boolean equals(Object obj) {
+        if (obj == null) {
             return false;
         }
-        if(this == obj){
+        if (this == obj) {
             return true;
         }
-        if(this.getClass() != this.getClass()){
+        if (this.getClass() != this.getClass()) {
             return false;
         }
         Tree tree = (Tree<T>) obj;
@@ -120,12 +124,12 @@ public class Tree<T> {
     }
 
     /**
-     * intresting hashcode for vertice. 
-     * 
+     * intresting hashcode for vertice.
+     *
      * @return unic hash for vertice.
      */
     @Override
-    public int hashCode(){
+    public int hashCode() {
         var hashForNode = new int[]{value.hashCode(), children.hashCode()};
         return Arrays.hashCode(hashForNode);
     }
