@@ -1,4 +1,4 @@
-package ru.nsu.shushakov.tree;
+package ru.nsu.shushakov.Tree;
 
 import java.util.ArrayList;
 import java.util.ConcurrentModificationException;

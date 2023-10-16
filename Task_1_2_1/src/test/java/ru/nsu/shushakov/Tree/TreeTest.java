@@ -3,7 +3,6 @@ package ru.nsu.shushakov.Tree;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import org.junit.jupiter.api.Test;
-import ru.nsu.shushakov.tree.Tree;
 
 
 class TreeTest {
