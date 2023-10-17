@@ -1,11 +1,11 @@
 package ru.nsu.shushakov.tree;
 
+import static java.util.Collections.sort;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Iterator;
 import java.util.List;
-
-import static java.util.Collections.sort;
 
 /**
  * main class.
@@ -209,8 +209,10 @@ public class Tree<T> implements Iterable<Tree<T>> {
     /**
      * makes a hash for node and children.
      *
-     * @return <p>list which contains fathers hash on the first position and sorted
+     * <p>returns list which contains fathers hash on the first position and sorted
      * hashes of children on the other.</p>
+     *
+     * @return list of hashes.
      */
     public ArrayList<Integer> thingForEquals() {
         this.hash.clear();
