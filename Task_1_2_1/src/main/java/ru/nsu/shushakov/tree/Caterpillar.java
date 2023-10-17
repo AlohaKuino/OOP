@@ -3,12 +3,17 @@ package ru.nsu.shushakov.tree;
 import java.util.ArrayList;
 import java.util.ConcurrentModificationException;
 import java.util.Iterator;
-import java.util.List;
 
+/**
+ * bfs itterator.
+ *
+ * @param <T> unknown type.
+ */
 public class Caterpillar<T> implements Iterator<Tree<T>> {
-    private List<Tree<T>> queue;
-    private Tree<T> node;
-    private int amountOfModifies;
+    private final ArrayList<Tree<T>> queue;
+    private final Tree<T> node;
+    private final int amountOfModifies;
+
     /**
      * node added not to catch error.
      */

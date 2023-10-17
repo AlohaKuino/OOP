@@ -158,7 +158,7 @@ class TreeTest {
         var d1 = c1.addChild("D");
         var e1 = c1.addChild("E");
         System.out.println(a1.wonderEq());
-        
+
         assertEquals(false, a.equals(a1));
     }
 }
