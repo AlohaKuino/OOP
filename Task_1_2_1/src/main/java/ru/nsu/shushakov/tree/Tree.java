@@ -2,112 +2,67 @@ package ru.nsu.shushakov.tree;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Iterator;
 import java.util.List;
 
-/**
- * main class.
- *
- * @param <T> unknown datatype.
- */
-public class Tree<T> {
-    private Tree father;
+public class Tree<T> implements Iterable<T>{
     private T value;
-    private List<Tree<T>> children;
+    private Tree father;
+    private ArrayList<Tree<T>> children;
+    private ArrayList<Integer> hash;
 
-    /**
-     * simple getter.
-     *
-     * @return value of vertice.
-     */
+    private int timesModified;
+    private whatAlgorythm algorythm;
+
+    public int getTimesModified(){ return timesModified; }
+    public void setTimesModified(){ this.timesModified ++; }
+
     public T getValue() {
         return value;
     }
 
-    /**
-     * simple setter.
-     *
-     * @param value of vertice.
-     */
-    public void setValue(T value) {
-        this.value = value;
-    }
-
-    /**
-     * simple getter.
-     *
-     * @return children of vertice.
-     */
-    public List<Tree<T>> getChildren() {
+    public ArrayList<Tree<T>> getChildren() {
         return children;
     }
 
-    /**
-     * simple getter.
-     *
-     * @return father of vertice.
-     */
     public Tree getFather() {
         return father;
     }
 
-    /**
-     * constructor.
-     *
-     * @param val value of vertice.
-     */
+    public void setAlgorythm(whatAlgorythm algorythm){ this.algorythm = algorythm; }
+
     public Tree(T val) {
         this.value = val;
         this.children = new ArrayList<>();
+        this.hash = new ArrayList<>();
     }
 
-    /**
-     * add child of type T.
-     *
-     * @param kid of type T.
-     * @return added child.
-     */
     public Tree<T> addChild(T kid) {
-        this.children.add(new Tree<T>(kid));
-        this.children.get(this.children.size() - 1).father = this;
-        return this.children.get(this.children.size() - 1);
+        var node = new Tree<T>(kid);
+        node.father = this;
+        this.children.add(node);
+        this.setTimesModified();
+        node.father.hash = thingForEquals(node.father);
+        return node;
     }
 
-    /**
-     * add child of type Tree\smth\.
-     *
-     * @param kid subtree.
-     * @return added kid.
-     */
     public Tree<T> addChild(Tree<T> kid) {
         this.children.add(kid);
         kid.father = this;
+        this.setTimesModified();
+        kid.father.hash = thingForEquals(kid.father);
         return kid;
     }
 
-    /**
-     * remove child and add its children to uts father.
-     */
     public void childFree() {
         this.value = null;
         this.father.children.addAll(this.children);
         this.father.children.remove(this);
+        this.setTimesModified();
+        this.father.hash = thingForEquals(this.father);
         this.father = null;
     }
 
-    public Iterable<Tree<T>> bfs() {
-        return new SquirellCrawls<T>(this);
-    }
-
-    public Iterable<Tree<T>> dfs() {
-        return new SquirellCrawls<T>(this);
-    }
-
-    /**
-     * modified equals for trees.
-     *
-     * @param obj thing to compare.
-     * @return boolean if trees are equal.
-     */
     @Override
     public boolean equals(Object obj) {
         if (obj == null) {
@@ -119,18 +74,26 @@ public class Tree<T> {
         if (this.getClass() != this.getClass()) {
             return false;
         }
-        Tree tree = (Tree<T>) obj;
-        return this.value == tree.value && this.children.equals(tree.children);
+        return false;
+    }
+    public Iterator<T> iterator() {
+        if (algorythm == whatAlgorythm.BFS) {
+            return new Caterpillar<Tree<T>>(this);
+        } else {
+            return new Squirell<>(this);
+        }
     }
 
-    /**
-     * intresting hashcode for vertice.
-     *
-     * @return unic hash for vertice.
-     */
-    @Override
-    public int hashCode() {
-        var hashForNode = new int[]{value.hashCode(), children.hashCode()};
-        return Arrays.hashCode(hashForNode);
+    public ArrayList<Integer> thingForEquals(Tree<T> node){
+        node.hash.add(node.value.hashCode());
+        for(Tree<T> i : node.children){
+            node.hash.add(i.value.hashCode());
+        }
+        return node.hash;
+    }
+
+    public enum whatAlgorythm{
+        BFS,
+        DFS
     }
 }

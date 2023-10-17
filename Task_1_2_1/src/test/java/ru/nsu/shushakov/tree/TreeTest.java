@@ -1,8 +1,10 @@
 package ru.nsu.shushakov.tree;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-
 import org.junit.jupiter.api.Test;
+
+import java.util.ConcurrentModificationException;
+
+import static org.junit.jupiter.api.Assertions.*;
 
 
 class TreeTest {
@@ -14,7 +16,7 @@ class TreeTest {
     }
 
     @Test
-    void taskTest() {
+    void playWithTask() {
         Tree<String> tree = new Tree<>("R1");
         var a = tree.addChild("A");
         assertEquals("A", a.getValue());
@@ -44,8 +46,9 @@ class TreeTest {
         var a = tree.addChild("A");
         var b = a.addChild("B");
         b.childFree();
-        for (Tree<String> i : tree.bfs()) {
-            System.out.println(i.getValue());
+        tree.setAlgorythm(Tree.whatAlgorythm.BFS);
+        for (String i : tree) {
+            System.out.println(i);
         }
     }
 
@@ -90,6 +93,19 @@ class TreeTest {
     }
 
     @Test
+    void notEqualTest() {
+        var a = new Tree<>("A");
+        var child = a.addChild("a");
+        child.addChild("ab");
+
+        var treeCopy = new Tree<>("A");
+        var childCopy = treeCopy.addChild("a");
+        childCopy.addChild("aa");
+
+        assertNotEquals(a, treeCopy);
+    }
+
+    @Test
     void dfsTest() {
         Tree<String> tree = new Tree<>("R1");
         Tree<String> subtree = new Tree<>("R2");
@@ -99,9 +115,28 @@ class TreeTest {
         var a = tree.addChild("A");
         var b = a.addChild("B");
         b.childFree();
-        System.out.println("DFS");
-        for (Tree<String> i : tree.dfs()) {
-            System.out.println(i.getValue());
+        tree.setAlgorythm(Tree.whatAlgorythm.DFS);
+        for (String i : tree) {
+            System.out.println(i);
         }
     }
+
+    @Test
+    void newParent(){
+        Tree<String> tree = new Tree<>("R1");
+        var a = tree.addChild("A");
+        var b = a.addChild("B");
+        b.addChild("orphan");
+        b.childFree();
+        assertEquals("orphan", a.getChildren().get(0).getValue());
+    }
+
+//    @Test
+//    void errorCatch(){
+//        Tree<String> tree = new Tree<>("R1");
+//        var a = tree.addChild("A");
+//        var b = a.addChild("B");
+//        b.addChild("orphan");
+//        b.childFree();
+//    }
 }
