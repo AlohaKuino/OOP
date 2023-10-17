@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.ConcurrentModificationException;
 import java.util.Iterator;
 
-public class Squirell<T> implements Iterator<T> {
+public class Squirell<T> implements Iterator<Tree<T>> {
     private ArrayList<Tree<T>> queue;
     private Tree<T> node;
     private int amountOfModifies;
@@ -37,13 +37,13 @@ public class Squirell<T> implements Iterator<T> {
      * @return node if tree is not over.
      */
     @Override
-    public T next() {
-        Tree<T> node = queue.get(queue.size() - 1);
-        queue.remove(queue.size() - 1);
+    public Tree<T> next() {
         if (node.getTimesModified() != amountOfModifies) {
             throw new ConcurrentModificationException();
         }
+        Tree<T> node = queue.get(queue.size() - 1);
+        queue.remove(queue.size() - 1);
         queue.addAll(node.getChildren());
-        return node.getValue();
+        return node;
     }
 }

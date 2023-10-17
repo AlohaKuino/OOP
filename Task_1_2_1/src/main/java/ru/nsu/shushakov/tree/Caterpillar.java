@@ -3,12 +3,12 @@ package ru.nsu.shushakov.tree;
 import java.util.ArrayList;
 import java.util.ConcurrentModificationException;
 import java.util.Iterator;
+import java.util.List;
 
-public class Caterpillar<Tree<T>> implements Iterator<Tree<T>> {
-    private ArrayList<Tree<T>> queue;
+public class Caterpillar<T> implements Iterator<Tree<T>> {
+    private List<Tree<T>> queue;
     private Tree<T> node;
     private int amountOfModifies;
-
     /**
      * node added not to catch error.
      */
@@ -39,11 +39,11 @@ public class Caterpillar<Tree<T>> implements Iterator<Tree<T>> {
      */
     @Override
     public Tree<T> next() {
-        Tree<T> node = queue.get(0);
-        queue.remove(0);
         if (node.getTimesModified() != amountOfModifies) {
             throw new ConcurrentModificationException();
         }
+        Tree<T> node = queue.get(0);
+        queue.remove(0);
         queue.addAll(node.getChildren());
         return node;
     }

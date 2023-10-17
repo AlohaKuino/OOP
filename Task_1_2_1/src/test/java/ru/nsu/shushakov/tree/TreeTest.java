@@ -47,8 +47,8 @@ class TreeTest {
         var b = a.addChild("B");
         b.childFree();
         tree.setAlgorythm(Tree.whatAlgorythm.BFS);
-        for (String i : tree) {
-            System.out.println(i);
+        for (Tree<String> i : tree) {
+            System.out.println(i.getValue());
         }
     }
 
@@ -70,10 +70,9 @@ class TreeTest {
 
     @Test
     void removeTest() {
-        var a = new Tree<>(2);
-        assertEquals(2, a.getValue());
+        var a = new Tree<Integer>(2);
         a.addChild(3);
-        var b = a.addChild(new Tree<>(6));
+        var b = a.addChild(new Tree<Integer>(6));
         b.childFree();
         assertEquals(1, a.getChildren().size());
         assertEquals(3, a.getChildren().get(0).getValue());
@@ -97,12 +96,13 @@ class TreeTest {
         var a = new Tree<>("A");
         var child = a.addChild("a");
         child.addChild("ab");
+        System.out.println(a.wonderEq());
 
         var treeCopy = new Tree<>("A");
         var childCopy = treeCopy.addChild("a");
         childCopy.addChild("aa");
-
-        assertNotEquals(a, treeCopy);
+        System.out.println(treeCopy.wonderEq());
+        assertEquals(false ,a.equals(treeCopy));
     }
 
     @Test
@@ -116,8 +116,8 @@ class TreeTest {
         var b = a.addChild("B");
         b.childFree();
         tree.setAlgorythm(Tree.whatAlgorythm.DFS);
-        for (String i : tree) {
-            System.out.println(i);
+        for (Tree<String> i : tree) {
+            System.out.println(i.getValue());
         }
     }
 
@@ -131,12 +131,34 @@ class TreeTest {
         assertEquals("orphan", a.getChildren().get(0).getValue());
     }
 
-//    @Test
-//    void errorCatch(){
-//        Tree<String> tree = new Tree<>("R1");
-//        var a = tree.addChild("A");
-//        var b = a.addChild("B");
-//        b.addChild("orphan");
-//        b.childFree();
-//    }
+    @Test
+    void equalsTestOfNotEqualTrees() {
+        var a = new Tree<>("A");
+        a.addChild("a");
+        a.addChild("aa");
+
+        var b = new Tree<>("A");
+        var childB = b.addChild("a");
+        childB.addChild("aa");
+
+        assertEquals(false, a.equals(b));
+    }
+    @Test
+    void equalsTestOfNotEqual() {
+        var a = new Tree<>("A");
+        var b = a.addChild("B");
+        var c = a.addChild("C");
+        var d = b.addChild("D");
+        var e = b.addChild("E");
+        System.out.println(a.wonderEq());
+
+        var a1 = new Tree<>("A");
+        var b1 = a1.addChild("B");
+        var c1 = a1.addChild("C");
+        var d1 = c1.addChild("D");
+        var e1 = c1.addChild("E");
+        System.out.println(a1.wonderEq());
+        
+        assertEquals(false, a.equals(a1));
+    }
 }
