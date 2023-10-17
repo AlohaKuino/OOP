@@ -17,7 +17,7 @@ public class Tree<T> implements Iterable<Tree<T>> {
     private Tree<T> father;
     private int timesModified;
     private ArrayList<Integer> hash;
-    private whatAlgorythm algorythm;
+    private WhatAlgorythm algorythm;
     private final ArrayList<Tree<T>> children;
 
     /**
@@ -30,7 +30,7 @@ public class Tree<T> implements Iterable<Tree<T>> {
         this.children = new ArrayList<>();
         this.timesModified = 0;
         this.hash = new ArrayList<>();
-        this.algorythm = whatAlgorythm.BFS;
+        this.algorythm = WhatAlgorythm.BFS;
     }
 
     /**
@@ -100,7 +100,7 @@ public class Tree<T> implements Iterable<Tree<T>> {
      *
      * @param algorythm enum sets bfs or dfs.
      */
-    public void setAlgorythm(whatAlgorythm algorythm) {
+    public void setAlgorythm(WhatAlgorythm algorythm) {
         this.algorythm = algorythm;
     }
 
@@ -199,7 +199,7 @@ public class Tree<T> implements Iterable<Tree<T>> {
      * @return custom iterator depends on enum.
      */
     public Iterator<Tree<T>> iterator() {
-        if (algorythm == whatAlgorythm.BFS) {
+        if (algorythm == WhatAlgorythm.BFS) {
             return new Caterpillar<>(this);
         } else {
             return new Squirell<>(this);
@@ -209,7 +209,8 @@ public class Tree<T> implements Iterable<Tree<T>> {
     /**
      * makes a hash for node and children.
      *
-     * @return list which contains fathers hash on the first position and sorted hashes of children on the other.
+     * @return <p>list which contains fathers hash on the first position and sorted
+     * hashes of children on the other.</p>
      */
     public ArrayList<Integer> thingForEquals() {
         this.hash.clear();
@@ -239,7 +240,7 @@ public class Tree<T> implements Iterable<Tree<T>> {
     /**
      * enum for algorythm.
      */
-    public enum whatAlgorythm {
+    public enum WhatAlgorythm {
         BFS,
         DFS
     }

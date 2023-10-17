@@ -1,10 +1,9 @@
 package ru.nsu.shushakov.tree;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+
 import org.junit.jupiter.api.Test;
-
-import java.util.ConcurrentModificationException;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 
 class TreeTest {
@@ -46,7 +45,7 @@ class TreeTest {
         var a = tree.addChild("A");
         var b = a.addChild("B");
         b.childFree();
-        tree.setAlgorythm(Tree.whatAlgorythm.BFS);
+        tree.setAlgorythm(Tree.WhatAlgorythm.BFS);
         for (Tree<String> i : tree) {
             System.out.println(i.getValue());
         }
@@ -70,9 +69,9 @@ class TreeTest {
 
     @Test
     void removeTest() {
-        var a = new Tree<Integer>(2);
+        var a = new Tree<>(2);
         a.addChild(3);
-        var b = a.addChild(new Tree<Integer>(6));
+        var b = a.addChild(new Tree<>(6));
         b.childFree();
         assertEquals(1, a.getChildren().size());
         assertEquals(3, a.getChildren().get(0).getValue());
@@ -102,7 +101,7 @@ class TreeTest {
         var childCopy = treeCopy.addChild("a");
         childCopy.addChild("aa");
         System.out.println(treeCopy.wonderEq());
-        assertEquals(false ,a.equals(treeCopy));
+        assertFalse(a.equals(treeCopy));
     }
 
     @Test
@@ -115,14 +114,14 @@ class TreeTest {
         var a = tree.addChild("A");
         var b = a.addChild("B");
         b.childFree();
-        tree.setAlgorythm(Tree.whatAlgorythm.DFS);
+        tree.setAlgorythm(Tree.WhatAlgorythm.DFS);
         for (Tree<String> i : tree) {
             System.out.println(i.getValue());
         }
     }
 
     @Test
-    void newParent(){
+    void newParent() {
         Tree<String> tree = new Tree<>("R1");
         var a = tree.addChild("A");
         var b = a.addChild("B");
@@ -141,8 +140,9 @@ class TreeTest {
         var childB = b.addChild("a");
         childB.addChild("aa");
 
-        assertEquals(false, a.equals(b));
+        assertFalse(a.equals(b));
     }
+
     @Test
     void equalsTestOfNotEqual() {
         var a = new Tree<>("A");
@@ -159,6 +159,6 @@ class TreeTest {
         var e1 = c1.addChild("E");
         System.out.println(a1.wonderEq());
 
-        assertEquals(false, a.equals(a1));
+        assertFalse(a.equals(a1));
     }
 }
