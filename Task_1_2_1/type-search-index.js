@@ -1,1 +1,1 @@
-typeSearchIndex = [{"l":"All Classes","url":"allclasses-index.html"},{"p":"ru.nsu.shushakov.tree","l":"CaterpillarCrawls"},{"p":"ru.nsu.shushakov.tree","l":"SquirellCrawls"},{"p":"ru.nsu.shushakov.tree","l":"Tree"}]
+typeSearchIndex = [{"l":"All Classes","url":"allclasses-index.html"},{"p":"ru.nsu.shushakov.tree","l":"Caterpillar"},{"p":"ru.nsu.shushakov.tree","l":"Squirell"},{"p":"ru.nsu.shushakov.tree","l":"Tree"},{"p":"ru.nsu.shushakov.tree","l":"Tree.whatAlgorythm"}]
