@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="ru.nsu.shushakov.tree.TreeTest" tests="12" skipped="0" failures="0" errors="0" timestamp="2023-10-24T08:31:09" hostname="alec" time="0.081">
+  <properties/>
+  <testcase name="playWithTask()" classname="ru.nsu.shushakov.tree.TreeTest" time="0.033"/>
+  <testcase name="addChildTreeTest()" classname="ru.nsu.shushakov.tree.TreeTest" time="0.001"/>
+  <testcase name="getValueTest()" classname="ru.nsu.shushakov.tree.TreeTest" time="0.002"/>
+  <testcase name="newParent()" classname="ru.nsu.shushakov.tree.TreeTest" time="0.001"/>
+  <testcase name="equalsTestOfNotEqualTrees()" classname="ru.nsu.shushakov.tree.TreeTest" time="0.003"/>
+  <testcase name="bfsTest()" classname="ru.nsu.shushakov.tree.TreeTest" time="0.012"/>
+  <testcase name="equalsTestOfNotEqual()" classname="ru.nsu.shushakov.tree.TreeTest" time="0.002"/>
+  <testcase name="equalTest()" classname="ru.nsu.shushakov.tree.TreeTest" time="0.002"/>
+  <testcase name="notEqualTest()" classname="ru.nsu.shushakov.tree.TreeTest" time="0.002"/>
+  <testcase name="removeTest()" classname="ru.nsu.shushakov.tree.TreeTest" time="0.001"/>
+  <testcase name="dfsTest()" classname="ru.nsu.shushakov.tree.TreeTest" time="0.003"/>
+  <testcase name="addChildValueTest()" classname="ru.nsu.shushakov.tree.TreeTest" time="0.002"/>
+  <system-out><![CDATA[R1
+R2
+A
+C
+D
+[65, 66, 67, 66, 68, 69]
+[65, 66, 67, 67, 68, 69]
+[65, 97, 97, 3105]
+[65, 97, 97, 3104]
+R1
+A
+R2
+D
+C
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
