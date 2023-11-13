@@ -25,7 +25,7 @@ public class Hunter {
      * @param subStr substring we need to find.
      *
      * simple getter.
-    */
+     */
     public Hunter(String file, char[] subStr) {
         this.inputFileName = file;
         this.inputFile = new File(this.inputFileName);
@@ -37,17 +37,17 @@ public class Hunter {
 
     /**
      * opens file, reads 10_000_000 chars and calls kmp alg.
-    */
+     */
     protected void find() throws IOException {
         int i = 0;
         char[] line = new char[bufferSize];
-        InputStream inputStream = getClass().getClassLoader().
-                getResourceAsStream(this.inputFileName);
+        InputStream inputStream = getClass().getClassLoader()
+                        .getResourceAsStream(this.inputFileName);
         if (inputStream == null) {
             inputStream = new FileInputStream(this.inputFileName);
         }
-        BufferedReader reader = new BufferedReader
-                (new InputStreamReader(inputStream, StandardCharsets.UTF_8));
+        BufferedReader reader = new BufferedReader(
+                new InputStreamReader(inputStream, StandardCharsets.UTF_8));
         while (reader.read(line, 0, bufferSize) > -1) {
             this.currentLine = line;
             this.algKnuthMorrisPratt(i);
@@ -58,7 +58,8 @@ public class Hunter {
      * @param counter how many buffers we read.
      *
      * main part of KMP algorythm.
-    */
+     */
+    
     private void algKnuthMorrisPratt(int counter) {
         int[] pfl = prefix();
         int k = 0;
@@ -84,7 +85,7 @@ public class Hunter {
      * @return arr of maximal lengths of equal suffixes and prefixes for ith symbol in substring.
      *
      * prefix func.
-    */
+     */
     private int[] prefix() {
         int[] pfl = new int[this.whatToFind.length];
         pfl[0] = 0;
