@@ -6,7 +6,7 @@ import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 
 /**
- * class for generating big files.
+ * generating subclass.
  */
 public class Gen {
     private final File filename;
