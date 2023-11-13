@@ -1,6 +1,12 @@
 package ru.nsu.shushakov.substring;
 
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileWriter;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 
 /**
@@ -56,8 +62,9 @@ public class Hunter {
             while (this.whatToFind[k] != this.currentLine[i] && k > 0) {
                 k = pfl[k - 1];
             }
-            if (this.currentLine[i] == '\u0000')
+            if (this.currentLine[i] == '\u0000') {
                 break;
+            }
             if (this.whatToFind[k] == this.currentLine[i]) {
                 k++;
                 if (k == this.whatToFind.length) {
