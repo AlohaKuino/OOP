@@ -1,51 +1,64 @@
 package ru.nsu.shushakov.substring;
 
 import java.io.*;
+import java.nio.charset.StandardCharsets;
 
 public class Hunter {
-    String inputFile;
-    String answerFile;
-    char[] whatToFind;
-    char[] currentLine;
+    private char[] whatToFind;
+    private char[] currentLine;
+    private String inputFileName;
+    private String answerFileName;
+    File inputFile;
+    private File answerFile;
+    private static final int bufferSize = 10_000_000;
 
-    FileWriter t;
-
+    /**
+     * @param file input file.
+     * @param subStr substring we need to find.
+     */
     public Hunter(String file, char[] subStr) {
-        this.inputFile = file;
+        this.inputFileName = file;
+        this.inputFile = new File (this.inputFileName);
         this.whatToFind = subStr;
-        this.answerFile = "src/main/assets/answer.txt";
-        File tmpFile = new File(this.answerFile);
-        tmpFile.delete();
+        this.answerFileName = "src/main/resources/answer.txt";
+        this.answerFile = new File(this.answerFileName);
+        this.answerFile.delete();
     }
 
-    public void find(){
+    /**
+     * opens file, reads 10_000_000 chars and calls kmp alg.
+     */
+    protected void find() throws IOException {
         int i = 0;
-        char[] line = new char[10_000_000];
-        try (BufferedReader reader = new BufferedReader(new FileReader(this.inputFile))) {
-            while(reader.read(line, 0, 10_000_000) > -1){
-                this.currentLine = line;
-                this._KnuthMorrisPratt(i);
-                i ++;
-            }
+        char[] line = new char[bufferSize];
+        InputStream inputStream = getClass().getClassLoader().getResourceAsStream(this.inputFileName);
+        if (inputStream == null) {
+            inputStream = new FileInputStream(this.inputFileName);
         }
-        catch (IOException e) {
-            System.out.println("Reading error");
+        BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream, StandardCharsets.UTF_8));
+        while(reader.read(line, 0, bufferSize) > -1){
+            this.currentLine = line;
+            this._KnuthMorrisPratt(i);
+            i ++;
         }
     }
 
-    public void _KnuthMorrisPratt(int counter) {
-        int[] pfl = pfl();
+    /**
+     * @param counter how many buffers we read.
+     */
+    private void _KnuthMorrisPratt(int counter) {
+        int[] pfl = prefix();
         int k = 0;
         for (int i = 0; i < this.currentLine.length; ++i) {
             while (this.whatToFind[k] != this.currentLine[i] && k > 0) {
                 k = pfl[k - 1];
             }
             if(this.currentLine[i] == '\u0000')
-                continue;
+                break;
             if (this.whatToFind[k] == this.currentLine[i]) {
-                k = k + 1;
+                k ++;
                 if (k == this.whatToFind.length) {
-                    answerWriter(i + 1 - k + counter * 10_000_000);
+                    answerWriter(i + 1 - k + (long) counter * bufferSize);
                     k = pfl[k - 1];
                 }
             }
@@ -55,7 +68,10 @@ public class Hunter {
         }
     }
 
-    public int[] pfl() {
+    /**
+     * @return array of maximal lengths of equal suffixes and prefixes for i'th symbol in substring.
+     */
+    private int[] prefix() {
         int[] pfl = new int[this.whatToFind.length];
         pfl[0] = 0;
         for (int i = 1; i < this.whatToFind.length; ++i) {
@@ -72,10 +88,14 @@ public class Hunter {
         }
         return pfl;
     }
-    public static void answerWriter(int index){
+
+    /**
+     * @param index what to write to the file.
+     */
+    private void answerWriter(long index){
         try {
-            FileWriter writer = new FileWriter("src/main/assets/answer.txt", true);
-            writer.write(String.valueOf(index) + ", ");
+            FileWriter writer = new FileWriter(this.answerFileName, true);
+            writer.write(index + " ");
             writer.close();
         } catch (IOException e) {
             System.out.println("Writing error");
