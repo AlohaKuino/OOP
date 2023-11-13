@@ -13,13 +13,13 @@ import java.nio.charset.StandardCharsets;
  * main class.
  */
 public class Hunter {
-    private char[] whatToFind;
-    private char[] currentLine;
-    private String inputFileName;
-    private String answerFileName;
-    File inputFile;
-    private File answerFile;
     private static final int bufferSize = 10_000_000;
+    private final char[] whatToFind;
+    private final String inputFileName;
+    private final String answerFileName;
+    private final File answerFile;
+    File inputFile;
+    private char[] currentLine;
 
     /**
      * @param file   input file.
