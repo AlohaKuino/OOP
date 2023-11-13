@@ -17,12 +17,12 @@ public class TestSubstring {
         String testline = null;
         try (BufferedReader reader = new BufferedReader(new FileReader("src/main/resources/answer.txt"))) {
             testline = reader.readLine();
-        }
-        catch (IOException e) {
+        } catch (IOException e) {
             System.out.println("Reading error");
         }
         assertEquals("24 ", testline);
     }
+
     @Test
     void bigEnglishGen() throws IOException {
         File input = new File("src/main/resources/input.txt");
@@ -34,12 +34,12 @@ public class TestSubstring {
         String testline = null;
         try (BufferedReader reader = new BufferedReader(new FileReader("src/main/resources/answer.txt"))) {
             testline = reader.readLine();
-        }
-        catch (IOException e) {
+        } catch (IOException e) {
             System.out.println("Reading error");
         }
-        assertEquals("0 6000001001 12000002002 ",testline);
+        assertEquals("0 6000001001 12000002002 ", testline);
     }
+
     @Test
     void berserk() throws IOException {
         File input = new File("src/main/resources/berserk.txt");
@@ -51,8 +51,7 @@ public class TestSubstring {
         String testline = null;
         try (BufferedReader reader = new BufferedReader(new FileReader("src/main/resources/answer.txt"))) {
             testline = reader.readLine();
-        }
-        catch (IOException e) {
+        } catch (IOException e) {
             System.out.println("Reading error");
         }
         assertEquals("0 2070000003 5175000006 ", testline);

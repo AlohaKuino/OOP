@@ -3,6 +3,9 @@ package ru.nsu.shushakov.substring;
 import java.io.*;
 import java.nio.charset.StandardCharsets;
 
+/**
+ * main class.
+ */
 public class Hunter {
     private char[] whatToFind;
     private char[] currentLine;
@@ -13,12 +16,12 @@ public class Hunter {
     private static final int bufferSize = 10_000_000;
 
     /**
-     * @param file input file.
+     * @param file   input file.
      * @param subStr substring we need to find.
      */
     public Hunter(String file, char[] subStr) {
         this.inputFileName = file;
-        this.inputFile = new File (this.inputFileName);
+        this.inputFile = new File(this.inputFileName);
         this.whatToFind = subStr;
         this.answerFileName = "src/main/resources/answer.txt";
         this.answerFile = new File(this.answerFileName);
@@ -36,10 +39,10 @@ public class Hunter {
             inputStream = new FileInputStream(this.inputFileName);
         }
         BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream, StandardCharsets.UTF_8));
-        while(reader.read(line, 0, bufferSize) > -1){
+        while (reader.read(line, 0, bufferSize) > -1) {
             this.currentLine = line;
             this._KnuthMorrisPratt(i);
-            i ++;
+            i++;
         }
     }
 
@@ -53,16 +56,15 @@ public class Hunter {
             while (this.whatToFind[k] != this.currentLine[i] && k > 0) {
                 k = pfl[k - 1];
             }
-            if(this.currentLine[i] == '\u0000')
+            if (this.currentLine[i] == '\u0000')
                 break;
             if (this.whatToFind[k] == this.currentLine[i]) {
-                k ++;
+                k++;
                 if (k == this.whatToFind.length) {
                     answerWriter(i + 1 - k + (long) counter * bufferSize);
                     k = pfl[k - 1];
                 }
-            }
-            else {
+            } else {
                 k = 0;
             }
         }
@@ -81,8 +83,7 @@ public class Hunter {
             }
             if (this.whatToFind[k] == this.whatToFind[i]) {
                 pfl[i] = k + 1;
-            }
-            else {
+            } else {
                 pfl[i] = 0;
             }
         }
@@ -92,7 +93,7 @@ public class Hunter {
     /**
      * @param index what to write to the file.
      */
-    private void answerWriter(long index){
+    private void answerWriter(long index) {
         try {
             FileWriter writer = new FileWriter(this.answerFileName, true);
             writer.write(index + " ");
