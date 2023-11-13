@@ -26,6 +26,7 @@ public class Hunter {
      *
      * simple getter.
      */
+    
     public Hunter(String file, char[] subStr) {
         this.inputFileName = file;
         this.inputFile = new File(this.inputFileName);
@@ -38,6 +39,7 @@ public class Hunter {
     /**
      * opens file, reads 10_000_000 chars and calls kmp alg.
      */
+
     protected void find() throws IOException {
         int i = 0;
         char[] line = new char[bufferSize];
@@ -59,7 +61,7 @@ public class Hunter {
      *
      * main part of KMP algorythm.
      */
-    
+
     private void algKnuthMorrisPratt(int counter) {
         int[] pfl = prefix();
         int k = 0;
@@ -86,6 +88,7 @@ public class Hunter {
      *
      * prefix func.
      */
+
     private int[] prefix() {
         int[] pfl = new int[this.whatToFind.length];
         pfl[0] = 0;
@@ -108,6 +111,7 @@ public class Hunter {
      *
      * func to write index in file.
      */
+
     private void answerWriter(long index) {
         try {
             FileWriter writer = new FileWriter(this.answerFileName, true);

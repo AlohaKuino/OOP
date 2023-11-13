@@ -1,12 +1,12 @@
 package ru.nsu.shushakov.substring;
 
-import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
-
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import org.junit.jupiter.api.Test;
 
 /**
  * test class.
@@ -17,8 +17,8 @@ public class TestSubstring {
         Hunter a = new Hunter("src/main/resources/smalInput.txt", "ab".toCharArray());
         a.find();
         String testline = null;
-        try (BufferedReader reader = new BufferedReader
-                (new FileReader("src/main/resources/answer.txt"))) {
+        try (BufferedReader reader = new BufferedReader(
+                new FileReader("src/main/resources/answer.txt"))) {
             testline = reader.readLine();
         } catch (IOException e) {
             System.out.println("Reading error");
@@ -35,8 +35,8 @@ public class TestSubstring {
         a.find();
         input.delete();
         String testline = null;
-        try (BufferedReader reader = new BufferedReader
-                (new FileReader("src/main/resources/answer.txt"))) {
+        try (BufferedReader reader = new BufferedReader(
+                new FileReader("src/main/resources/answer.txt"))) {
             testline = reader.readLine();
         } catch (IOException e) {
             System.out.println("Reading error");
@@ -53,8 +53,8 @@ public class TestSubstring {
         a.find();
         input.delete();
         String testline = null;
-        try (BufferedReader reader = new BufferedReader
-                (new FileReader("src/main/resources/answer.txt"))) {
+        try (BufferedReader reader = new BufferedReader(
+                new FileReader("src/main/resources/answer.txt"))) {
             testline = reader.readLine();
         } catch (IOException e) {
             System.out.println("Reading error");
