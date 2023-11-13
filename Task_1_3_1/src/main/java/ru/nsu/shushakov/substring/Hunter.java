@@ -24,6 +24,8 @@ public class Hunter {
     /**
      * @param file   input file.
      * @param subStr substring we need to find.
+     *
+     * simple getter.
      */
     public Hunter(String file, char[] subStr) {
         this.inputFileName = file;
@@ -54,6 +56,8 @@ public class Hunter {
 
     /**
      * @param counter how many buffers we read.
+     *
+     * main part of KMP algorythm.
      */
     private void _KnuthMorrisPratt(int counter) {
         int[] pfl = prefix();
@@ -79,6 +83,8 @@ public class Hunter {
 
     /**
      * @return array of maximal lengths of equal suffixes and prefixes for i'th symbol in substring.
+     *
+     * prefix func.
      */
     private int[] prefix() {
         int[] pfl = new int[this.whatToFind.length];
@@ -99,6 +105,8 @@ public class Hunter {
 
     /**
      * @param index what to write to the file.
+     *
+     * func to write index in file.
      */
     private void answerWriter(long index) {
         try {
