@@ -33,7 +33,7 @@ public class Hunter {
         this.inputFileName = file;
         this.inputFile = new File(this.inputFileName);
         this.whatToFind = subStr;
-        this.answerFileName = "answer.txt";
+        this.answerFileName = "src/test/answer.txt";
         this.answerFile = new File(this.answerFileName);
         this.answerFile.delete();
     }
