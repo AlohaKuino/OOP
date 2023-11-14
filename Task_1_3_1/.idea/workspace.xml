@@ -7,6 +7,8 @@
     <list default="true" id="d13a86fb-66eb-451e-8065-72728d52cf9b" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ru/nsu/shushakov/substring/Hunter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/nsu/shushakov/substring/Hunter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/answer.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/smalInput.txt" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/ru/nsu/shushakov/substring/TestSubstring.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/ru/nsu/shushakov/substring/TestSubstring.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -45,11 +47,35 @@
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "git-widget-placeholder": "Task__1__3__1",
     "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0"
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2"
   }
 }]]></component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Gradle.TestSubstring.smallTest">
+    <configuration name="TestSubstring" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;ru.nsu.shushakov.substring.TestSubstring&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>true</RunAsTest>
+      <method v="2" />
+    </configuration>
     <configuration name="TestSubstring.berserk" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -125,6 +151,7 @@
     <recent_temporary>
       <list>
         <item itemvalue="Gradle.TestSubstring.smallTest" />
+        <item itemvalue="Gradle.TestSubstring" />
         <item itemvalue="Gradle.TestSubstring.berserk" />
         <item itemvalue="Gradle.TestSubstring.bigEnglishGen" />
       </list>

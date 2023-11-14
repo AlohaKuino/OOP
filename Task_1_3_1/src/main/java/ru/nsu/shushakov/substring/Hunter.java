@@ -18,20 +18,22 @@ public class Hunter {
     private final String inputFileName;
     private final String answerFileName;
     private final File answerFile;
-    File inputFile;
+    public File inputFile;
+    boolean smthWritten;
     private char[] currentLine;
+
     /**
+     * constructor.
+     *
      * @param file   input file.
      * @param subStr substring we need to find.
-     *
-     * simple getter.
      */
-    
+
     public Hunter(String file, char[] subStr) {
         this.inputFileName = file;
         this.inputFile = new File(this.inputFileName);
         this.whatToFind = subStr;
-        this.answerFileName = "src/main/resources/answer.txt";
+        this.answerFileName = "answer.txt";
         this.answerFile = new File(this.answerFileName);
         this.answerFile.delete();
     }
@@ -44,22 +46,32 @@ public class Hunter {
         int i = 0;
         char[] line = new char[bufferSize];
         InputStream inputStream = getClass().getClassLoader()
-                        .getResourceAsStream(this.inputFileName);
+                .getResourceAsStream(this.inputFileName);
         if (inputStream == null) {
             inputStream = new FileInputStream(this.inputFileName);
         }
         BufferedReader reader = new BufferedReader(
                 new InputStreamReader(inputStream, StandardCharsets.UTF_8));
         while (reader.read(line, 0, bufferSize) > -1) {
-            this.currentLine = line;
+            currentLine = line;
             this.algKnuthMorrisPratt(i);
             i++;
         }
+        if (!this.smthWritten) {
+            try {
+                FileWriter writer = new FileWriter(this.answerFileName, true);
+                writer.write("there is no such substring");
+                writer.close();
+            } catch (IOException e) {
+                System.out.println("Writing error");
+            }
+        }
     }
+
     /**
-     * @param counter how many buffers we read.
+     * main part of kmp algorithm.
      *
-     * main part of KMP algorythm.
+     * @param counter how many buffers we read.
      */
 
     private void algKnuthMorrisPratt(int counter) {
@@ -83,10 +95,11 @@ public class Hunter {
             }
         }
     }
+
     /**
-     * @return arr of maximal lengths of equal suffixes and prefixes for ith symbol in substring.
+     * prefix function.
      *
-     * prefix func.
+     * @return arr of maximal lengths of equal suffixes and prefixes for ith symbol in substring.
      */
 
     private int[] prefix() {
@@ -108,17 +121,18 @@ public class Hunter {
 
     /**
      * @param index what to write to the file.
-     *
-     * func to write index in file.
+     *              <p>
+     *              func to write index in file.
      */
 
     private void answerWriter(long index) {
+        this.smthWritten = true;
         try {
             FileWriter writer = new FileWriter(this.answerFileName, true);
             writer.write(index + " ");
             writer.close();
         } catch (IOException e) {
-            System.out.println("Writing error");
+            System.err.println("Writing error");
         }
     }
 }
