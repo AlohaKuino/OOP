@@ -120,9 +120,9 @@ public class Hunter {
     }
 
     /**
+     * func to write index in file.
+     *
      * @param index what to write to the file.
-     *              <p>
-     *              func to write index in file.
      */
 
     private void answerWriter(long index) {
