@@ -95,12 +95,10 @@ class TreeTest {
         var a = new Tree<>("A");
         var child = a.addChild("a");
         child.addChild("ab");
-        System.out.println(a.wonderEq());
 
         var treeCopy = new Tree<>("A");
         var childCopy = treeCopy.addChild("a");
         childCopy.addChild("aa");
-        System.out.println(treeCopy.wonderEq());
         assertFalse(a.equals(treeCopy));
     }
 
@@ -150,14 +148,12 @@ class TreeTest {
         var c = a.addChild("C");
         var d = b.addChild("D");
         var e = b.addChild("E");
-        System.out.println(a.wonderEq());
 
         var a1 = new Tree<>("A");
         var b1 = a1.addChild("B");
         var c1 = a1.addChild("C");
         var d1 = c1.addChild("D");
         var e1 = c1.addChild("E");
-        System.out.println(a1.wonderEq());
 
         assertFalse(a.equals(a1));
     }
