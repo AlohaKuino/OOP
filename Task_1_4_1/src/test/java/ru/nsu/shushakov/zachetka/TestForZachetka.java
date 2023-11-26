@@ -27,7 +27,7 @@ public class TestForZachetka {
         e.add(z);
         e.add(diploma);
         Zachetka d = new Zachetka("HEHE HIHI", 22213, 6, e);
-        assertEquals(2.0, d.iTriedToStreamButMyHeadWasUnderWater(1, 1));
+        assertEquals(2.0, d.triedToStreamButMyHeadWasUnderWater(1, 1));
         assertTrue(d.moneyMoneyMoneyMustBeFunnyInTheRichMansWorld());
         assertEquals(3.0, d.currentAverageBall());
         assertEquals("Bruh", d.kingInTheCastle());

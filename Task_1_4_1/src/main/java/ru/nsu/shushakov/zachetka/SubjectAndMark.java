@@ -15,11 +15,11 @@ public class SubjectAndMark {
     public String themeOfDiploma;
 
     /**
+     * if mark is final.
+     *
      * @param subject  name of subject.
      * @param mark     mark.
      * @param semester number of semester.
-     *
-     * if mark is final.
      */
     public SubjectAndMark(String subject, Mark mark, int semester) {
         this.subject = subject;
@@ -29,12 +29,12 @@ public class SubjectAndMark {
     }
 
     /**
+     * if mark is not final.
+     *
      * @param subject   name of subject.
      * @param mark      mark.
      * @param semester  number of semester.
      * @param isItFinal boolean.
-     *
-     * if mark is not final.
      */
     public SubjectAndMark(String subject, Mark mark, int semester, boolean isItFinal) {
         this.subject = subject;
@@ -45,11 +45,11 @@ public class SubjectAndMark {
     }
 
     /**
+     * diploma constructor.
+     *
      * @param subject name of subject.
      * @param mark    mark.
      * @param theme   theme of diploma.
-     *
-     * diploma constructor.
      */
     public SubjectAndMark(String subject, Mark mark, String theme) {
         this.subject = subject;
