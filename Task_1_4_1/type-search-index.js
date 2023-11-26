@@ -1,0 +1,1 @@
+typeSearchIndex = [{"l":"All Classes","url":"allclasses-index.html"},{"p":"ru.nsu.shushakov.zachetka","l":"SubjectAndMark.Mark"},{"p":"ru.nsu.shushakov.zachetka","l":"SemesterException"},{"p":"ru.nsu.shushakov.zachetka","l":"SubjectAndMark"},{"p":"ru.nsu.shushakov.zachetka","l":"Zachetka"}]
