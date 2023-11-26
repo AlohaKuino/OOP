@@ -190,7 +190,7 @@ public class Tree<T> implements Iterable<Tree<T>> {
             return false;
         }
         var cmp = (Tree<T>) obj;
-        return Arrays.equals(this.wonderEq().toArray(), cmp.wonderEq().toArray());
+        return Arrays.equals(this, cmp);
     }
 
     /**
