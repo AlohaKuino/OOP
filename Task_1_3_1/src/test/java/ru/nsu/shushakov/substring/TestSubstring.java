@@ -28,6 +28,7 @@ public class TestSubstring {
         }
         assertEquals("6000 12001 ", testline);
     }
+    
     @Test
     void smallTestNoLine() throws IOException {
         Hunter a = new Hunter("src/test/smalInput.txt", "zz".toCharArray());

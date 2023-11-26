@@ -45,12 +45,12 @@ public class Gen {
         try {
             FileWriter writer = new FileWriter(this.filename, StandardCharsets.UTF_8);
             for (long i = 0; i < 6_000; i++) {
-                char c = (char)(r.nextInt(25) + 'a');
+                char c = (char) (r.nextInt(25) + 'a');
                 writer.write(c);
             }
             writer.write("z");
             for (long i = 0; i < 6_000; i++) {
-                char c = (char)(r.nextInt(25) + 'a');
+                char c = (char) (r.nextInt(25) + 'a');
                 writer.write(c);
             }
             writer.write("z");
