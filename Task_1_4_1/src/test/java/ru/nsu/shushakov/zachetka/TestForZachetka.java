@@ -4,7 +4,12 @@ import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 
-import static ru.nsu.shushakov.zachetka.SubjectAndMark.Mark.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static ru.nsu.shushakov.zachetka.SubjectAndMark.Mark._2;
+import static ru.nsu.shushakov.zachetka.SubjectAndMark.Mark._3;
+import static ru.nsu.shushakov.zachetka.SubjectAndMark.Mark._4;
+import static ru.nsu.shushakov.zachetka.SubjectAndMark.Mark._5;
 
 public class TestForZachetka {
     @Test
@@ -14,22 +19,19 @@ public class TestForZachetka {
         SubjectAndMark b = new SubjectAndMark("OSI", _3, 2);
         SubjectAndMark c = new SubjectAndMark("Eng", _4, 3);
         SubjectAndMark z = new SubjectAndMark("Eng", _4, 4);
-//        SubjectAndMark diploma = new SubjectAndMark("Eng", _5, "Irish accent Analysis");
+        SubjectAndMark diploma = new SubjectAndMark("Eng", _5, "Irish accent Analysis");
         ArrayList<SubjectAndMark> e = new ArrayList<>();
         e.add(a);
         e.add(b);
         e.add(a1);
         e.add(c);
         e.add(z);
-
-//        e.add(diploma);
-        Zachetka d = new Zachetka("HEHE HIHI", 22213, 9, e);
-        System.out.println(d.iTriedToStreamButMyHeadWasUnderWater(1, 1));
-        System.out.println(d.moneyMoneyMoneyMustBeFunnyInTheRichMansWorld());
-
-//        System.out.println(d.currentAverageBall());
-//        System.out.println(d.kingInTheCastle());
-//        System.out.println(d.moneyMoneyMoney());
-//        System.out.println(d.diploma.themeOfDiploma);
+        e.add(diploma);
+        Zachetka d = new Zachetka("HEHE HIHI", 22213, 6, e);
+        assertEquals(2.0, d.iTriedToStreamButMyHeadWasUnderWater(1, 1));
+        assertTrue(d.moneyMoneyMoneyMustBeFunnyInTheRichMansWorld());
+        assertEquals(3.0, d.currentAverageBall());
+        assertEquals("Bruh", d.kingInTheCastle());
+        assertTrue(d.moneyMoneyMoneyMustBeFunnyInTheRichMansWorld());
     }
 }
