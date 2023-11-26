@@ -27,7 +27,7 @@
     catch(err) {
     }
 //-->
-var data = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10,"i14":10,"i15":10};
+var data = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -302,24 +302,10 @@ implements java.lang.Iterable&lt;<a href="Tree.html" title="class in ru.nsu.shus
 </td>
 </tr>
 <tr id="i13" class="rowColor">
-<td class="colFirst"><code>java.util.ArrayList&lt;java.lang.Integer&gt;</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#thingForEquals()">thingForEquals</a></span>()</code></th>
-<td class="colLast">
-<div class="block">makes a hash for node and children.</div>
-</td>
-</tr>
-<tr id="i14" class="altColor">
 <td class="colFirst"><code>int</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#throughChildren(T)">throughChildren</a></span>&#8203;(<a href="Tree.html" title="type parameter in Tree">T</a>&nbsp;value)</code></th>
 <td class="colLast">
 <div class="block">finds index of element in list.</div>
-</td>
-</tr>
-<tr id="i15" class="rowColor">
-<td class="colFirst"><code>java.util.ArrayList&lt;java.lang.Integer&gt;</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#wonderEq()">wonderEq</a></span>()</code></th>
-<td class="colLast">
-<div class="block">collects all hashes for tree.</div>
 </td>
 </tr>
 </table>
@@ -572,7 +558,7 @@ implements java.lang.Iterable&lt;<a href="Tree.html" title="class in ru.nsu.shus
 <a id="iterator()">
 <!--   -->
 </a>
-<ul class="blockList">
+<ul class="blockListLast">
 <li class="blockList">
 <h4>iterator</h4>
 <pre class="methodSignature">public&nbsp;java.util.Iterator&lt;<a href="Tree.html" title="class in ru.nsu.shushakov.tree">Tree</a>&lt;<a href="Tree.html" title="type parameter in Tree">T</a>&gt;&gt;&nbsp;iterator()</pre>
@@ -582,37 +568,6 @@ implements java.lang.Iterable&lt;<a href="Tree.html" title="class in ru.nsu.shus
 <dd><code>iterator</code>&nbsp;in interface&nbsp;<code>java.lang.Iterable&lt;<a href="Tree.html" title="type parameter in Tree">T</a>&gt;</code></dd>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>custom iterator depends on enum.</dd>
-</dl>
-</li>
-</ul>
-<a id="thingForEquals()">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>thingForEquals</h4>
-<pre class="methodSignature">public&nbsp;java.util.ArrayList&lt;java.lang.Integer&gt;&nbsp;thingForEquals()</pre>
-<div class="block">makes a hash for node and children.
-
- <p>returns list which contains fathers hash on the first position and sorted
- hashes of children on the other.</p></div>
-<dl>
-<dt><span class="returnLabel">Returns:</span></dt>
-<dd>list of hashes.</dd>
-</dl>
-</li>
-</ul>
-<a id="wonderEq()">
-<!--   -->
-</a>
-<ul class="blockListLast">
-<li class="blockList">
-<h4>wonderEq</h4>
-<pre class="methodSignature">public&nbsp;java.util.ArrayList&lt;java.lang.Integer&gt;&nbsp;wonderEq()</pre>
-<div class="block">collects all hashes for tree.</div>
-<dl>
-<dt><span class="returnLabel">Returns:</span></dt>
-<dd>unic list of hashes.</dd>
 </dl>
 </li>
 </ul>
