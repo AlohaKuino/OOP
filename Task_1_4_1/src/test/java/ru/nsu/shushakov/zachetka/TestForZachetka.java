@@ -1,7 +1,5 @@
 package ru.nsu.shushakov.zachetka;
 
-import java.util.ArrayList;
-import org.junit.jupiter.api.Test;
 import static ru.nsu.shushakov.zachetka.SubjectAndMark.Mark._2;
 import static ru.nsu.shushakov.zachetka.SubjectAndMark.Mark._3;
 import static ru.nsu.shushakov.zachetka.SubjectAndMark.Mark._4;
@@ -9,6 +7,9 @@ import static ru.nsu.shushakov.zachetka.SubjectAndMark.Mark._5;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+
+import java.util.ArrayList;
+import org.junit.jupiter.api.Test;
 
 /**
  * test class.
