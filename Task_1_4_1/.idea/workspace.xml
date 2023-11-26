@@ -5,6 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5e1e7ade-2940-4a5f-83aa-5005deebf1ee" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../Task_1_3_1/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Task_1_3_1/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Task_1_3_1/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Task_1_3_1/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Task_1_3_1/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Task_1_3_1/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Task_1_3_1/src/main/java/ru/nsu/shushakov/substring/Hunter.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Task_1_3_1/src/main/java/ru/nsu/shushakov/substring/Hunter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Task_1_3_1/src/test/answer.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Task_1_3_1/src/test/java/ru/nsu/shushakov/substring/Gen.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Task_1_3_1/src/test/java/ru/nsu/shushakov/substring/Gen.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Task_1_3_1/src/test/java/ru/nsu/shushakov/substring/TestSubstring.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Task_1_3_1/src/test/java/ru/nsu/shushakov/substring/TestSubstring.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Task_1_3_1/src/test/smalInput.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/ru/nsu/shushakov/zachetka/TestForZachetka.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/ru/nsu/shushakov/zachetka/TestForZachetka.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />

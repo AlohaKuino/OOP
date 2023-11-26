@@ -1,12 +1,14 @@
 package ru.nsu.shushakov.substring;
 
-import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.FileInputStream;
+import java.io.BufferedReader;
 import java.io.InputStreamReader;
+import java.io.Writer;
+
 import java.nio.charset.StandardCharsets;
 
 /**
@@ -21,6 +23,7 @@ public class Hunter {
     public File inputFile;
     boolean smthWritten;
     private char[] currentLine;
+    FileWriter writer;
 
     /**
      * constructor.
@@ -29,10 +32,11 @@ public class Hunter {
      * @param subStr substring we need to find.
      */
 
-    public Hunter(String file, char[] subStr) {
+    public Hunter(String file, char[] subStr) throws IOException {
         this.inputFileName = file;
         this.inputFile = new File(this.inputFileName);
         this.whatToFind = subStr;
+        File answer = new File("src/test/answer.txt", String.valueOf(StandardCharsets.UTF_8));
         this.answerFileName = "src/test/answer.txt";
         this.answerFile = new File(this.answerFileName);
         this.answerFile.delete();
@@ -74,7 +78,7 @@ public class Hunter {
      * @param counter how many buffers we read.
      */
 
-    private void algKnuthMorrisPratt(int counter) {
+    private void algKnuthMorrisPratt(int counter) throws IOException {
         int[] pfl = prefix();
         int k = 0;
         for (int i = 0; i < this.currentLine.length; ++i) {

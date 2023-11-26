@@ -5,10 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d13a86fb-66eb-451e-8065-72728d52cf9b" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ru/nsu/shushakov/substring/Hunter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/nsu/shushakov/substring/Hunter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/answer.txt" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/ru/nsu/shushakov/substring/Gen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/ru/nsu/shushakov/substring/Gen.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/ru/nsu/shushakov/substring/TestSubstring.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/ru/nsu/shushakov/substring/TestSubstring.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/smalInput.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Task_1_4_1/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Task_1_4_1/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Task_1_4_1/src/test/java/ru/nsu/shushakov/zachetka/TestForZachetka.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Task_1_4_1/src/test/java/ru/nsu/shushakov/zachetka/TestForZachetka.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,10 +36,10 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "customColor": "",
-  "associatedIndex": 7
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 7
+}</component>
   <component name="ProjectId" id="2Y79VFm8EbtEMR47Rvf8AsYXSKg" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -44,7 +50,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "Task__1__3__1",
+    "git-widget-placeholder": "Task__1__4__1",
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2"
@@ -204,10 +210,14 @@
           <properties class="java.io.FileNotFoundException" package="java.io" />
           <option name="timeStamp" value="1" />
         </breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
+        <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/test/java/ru/nsu/shushakov/substring/TestSubstring.java</url>
           <line>16</line>
-          <option name="timeStamp" value="2" />
+          <properties class="ru.nsu.shushakov.substring.TestSubstring" method="smallTestNoLine">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="3" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

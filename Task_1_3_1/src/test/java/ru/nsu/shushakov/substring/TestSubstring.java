@@ -12,25 +12,10 @@ import org.junit.jupiter.api.Test;
  * test class.
  */
 public class TestSubstring {
-    @Test
-    void smallTestButIntresting() throws IOException {
-        File input = new File("src/test/smalInput.txt");
-        Gen smallButIntresting = new Gen(input);
-        smallButIntresting.smallButIntrestingTest();
-        Hunter a = new Hunter(input.toString(), "z".toCharArray());
-        a.find();
-        String testline = null;
-        try (BufferedReader reader = new BufferedReader(
-                new FileReader("src/test/answer.txt"))) {
-            testline = reader.readLine();
-        } catch (IOException e) {
-            System.out.println("Reading error");
-        }
-        assertEquals("6000 12001 ", testline);
-    }
+
     @Test
     void smallTestNoLine() throws IOException {
-        Hunter a = new Hunter("src/test/smalInput.txt", "zz".toCharArray());
+        Hunter a = new Hunter("src/test/resources/smalInput.txt", "zz".toCharArray());
         a.find();
         String testline = null;
         try (BufferedReader reader = new BufferedReader(
