@@ -2,6 +2,7 @@ package ru.nsu.shushakov;
 
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
@@ -125,20 +126,20 @@ class SampleTest {
     void checkEq() {
         Polinomial pol1 = new Polinomial(new int[]{1, 3, 5});
         Polinomial pol2 = new Polinomial(new int[]{1, 3, 5});
-        assertTrue(pol1.equals(pol2));
+        assertEquals(pol1, pol2);
     }
 
     @Test
     void checkEqWrong() {
         Polinomial pol1 = new Polinomial(new int[]{1, 3, 5});
         Polinomial pol2 = new Polinomial(new int[]{1, 2, 5});
-        assertFalse(pol1.equals(pol2));
+        assertNotEquals(pol1, pol2);
     }
 
     @Test
     void checkEqEmpty() {
         Polinomial pol1 = new Polinomial(new int[]{1, 3, 5});
-        assertEquals(false, pol1.equals(null));
+        assertFalse(pol1.equals(null));
     }
 
 
