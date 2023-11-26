@@ -5,9 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5e1e7ade-2940-4a5f-83aa-5005deebf1ee" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/file-system.probe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/nsu/shushakov/zachetka/SemesterException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/nsu/shushakov/zachetka/SemesterException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/nsu/shushakov/zachetka/SubjectAndMark.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/nsu/shushakov/zachetka/SubjectAndMark.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/nsu/shushakov/zachetka/Zachetka.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/nsu/shushakov/zachetka/Zachetka.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/ru/nsu/shushakov/zachetka/TestForZachetka.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/ru/nsu/shushakov/zachetka/TestForZachetka.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />

@@ -18,8 +18,8 @@ public class SubjectAndMark {
      * @param subject  name of subject.
      * @param mark     mark.
      * @param semester number of semester.
-     *                 <p>
-     *                 if mark is final.
+     *
+     * if mark is final.
      */
     public SubjectAndMark(String subject, Mark mark, int semester) {
         this.subject = subject;
@@ -33,8 +33,8 @@ public class SubjectAndMark {
      * @param mark      mark.
      * @param semester  number of semester.
      * @param isItFinal boolean.
-     *                  <p>
-     *                  if mark is not final.
+     *
+     * if mark is not final.
      */
     public SubjectAndMark(String subject, Mark mark, int semester, boolean isItFinal) {
         this.subject = subject;
@@ -48,8 +48,8 @@ public class SubjectAndMark {
      * @param subject name of subject.
      * @param mark    mark.
      * @param theme   theme of diploma.
-     *                <p>
-     *                diploma constructor.
+     *
+     * diploma constructor.
      */
     public SubjectAndMark(String subject, Mark mark, String theme) {
         this.subject = subject;

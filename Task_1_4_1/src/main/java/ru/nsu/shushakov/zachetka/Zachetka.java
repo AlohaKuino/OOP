@@ -20,9 +20,12 @@ public class Zachetka {
      * @param endedSemester                 semester that is ended.
      * @param streamOfSuspiciousInformation array of subjects and marks.
      * @throws SemesterException if semester > 8 then it will be thrown.
+     *
+     * constructor.
      */
     public Zachetka(String nameOfStudent, int numberOfTheGroup, int endedSemester,
-                    ArrayList<SubjectAndMark> streamOfSuspiciousInformation) throws SemesterException {
+                    ArrayList<SubjectAndMark> streamOfSuspiciousInformation)
+            throws SemesterException {
         this.nameOfStudent = nameOfStudent;
         this.endedSemester = endedSemester;
         if (this.endedSemester > 8) {
@@ -32,11 +35,10 @@ public class Zachetka {
         setAllSemesters(streamOfSuspiciousInformation);
     }
 
-
     /**
      * @param streamOfSuspiciousInformation array of subjects and marks.
-     *                                      <p>
-     *                                      creating an array of arrays without nullPointerException.
+     *
+     * creating an array of arrays without nullPointerException.
      */
     public void setAllSemesters(List<SubjectAndMark> streamOfSuspiciousInformation) {
         for (int i = 0; i <= endedSemester; i++) {
@@ -54,7 +56,7 @@ public class Zachetka {
 
     /**
      * @return average ball from the beninging to the ended semester.
-     * <p>
+     *
      * using iTriedToStreamButMyHeadWasUnderWater.
      */
     public double currentAverageBall() {
@@ -65,7 +67,7 @@ public class Zachetka {
      * @param from the first semester.
      * @param to   the last semester.
      * @return average from|to ball.
-     * <p>
+     *
      * using stream(uncomfortable).
      */
     public double iTriedToStreamButMyHeadWasUnderWater(int from, int to) {
@@ -76,7 +78,7 @@ public class Zachetka {
 
     /**
      * @return boolean if marks in ended semester are 5.
-     * <p>
+     *
      * in my opinion its kinda strict rules.
      */
     public boolean moneyMoneyMoneyMustBeFunnyInTheRichMansWorld() {
@@ -87,7 +89,7 @@ public class Zachetka {
 
     /**
      * @return motivation string.
-     * <p>
+     *
      * still strict.
      */
     public String kingInTheCastle() {
