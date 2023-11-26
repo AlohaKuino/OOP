@@ -10,7 +10,7 @@ import java.util.Iterator;
  * @param <T> unknown type.
  */
 public class Caterpillar<T> implements Iterator<Tree<T>> {
-    private final ArrayList<Tree<T>> queue;
+    private final List<Tree<T>> queue;
     private final Tree<T> node;
     private final int amountOfModifies;
 
