@@ -115,9 +115,6 @@ public class Tree<T> implements Iterable<Tree<T>> {
         Tree<T> node = new Tree<>(kid);
         node.setFather(this);
         this.children.add(node);
-        if (node.father != null) {
-            node.father.hash = node.father.thingForEquals();
-        }
         return node;
     }
 
@@ -131,9 +128,6 @@ public class Tree<T> implements Iterable<Tree<T>> {
         this.setTimesModified();
         this.children.add(kid);
         kid.setFather(this);
-        if (kid.father != null) {
-            kid.father.hash = kid.father.thingForEquals();
-        }
         return kid;
     }
 
@@ -161,11 +155,11 @@ public class Tree<T> implements Iterable<Tree<T>> {
      * @param value need to be found.
      * @return index of element.
      */
-    private int throughChildren(T value) {
+    public int throughChildren(T value) {
         int c = 0;
         for (Tree<T> i : this.getFather().getChildren()) {
             c++;
-            if (i.getValue().equals(value)) {
+            if (i.getValue().hashCode() == value.hashCode()) {
                 return c - 1;
             }
         }
@@ -179,18 +173,20 @@ public class Tree<T> implements Iterable<Tree<T>> {
      * @return equals or not.
      */
     @Override
+    @SuppressWarnings("unchecked")
     public boolean equals(Object obj) {
-        if (obj == null) {
+        if (obj == null || obj.getClass() != this.getClass()) {
             return false;
         }
-        if (this == obj) {
+        if (obj == this) {
             return true;
         }
-        if (this.getClass() != this.getClass()) {
+        var obj2 = (Tree<T>) obj;
+        if (this.value != obj2.value) {
             return false;
+        } else {
+            return this.children.equals(obj2.children);
         }
-        var cmp = (Tree<T>) obj;
-        return Arrays.equals(this, cmp);
     }
 
     /**
@@ -204,39 +200,6 @@ public class Tree<T> implements Iterable<Tree<T>> {
         } else {
             return new Squirell<>(this);
         }
-    }
-
-    /**
-     * makes a hash for node and children.
-     *
-     * <p>returns list which contains fathers hash on the first position and sorted
-     * hashes of children on the other.</p>
-     *
-     * @return list of hashes.
-     */
-    public ArrayList<Integer> thingForEquals() {
-        this.hash.clear();
-        this.hash.add(this.value.hashCode());
-        for (Tree<T> i : this.children) {
-            this.hash.add(i.value.hashCode());
-        }
-        sort(this.hash);
-        return this.hash;
-    }
-
-    /**
-     * collects all hashes for tree.
-     *
-     * @return unic list of hashes.
-     */
-    public ArrayList<Integer> wonderEq() {
-        for (Tree<T> i : this) {
-            if (i == this) {
-                continue;
-            }
-            this.hash.addAll(i.hash);
-        }
-        return this.hash;
     }
 
     /**
