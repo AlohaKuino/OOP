@@ -21,15 +21,15 @@ public class Zachetka {
      * @param numberOfTheGroup              group number.
      * @param endedSemester                 semester that is ended.
      * @param streamOfSuspiciousInformation array of subjects and marks.
-     * @throws SemesterException if semester > 8 then it will be thrown.
+     * @throws SemesterException if semester greater 8 then it will be thrown.
      */
     public Zachetka(String nameOfStudent, int numberOfTheGroup, int endedSemester,
-                    ArrayList<SubjectAndMark> streamOfSuspiciousInformation)
+                    List<SubjectAndMark> streamOfSuspiciousInformation)
             throws SemesterException {
         this.nameOfStudent = nameOfStudent;
         this.endedSemester = endedSemester;
         if (this.endedSemester > 8) {
-            throw new SemesterException("\n\n are you this old? \n");
+            throw new SemesterException();
         }
         this.allSemesters = new ArrayList<>();
         setAllSemesters(streamOfSuspiciousInformation);
@@ -72,7 +72,7 @@ public class Zachetka {
      */
     public double triedToStreamButMyHeadWasUnderWater(int from, int to) {
         return this.allSemesters.stream().flatMapToInt(s -> s.stream()
-                .filter(s2 -> s2.semester >= from && s2.semester <= to)
+                .filter(s2 -> s2.semester >= from && s2.semester <= to && s2.isItFinal)
                 .mapToInt(a -> a.mark.getMark())).summaryStatistics().getAverage();
     }
 

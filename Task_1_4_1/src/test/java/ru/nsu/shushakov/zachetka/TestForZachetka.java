@@ -1,7 +1,6 @@
 package ru.nsu.shushakov.zachetka;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
 import static ru.nsu.shushakov.zachetka.SubjectAndMark.Mark._2;
 import static ru.nsu.shushakov.zachetka.SubjectAndMark.Mark._3;
 import static ru.nsu.shushakov.zachetka.SubjectAndMark.Mark._4;
@@ -36,7 +35,9 @@ public class TestForZachetka {
         assertEquals("Bruh", d.kingInTheCastle());
         assertTrue(d.moneyMoneyMoneyMustBeFunnyInTheRichMansWorld());
     }
-    public void firstTest() throws SemesterException {
+
+    @Test
+    public void exceptionTest() throws SemesterException {
         SubjectAndMark a = new SubjectAndMark("OOP", _2, 1);
         SubjectAndMark a1 = new SubjectAndMark("OOP", _2, 1);
         SubjectAndMark b = new SubjectAndMark("OSI", _3, 2);
@@ -50,6 +51,30 @@ public class TestForZachetka {
         e.add(c);
         e.add(z);
         e.add(diploma);
-        Zachetka d = new Zachetka("HEHE HIHI", 22213, 9, e);
+
+        Exception exception = assertThrows(SemesterException.class, () -> {
+            Zachetka d = new Zachetka("HEHE HIHI", 22213, 9, e);
+        });
+
+        String expectedMessage = "\"\\n\\n are you this old? \\n\"";
+        String actualMessage = exception.getMessage();
+    }
+    @Test
+    public void falseFinal() throws SemesterException {
+        SubjectAndMark a = new SubjectAndMark("OOP", _5, 5, false);
+        SubjectAndMark a1 = new SubjectAndMark("OOP", _2, 1, false);
+        SubjectAndMark b = new SubjectAndMark("OSI", _3, 2, false);
+        SubjectAndMark c = new SubjectAndMark("Eng", _4, 3, false);
+        SubjectAndMark z = new SubjectAndMark("Eng", _2, 4, false);
+        SubjectAndMark diploma = new SubjectAndMark("Eng", _5, "Irish accent Analysis");
+        ArrayList<SubjectAndMark> e = new ArrayList<>();
+        e.add(a);
+        e.add(b);
+        e.add(a1);
+        e.add(c);
+        e.add(z);
+        e.add(diploma);
+        Zachetka d = new Zachetka("HEHE HIHI", 22213, 5, e);
+        assertEquals(0.0, d.currentAverageBall());
     }
 }

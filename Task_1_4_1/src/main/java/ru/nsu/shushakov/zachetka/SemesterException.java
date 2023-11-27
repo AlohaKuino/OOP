@@ -5,11 +5,9 @@ package ru.nsu.shushakov.zachetka;
  */
 public class SemesterException extends Exception {
     /**
-     * if semester > 8.
-     *
-     * @param message error text.
+     * if semester greater 8.
      */
-    public SemesterException(String message) {
-        super(message);
+    public SemesterException() {
+        super("\n\n are you this old? \n");
     }
 }

@@ -1,9 +1,8 @@
 plugins {
     id 'java'
-    id 'jacoco'
 }
 
-group = 'ru.nsu.shushakov.zachetka'
+group = 'org.example'
 version = '1.0-SNAPSHOT'
 
 repositories {
@@ -17,12 +16,4 @@ dependencies {
 
 test {
     useJUnitPlatform()
-}
-javadoc {
-    destinationDir = file("${buildDir}/docs/javadoc")
-}
-jacocoTestReport {
-    reports {
-        xml.required = true
-    }
 }

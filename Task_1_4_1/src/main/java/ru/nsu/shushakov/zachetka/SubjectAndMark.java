@@ -10,7 +10,6 @@ public class SubjectAndMark {
     public Mark mark;
     public boolean isItFinal;
     public int semester;
-    public boolean isExam;
     public boolean isDiploma;
     public String themeOfDiploma;
 
@@ -25,7 +24,7 @@ public class SubjectAndMark {
         this.subject = subject;
         this.mark = mark;
         this.semester = semester;
-        this.isExam = true;
+        this.isItFinal = true;
     }
 
     /**
@@ -41,7 +40,6 @@ public class SubjectAndMark {
         this.mark = mark;
         this.isItFinal = false;
         this.semester = semester;
-        this.isExam = true;
     }
 
     /**
