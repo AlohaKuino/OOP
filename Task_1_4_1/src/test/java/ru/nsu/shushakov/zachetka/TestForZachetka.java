@@ -1,6 +1,8 @@
 package ru.nsu.shushakov.zachetka;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import static ru.nsu.shushakov.zachetka.SubjectAndMark.Mark._2;
 import static ru.nsu.shushakov.zachetka.SubjectAndMark.Mark._3;
 import static ru.nsu.shushakov.zachetka.SubjectAndMark.Mark._4;
@@ -59,6 +61,7 @@ public class TestForZachetka {
         String expectedMessage = "\"\\n\\n are you this old? \\n\"";
         String actualMessage = exception.getMessage();
     }
+    
     @Test
     public void falseFinal() throws SemesterException {
         SubjectAndMark a = new SubjectAndMark("OOP", _5, 5, false);
