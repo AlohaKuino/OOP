@@ -159,7 +159,7 @@ public class Tree<T> implements Iterable<Tree<T>> {
         int c = 0;
         for (Tree<T> i : this.getFather().getChildren()) {
             c++;
-            if (i.equals()) {
+            if (i.equals(value)) {
                 return c - 1;
             }
         }
