@@ -28,7 +28,7 @@ public class Zachetka {
             throws SemesterException {
         this.nameOfStudent = nameOfStudent;
         this.endedSemester = endedSemester;
-        if (this.endedSemester > 8) {
+        if (this.endedSemester > 8 || this.endedSemester < 1) {
             throw new SemesterException();
         }
         this.allSemesters = new ArrayList<>();
@@ -92,7 +92,7 @@ public class Zachetka {
      *
      * @return motivation string.
      */
-    public String kingInTheCastle() {
+    public String uniqueDiploma() {
         if (averageBallInFromToSemesters(1, this.endedSemester) >= 4.8
                 && this.diploma.mark == SubjectAndMark.Mark.FIVE) {
             return "You can do it";
