@@ -1,7 +1,5 @@
 package ru.nsu.shushakov.zachetka;
 
-import java.util.List;
-
 /**
  * helping class.
  */
@@ -60,10 +58,10 @@ public class SubjectAndMark {
      * enum for mark.
      */
     public enum Mark {
-        _2(2),
-        _3(3),
-        _4(4),
-        _5(5);
+        TWO(2),
+        THREE(3),
+        FOUR(4),
+        FIVE(5);
         private final int mark;
 
         private Mark(int mark) {
