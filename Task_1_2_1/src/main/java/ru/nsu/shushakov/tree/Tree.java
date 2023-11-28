@@ -155,11 +155,11 @@ public class Tree<T> implements Iterable<Tree<T>> {
      * @param value need to be found.
      * @return index of element.
      */
-    public int throughChildren(T value) {
+    private int throughChildren(T value) {
         int c = 0;
         for (Tree<T> i : this.getFather().getChildren()) {
             c++;
-            if (i.getValue().hashCode() == value.hashCode()) {
+            if (i.equals()) {
                 return c - 1;
             }
         }
