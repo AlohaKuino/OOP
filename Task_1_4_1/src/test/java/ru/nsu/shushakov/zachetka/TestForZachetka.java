@@ -4,10 +4,10 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-import static ru.nsu.shushakov.zachetka.SubjectAndMark.Mark.TWO;
-import static ru.nsu.shushakov.zachetka.SubjectAndMark.Mark.THREE;
-import static ru.nsu.shushakov.zachetka.SubjectAndMark.Mark.FOUR;
 import static ru.nsu.shushakov.zachetka.SubjectAndMark.Mark.FIVE;
+import static ru.nsu.shushakov.zachetka.SubjectAndMark.Mark.FOUR;
+import static ru.nsu.shushakov.zachetka.SubjectAndMark.Mark.THREE;
+import static ru.nsu.shushakov.zachetka.SubjectAndMark.Mark.TWO;
 
 import java.util.ArrayList;
 import org.junit.jupiter.api.Test;
@@ -35,7 +35,7 @@ public class TestForZachetka {
         assertEquals(2.0, d.averageBallInFromToSemesters(1, 1));
         assertTrue(d.moneyMoneyMoneyMustBeFunnyInTheRichMansWorld());
         assertEquals(3.0, d.currentAverageBall());
-        assertEquals("Bruh", d.kingInTheCastle());
+        assertEquals("Bruh", d.uniqueDiploma());
         assertTrue(d.moneyMoneyMoneyMustBeFunnyInTheRichMansWorld());
     }
 
@@ -81,7 +81,7 @@ public class TestForZachetka {
         e.add(z);
         e.add(diploma);
         Zachetka d = new Zachetka("HEHE HIHI", 22213, 5, e);
-        assertEquals("Bruh", d.kingInTheCastle());
+        assertEquals("Bruh", d.uniqueDiploma());
         assertEquals(0.0, d.averageBallInFromToSemesters(1, 1));
         assertFalse(d.moneyMoneyMoneyMustBeFunnyInTheRichMansWorld());
         assertEquals(0.0, d.currentAverageBall());
@@ -104,12 +104,13 @@ public class TestForZachetka {
         e.add(z);
         e.add(diploma);
         Zachetka d = new Zachetka("HEHE HIHI", 22213, 5, e);
-        assertEquals("You can do it", d.kingInTheCastle());
+        assertEquals("You can do it", d.uniqueDiploma());
         assertEquals(5.0, d.averageBallInFromToSemesters(1, 1));
         assertTrue(d.moneyMoneyMoneyMustBeFunnyInTheRichMansWorld());
         assertEquals(4.8, d.currentAverageBall());
         assertTrue(d.moneyMoneyMoneyMustBeFunnyInTheRichMansWorld());
     }
+
     @Test
     public void cantFetAnything() throws SemesterException {
         SubjectAndMark a = new SubjectAndMark("OOP", TWO, 1);
@@ -126,8 +127,8 @@ public class TestForZachetka {
         e.add(z);
         e.add(diploma);
         Zachetka d = new Zachetka("HEHE HIHI", 22213, 5, e);
-        assertEquals("Bruh", d.kingInTheCastle());
-        assertEquals(2.0 , d.averageBallInFromToSemesters(1, 1));
+        assertEquals("Bruh", d.uniqueDiploma());
+        assertEquals(2.0, d.averageBallInFromToSemesters(1, 1));
         assertFalse(d.moneyMoneyMoneyMustBeFunnyInTheRichMansWorld());
         assertEquals(2.0, d.currentAverageBall());
         assertFalse(d.moneyMoneyMoneyMustBeFunnyInTheRichMansWorld());
