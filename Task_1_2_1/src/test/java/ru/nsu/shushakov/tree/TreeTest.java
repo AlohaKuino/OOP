@@ -70,8 +70,8 @@ class TreeTest {
     @Test
     void removeTest() {
         var a = new Tree<>(2);
-        a.addChild(3);
-        var b = a.addChild(new Tree<>(6));
+        a.addChild(6);
+        var b = a.addChild(new Tree<>(3);
         b.childFree();
         assertEquals(1, a.getChildren().size());
         assertEquals(3, a.getChildren().get(0).getValue());
