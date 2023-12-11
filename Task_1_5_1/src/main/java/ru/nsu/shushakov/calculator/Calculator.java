@@ -1,17 +1,31 @@
 package ru.nsu.shushakov.calculator;
 
 import java.util.ArrayDeque;
-import java.util.EmptyStackException;
 import java.util.Deque;
+import java.util.EmptyStackException;
 import java.util.NoSuchElementException;
 
+/**
+ * main class.
+ */
 public class Calculator {
     private String inputString;
 
+    /**
+     * @throws EndException if stop is printed than stop.
+     *
+     * simple constructor.
+     */
     public Calculator() throws EndException {
         Help.getInputString();
     }
 
+    /**
+     * @param inputString string to parse.
+     * @throws EndException if stop is printed than stop.
+     *
+     * main function which parses string and then calculate an expression using switch case.
+     */
     public static void parseInputString(String inputString) throws EndException {
         String[] tmpString = inputString.split(" ");
         Deque<Double> operands = new ArrayDeque<>();
@@ -23,9 +37,9 @@ public class Calculator {
                     double firstOperand = operands.pop();
                     double secondOperand;
                     switch (tmpString[i]) {
-                        case "sin" -> operands.push(Math.sin(firstOperand));
-                        case "cos" -> operands.push(Math.cos(firstOperand));
-                        case "log" -> {
+                        case "sin" : operands.push(Math.sin(firstOperand));
+                        case "cos" : operands.push(Math.cos(firstOperand));
+                        case "log" : {
                             if (firstOperand < 0) {
                                 System.out.println("Logarithm argument must be greater than zero");
                                 operands.clear();
@@ -33,7 +47,7 @@ public class Calculator {
                                 operands.push(Math.log(firstOperand));
                             }
                         }
-                        case "sqrt" -> {
+                        case "sqrt" : {
                             if (firstOperand < 0) {
                                 System.out.println("Sqrt argument must be greater than zero");
                                 operands.clear();
@@ -41,7 +55,7 @@ public class Calculator {
                                 operands.push(Math.sqrt(firstOperand));
                             }
                         }
-                        case "pow" -> {
+                        case "pow" : {
                             secondOperand = operands.pop();
                             if ((int) secondOperand - secondOperand != 0 && firstOperand < 0) {
                                 System.out.println("It's not a number");
@@ -54,19 +68,19 @@ public class Calculator {
                             }
 
                         }
-                        case "+" -> {
+                        case "+" : {
                             secondOperand = operands.pop();
                             operands.push(firstOperand + secondOperand);
                         }
-                        case "-" -> {
+                        case "-" : {
                             secondOperand = operands.pop();
                             operands.push(firstOperand - secondOperand);
                         }
-                        case "*" -> {
+                        case "*" : {
                             secondOperand = operands.pop();
                             operands.push(firstOperand * secondOperand);
                         }
-                        case "/" -> {
+                        case "/" : {
                             secondOperand = operands.pop();
                             if (secondOperand == 0) {
                                 System.out.println("Division second argument must not be a zero");
@@ -75,7 +89,7 @@ public class Calculator {
                                 operands.push(firstOperand / secondOperand);
                             }
                         }
-                        default -> System.out.println("Wrong Format");
+                        default : System.out.println("Wrong Format");
                     }
                 } catch (EmptyStackException | NoSuchElementException e) {
                     if (tmpString[i].equals("stop")) {
