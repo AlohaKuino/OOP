@@ -5,9 +5,79 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f2720b1b-e7a7-458e-b2ff-9464fb5f62f3" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/nsu/shushakov/tree/Caterpillar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/nsu/shushakov/tree/Caterpillar.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/nsu/shushakov/tree/Squirell.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/nsu/shushakov/tree/Squirell.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/nsu/shushakov/tree/Tree.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/nsu/shushakov/tree/Tree.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../OOP-Task_1_2_1/.idea/OOP-Task_1_2_1.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.2/checksums/checksums.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.2/checksums/md5-checksums.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.2/checksums/sha1-checksums.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.2/dependencies-accessors/dependencies-accessors.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.2/dependencies-accessors/gc.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.2/executionHistory/executionHistory.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.2/executionHistory/executionHistory.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.2/fileChanges/last-build.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.2/fileHashes/fileHashes.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.2/fileHashes/fileHashes.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.2/fileHashes/resourceHashesCache.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.2/gc.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/cache.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/file-system.probe" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/vcs-1/gc.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/jarRepositories.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/ru/nsu/shushakov/tree/Caterpillar.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/ru/nsu/shushakov/tree/Squirell.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/ru/nsu/shushakov/tree/Tree$WhatAlgorythm.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/ru/nsu/shushakov/tree/Tree.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/test/ru/nsu/shushakov/tree/TreeTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/jacoco/test.exec" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/tests/test/classes/ru.nsu.shushakov.tree.TreeTest.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/tests/test/css/base-style.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/tests/test/css/style.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/tests/test/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/tests/test/js/report.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/tests/test/packages/ru.nsu.shushakov.tree.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/test-results/test/TEST-ru.nsu.shushakov.tree.TreeTest.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/test-results/test/binary/output.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/test-results/test/binary/output.bin.idx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/test-results/test/binary/results.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/.cache/expanded/expanded.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/.cache/expanded/zip_0bd0851504e6286cb5fc6f37a81e25cc/META-INF/MANIFEST.MF" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/.cache/expanded/zip_0bd0851504e6286cb5fc6f37a81e25cc/META-INF/maven/org.jacoco/org.jacoco.agent/pom.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/.cache/expanded/zip_0bd0851504e6286cb5fc6f37a81e25cc/META-INF/maven/org.jacoco/org.jacoco.agent/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/.cache/expanded/zip_0bd0851504e6286cb5fc6f37a81e25cc/about.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/.cache/expanded/zip_0bd0851504e6286cb5fc6f37a81e25cc/jacocoagent.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/.cache/expanded/zip_0bd0851504e6286cb5fc6f37a81e25cc/org/jacoco/agent/AgentJar.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/.cache/expanded/zip_0bd0851504e6286cb5fc6f37a81e25cc/org/jacoco/agent/package-info.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileTestJava/previous-compilation-data.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Task_1_3_1/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Task_1_3_1/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Task_1_4_1/.gradle/8.2/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../Task_1_4_1/.gradle/8.2/executionHistory/executionHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Task_1_4_1/.gradle/8.2/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../Task_1_4_1/.gradle/8.2/executionHistory/executionHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Task_1_4_1/.gradle/8.2/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../Task_1_4_1/.gradle/8.2/fileHashes/fileHashes.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Task_1_4_1/.gradle/8.2/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../Task_1_4_1/.gradle/8.2/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Task_1_4_1/.gradle/8.2/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../Task_1_4_1/.gradle/8.2/fileHashes/resourceHashesCache.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Task_1_4_1/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../Task_1_4_1/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Task_1_4_1/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../Task_1_4_1/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Task_1_4_1/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/../Task_1_4_1/.gradle/file-system.probe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Task_1_4_1/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Task_1_4_1/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Task_1_4_1/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/../Task_1_4_1/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Task_1_4_1/build/classes/java/main/ru/nsu/shushakov/zachetka/SubjectAndMark$Mark.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Task_1_4_1/build/classes/java/main/ru/nsu/shushakov/zachetka/SubjectAndMark$Mark.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Task_1_4_1/build/classes/java/main/ru/nsu/shushakov/zachetka/SubjectAndMark.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Task_1_4_1/build/classes/java/main/ru/nsu/shushakov/zachetka/SubjectAndMark.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Task_1_4_1/build/classes/java/main/ru/nsu/shushakov/zachetka/Zachetka.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Task_1_4_1/build/classes/java/main/ru/nsu/shushakov/zachetka/Zachetka.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Task_1_4_1/build/classes/java/test/ru/nsu/shushakov/zachetka/TestForZachetka.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Task_1_4_1/build/classes/java/test/ru/nsu/shushakov/zachetka/TestForZachetka.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Task_1_4_1/build/reports/tests/test/classes/ru.nsu.shushakov.zachetka.TestForZachetka.html" beforeDir="false" afterPath="$PROJECT_DIR$/../Task_1_4_1/build/reports/tests/test/classes/ru.nsu.shushakov.zachetka.TestForZachetka.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Task_1_4_1/build/reports/tests/test/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/../Task_1_4_1/build/reports/tests/test/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Task_1_4_1/build/reports/tests/test/packages/ru.nsu.shushakov.zachetka.html" beforeDir="false" afterPath="$PROJECT_DIR$/../Task_1_4_1/build/reports/tests/test/packages/ru.nsu.shushakov.zachetka.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Task_1_4_1/build/test-results/test/TEST-ru.nsu.shushakov.zachetka.TestForZachetka.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Task_1_4_1/build/test-results/test/TEST-ru.nsu.shushakov.zachetka.TestForZachetka.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Task_1_4_1/build/test-results/test/binary/results.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../Task_1_4_1/build/test-results/test/binary/results.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Task_1_4_1/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../Task_1_4_1/build/tmp/compileJava/previous-compilation-data.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Task_1_4_1/build/tmp/compileTestJava/compileTransaction/stash-dir/TestForZachetka.class.uniqueId0" beforeDir="false" afterPath="$PROJECT_DIR$/../Task_1_4_1/build/tmp/compileTestJava/compileTransaction/stash-dir/TestForZachetka.class.uniqueId0" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Task_1_4_1/build/tmp/compileTestJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../Task_1_4_1/build/tmp/compileTestJava/previous-compilation-data.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Task_1_4_1/src/main/java/ru/nsu/shushakov/zachetka/SubjectAndMark.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Task_1_4_1/src/main/java/ru/nsu/shushakov/zachetka/SubjectAndMark.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Task_1_4_1/src/main/java/ru/nsu/shushakov/zachetka/Zachetka.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Task_1_4_1/src/main/java/ru/nsu/shushakov/zachetka/Zachetka.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Task_1_4_1/src/test/java/ru/nsu/shushakov/zachetka/TestForZachetka.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Task_1_4_1/src/test/java/ru/nsu/shushakov/zachetka/TestForZachetka.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -19,12 +89,31 @@
       <ProjectState />
     </projectState>
   </component>
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <projects_view>
+          <tree_state>
+            <expand />
+            <select />
+          </tree_state>
+        </projects_view>
+      </state>
+    </system>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 4
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 4
+}</component>
   <component name="ProjectId" id="2XCD2d46a52hh5U13b522k7DoZ7" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -34,11 +123,26 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "Task__1__2__1",
-    "last_opened_file_path": "/home/aloha_kuino/Documents/java/OOP/Task_1_2_1",
+    "git-widget-placeholder": "Task__1__4__1",
+    "last_opened_file_path": "/home/aloha_kuino/Documents/java/OOP/OOP-Task_1_2_1/Task_1_2_1",
     "settings.editor.selected.configurable": "preferences.lookFeel"
   }
 }]]></component>
+  <component name="RunManager">
+    <configuration default="true" type="JetRunConfigurationType">
+      <module name="Task_1_2_1" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <module name="Task_1_2_1" />
+      <option name="filePath" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">

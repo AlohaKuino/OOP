@@ -28,7 +28,7 @@ public class Zachetka {
             throws SemesterException {
         this.nameOfStudent = nameOfStudent;
         this.endedSemester = endedSemester;
-        if (this.endedSemester > 8) {
+        if (this.endedSemester > 8 || this.endedSemester < 1) {
             throw new SemesterException();
         }
         this.allSemesters = new ArrayList<>();
@@ -60,7 +60,7 @@ public class Zachetka {
      * @return average ball from the beninging to the ended semester.
      */
     public double currentAverageBall() {
-        return triedToStreamButMyHeadWasUnderWater(1, this.endedSemester);
+        return averageBallInFromToSemesters(1, this.endedSemester);
     }
 
     /**
@@ -70,7 +70,7 @@ public class Zachetka {
      * @param to   the last semester.
      * @return average from|to ball.
      */
-    public double triedToStreamButMyHeadWasUnderWater(int from, int to) {
+    public double averageBallInFromToSemesters(int from, int to) {
         return this.allSemesters.stream().flatMapToInt(s -> s.stream()
                 .filter(s2 -> s2.semester >= from && s2.semester <= to && s2.isItFinal)
                 .mapToInt(a -> a.mark.getMark())).summaryStatistics().getAverage();
@@ -84,7 +84,7 @@ public class Zachetka {
     public boolean moneyMoneyMoneyMustBeFunnyInTheRichMansWorld() {
         return this.allSemesters.stream().flatMap(semester -> semester.stream()
                         .filter(a -> a.semester == this.endedSemester))
-                .allMatch(s -> s.mark == SubjectAndMark.Mark._5);
+                .allMatch(s -> s.mark == SubjectAndMark.Mark.FIVE);
     }
 
     /**
@@ -92,9 +92,9 @@ public class Zachetka {
      *
      * @return motivation string.
      */
-    public String kingInTheCastle() {
-        if (triedToStreamButMyHeadWasUnderWater(1, this.endedSemester) >= 4.8
-                && this.diploma.mark == SubjectAndMark.Mark._5) {
+    public String uniqueDiploma() {
+        if (averageBallInFromToSemesters(1, this.endedSemester) >= 4.8
+                && this.diploma.mark == SubjectAndMark.Mark.FIVE) {
             return "You can do it";
         }
         return "Bruh";
