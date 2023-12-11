@@ -13,8 +13,8 @@ public class Calculator {
 
     /**
      * @throws EndException if stop is printed than stop.
-     *
-     * simple constructor.
+     *                      <p>
+     *                      simple constructor.
      */
     public Calculator() throws EndException {
         Help.getInputString();
@@ -23,8 +23,8 @@ public class Calculator {
     /**
      * @param inputString string to parse.
      * @throws EndException if stop is printed than stop.
-     *
-     * main function which parses string and then calculate an expression using switch case.
+     *                      <p>
+     *                      main function which parses string and then calculate an expression using switch case.
      */
     public static void parseInputString(String inputString) throws EndException {
         String[] tmpString = inputString.split(" ");
@@ -37,25 +37,31 @@ public class Calculator {
                     double firstOperand = operands.pop();
                     double secondOperand;
                     switch (tmpString[i]) {
-                        case "sin" : operands.push(Math.sin(firstOperand));
-                        case "cos" : operands.push(Math.cos(firstOperand));
-                        case "log" : {
+                        case "sin":
+                            operands.push(Math.sin(firstOperand));
+                            break;
+                        case "cos":
+                            operands.push(Math.cos(firstOperand));
+                            break;
+                        case "log": {
                             if (firstOperand < 0) {
                                 System.out.println("Logarithm argument must be greater than zero");
                                 operands.clear();
                             } else {
                                 operands.push(Math.log(firstOperand));
                             }
+                            break;
                         }
-                        case "sqrt" : {
+                        case "sqrt": {
                             if (firstOperand < 0) {
                                 System.out.println("Sqrt argument must be greater than zero");
                                 operands.clear();
                             } else {
                                 operands.push(Math.sqrt(firstOperand));
                             }
+                            break;
                         }
-                        case "pow" : {
+                        case "pow": {
                             secondOperand = operands.pop();
                             if ((int) secondOperand - secondOperand != 0 && firstOperand < 0) {
                                 System.out.println("It's not a number");
@@ -66,21 +72,24 @@ public class Calculator {
                             } else {
                                 operands.push(Math.pow(firstOperand, secondOperand));
                             }
-
+                            break;
                         }
-                        case "+" : {
+                        case "+": {
                             secondOperand = operands.pop();
                             operands.push(firstOperand + secondOperand);
+                            break;
                         }
-                        case "-" : {
+                        case "-": {
                             secondOperand = operands.pop();
                             operands.push(firstOperand - secondOperand);
+                            break;
                         }
-                        case "*" : {
+                        case "*": {
                             secondOperand = operands.pop();
                             operands.push(firstOperand * secondOperand);
+                            break;
                         }
-                        case "/" : {
+                        case "/": {
                             secondOperand = operands.pop();
                             if (secondOperand == 0) {
                                 System.out.println("Division second argument must not be a zero");
@@ -88,8 +97,12 @@ public class Calculator {
                             } else {
                                 operands.push(firstOperand / secondOperand);
                             }
+                            break;
                         }
-                        default : System.out.println("Wrong Format");
+                        default: {
+                            System.out.println("Wrong Format");
+                            break;
+                        }
                     }
                 } catch (EmptyStackException | NoSuchElementException e) {
                     if (tmpString[i].equals("stop")) {
