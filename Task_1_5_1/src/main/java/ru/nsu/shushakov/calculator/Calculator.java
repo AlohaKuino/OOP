@@ -12,19 +12,19 @@ public class Calculator {
     private String inputString;
 
     /**
+     * simple constructor.
+     * 
      * @throws EndException if stop is printed than stop.
-     *                      <p>
-     *                      simple constructor.
      */
     public Calculator() throws EndException {
         Help.getInputString();
     }
 
     /**
+     * main function which parses string and then calculate an expression using switch case.
+     * 
      * @param inputString string to parse.
      * @throws EndException if stop is printed than stop.
-     *                      <p>
-     *                      main function which parses string and then calculate an expression using switch case.
      */
     public static void parseInputString(String inputString) throws EndException {
         String[] tmpString = inputString.split(" ");
