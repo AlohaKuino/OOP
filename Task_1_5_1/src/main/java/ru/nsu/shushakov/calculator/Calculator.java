@@ -13,7 +13,7 @@ public class Calculator {
 
     /**
      * simple constructor.
-     * 
+     *
      * @throws EndException if stop is printed than stop.
      */
     public Calculator() throws EndException {
@@ -22,8 +22,9 @@ public class Calculator {
 
     /**
      * main function which parses string and then calculate an expression using switch case.
-     * 
+     *
      * @param inputString string to parse.
+     *
      * @throws EndException if stop is printed than stop.
      */
     public static void parseInputString(String inputString) throws EndException {
