@@ -7,8 +7,8 @@ public class EndException extends Exception {
     /**
      * SUPER MESSAGE.
      */
-        public EndException() {
-            super("\n\n\nStopped\n\n\n");
-        }
+    public EndException() {
+        super("\n\n\nStopped\n\n\n");
+    }
 }
 
