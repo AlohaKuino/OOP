@@ -1,15 +1,14 @@
 package ru.nsu.shushakov.calculator;
 
-import org.junit.jupiter.api.AfterAll;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.OutputStream;
 import java.io.PrintStream;
-
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 /**
  * test class.
@@ -29,7 +28,8 @@ public class TestForCalculator {
 
     @Test
     void verySimple() throws EndException {
-        final ByteArrayInputStream input = new ByteArrayInputStream("sin + - 1 2 1\nstop".getBytes());
+        final ByteArrayInputStream input =
+                new ByteArrayInputStream("sin + - 1 2 1\nstop".getBytes());
         System.setIn(input);
         Help.getInputString();
         assertEquals("0.0", output.toString().trim());
@@ -37,7 +37,8 @@ public class TestForCalculator {
 
     @Test
     void letsCount() throws EndException {
-        final ByteArrayInputStream input = new ByteArrayInputStream("sqrt sin cos 1\nstop".getBytes());
+        final ByteArrayInputStream input =
+                new ByteArrayInputStream("sqrt sin cos 1\nstop".getBytes());
         System.setIn(input);
         Help.getInputString();
         assertEquals("0.7172135376047702", output.toString().trim());
@@ -45,7 +46,8 @@ public class TestForCalculator {
 
     @Test
     void arithmeticTest() throws EndException {
-        final ByteArrayInputStream input = new ByteArrayInputStream("sqrt sin cos log + - 1 1 1\nstop".getBytes());
+        final ByteArrayInputStream input =
+                new ByteArrayInputStream("sqrt sin cos log + - 1 1 1\nstop".getBytes());
         System.setIn(input);
         Help.getInputString();
         assertEquals("0.9173172759781081", output.toString().trim());
@@ -56,7 +58,8 @@ public class TestForCalculator {
         final ByteArrayInputStream input = new ByteArrayInputStream("log -1\nstop".getBytes());
         System.setIn(input);
         Help.getInputString();
-        assertEquals("Logarithm argument must be greater than zero\nWrong Format", output.toString().trim());
+        assertEquals("Logarithm argument must be greater than zero\nWrong Format",
+                output.toString().trim());
     }
 
     @Test
@@ -64,7 +67,8 @@ public class TestForCalculator {
         final ByteArrayInputStream input = new ByteArrayInputStream("sqrt -1\nstop".getBytes());
         System.setIn(input);
         Help.getInputString();
-        assertEquals("Sqrt argument must be greater than zero\nWrong Format", output.toString().trim());
+        assertEquals("Sqrt argument must be greater than zero\nWrong Format",
+                output.toString().trim());
     }
 
     @Test
