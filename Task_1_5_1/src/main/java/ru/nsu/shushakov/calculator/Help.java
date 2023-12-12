@@ -1,40 +1,77 @@
 package ru.nsu.shushakov.calculator;
 
+import java.util.EmptyStackException;
+import java.util.NoSuchElementException;
 import java.util.Scanner;
 
 /**
- * helping class.
+ * class consist of helping methods that i use in calculator.
  */
 public class Help {
+    private static Scanner input;
+
     /**
-     * gets a string from console.
+     * get input string from input stream.
      *
-     * @throws EndException if stop is printed than stop.
+     * @return next line of input.
      */
-    public static void getInputString() throws EndException {
-        Scanner input = new Scanner(System.in);
-        while (true) {
-            try {
-                String inputString = input.nextLine();
-                Calculator.parseInputString(inputString);
-            } catch (EndException e) {
-                break;
-            }
-        }
+    protected static String getInputString() {
+        return input.nextLine();
     }
 
     /**
-     * checks if string is a number.
+     * func that separates number from operation.
      *
-     * @param maybeNumber string from console.
-     * @return true if it's a number false otherwise.*
+     * @param maybeNumber string that can be double.
+     * @return true if it is a number.
      */
-    public static boolean isNumber(String maybeNumber) {
+    protected static boolean isNumber(String maybeNumber) {
         try {
             Double.parseDouble(maybeNumber);
             return true;
         } catch (NumberFormatException ohNoException) {
             return false;
         }
+    }
+
+    /**
+     * main func that starts calculations.
+     *
+     * @param args just because main needs it.
+     */
+    public static void main(String[] args) {
+        input = new Scanner(System.in);
+        while (true) {
+            try {
+                Calculator.parseInputString(Help.getInputString());
+            } catch (EndException e) {
+                System.out.println("Stop");
+                break;
+            } catch (WrongFormatException | NoSuchElementException | EmptyStackException e) {
+                System.out.println("Wrong Format");
+            }
+        }
+    }
+
+    /**
+     * enum to get operation type.
+     *
+     * @param operation read input string.
+     * @return enum based on string.
+     */
+    protected static OperationType typeOfOperation(String operation) {
+        return switch (operation) {
+            case "/" -> OperationType.DIVISION;
+            case "*" -> OperationType.MULTIPLICATION;
+            case "+" -> OperationType.PLUS;
+            case "-" -> OperationType.MINUS;
+            case "sin" -> OperationType.SIN;
+            case "cos" -> OperationType.COS;
+            case "pow" -> OperationType.POW;
+            case "log" -> OperationType.LOG;
+            case "sqrt" -> OperationType.SQRT;
+            case "stop" -> OperationType.STOP;
+            default -> OperationType.ERROR;
+        };
     }
 }
