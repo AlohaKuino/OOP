@@ -6,6 +6,7 @@ import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.OutputStream;
 import java.io.PrintStream;
+
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -27,111 +28,173 @@ public class TestForCalculator {
     }
 
     @Test
-    void verySimple() throws EndException {
-        final ByteArrayInputStream input =
+    void verySimple() {
+        final ByteArrayInputStream bais =
                 new ByteArrayInputStream("sin + - 1 2 1\nstop".getBytes());
-        System.setIn(input);
-        Help.getInputString();
-        assertEquals("0.0", output.toString().trim());
+        System.setIn(bais);
+        Help.main(null);
+        assertEquals("0.0\nStop", output.toString().trim());
     }
 
     @Test
     void letsCount() throws EndException {
-        final ByteArrayInputStream input =
-                new ByteArrayInputStream("sqrt sin cos 1\nstop".getBytes());
-        System.setIn(input);
-        Help.getInputString();
-        assertEquals("0.7172135376047702", output.toString().trim());
+        final ByteArrayInputStream bais =
+                new ByteArrayInputStream("sqrt sin cos 0.5\nstop".getBytes());
+        System.setIn(bais);
+        Help.main(null);
+        assertEquals("0.8770383998668522\nStop", output.toString().trim());
     }
 
     @Test
-    void arithmeticTest() throws EndException {
-        final ByteArrayInputStream input =
-                new ByteArrayInputStream("sqrt sin cos log + - 1 1 1\nstop".getBytes());
-        System.setIn(input);
-        Help.getInputString();
-        assertEquals("0.9173172759781081", output.toString().trim());
+    void letsCountLongStuff() throws EndException {
+        final ByteArrayInputStream bais =
+                new ByteArrayInputStream("sqrt sin cos log + - * / 1 1 1 1 1\nstop".getBytes());
+        System.setIn(bais);
+        Help.main(null);
+        assertEquals("0.9173172759781081\nStop", output.toString().trim());
     }
 
     @Test
-    void logException() throws EndException {
-        final ByteArrayInputStream input = new ByteArrayInputStream("log -1\nstop".getBytes());
-        System.setIn(input);
-        Help.getInputString();
-        assertEquals("Logarithm argument must be greater than zero\nWrong Format",
-                output.toString().trim());
+    void wowSqrtWorks() throws EndException {
+        final ByteArrayInputStream bais =
+                new ByteArrayInputStream("sqrt 4\nstop".getBytes());
+        System.setIn(bais);
+        Help.main(null);
+        assertEquals("2.0\nStop", output.toString().trim());
     }
 
     @Test
-    void sqrtException() throws EndException {
-        final ByteArrayInputStream input = new ByteArrayInputStream("sqrt -1\nstop".getBytes());
-        System.setIn(input);
-        Help.getInputString();
-        assertEquals("Sqrt argument must be greater than zero\nWrong Format",
-                output.toString().trim());
+    void wowLogWorks() throws EndException {
+        final ByteArrayInputStream bais =
+                new ByteArrayInputStream("log 1.2\nstop".getBytes());
+        System.setIn(bais);
+        Help.main(null);
+        assertEquals("0.1823215567939546\nStop", output.toString().trim());
     }
 
     @Test
-    void powNanException() throws EndException {
-        final ByteArrayInputStream input = new ByteArrayInputStream("pow -1 2.5\nstop".getBytes());
-        System.setIn(input);
-        Help.getInputString();
-        assertEquals("It's not a number\nWrong Format", output.toString().trim());
+    void wowCosWorks() throws EndException {
+        final ByteArrayInputStream bais =
+                new ByteArrayInputStream("cos -1\nstop".getBytes());
+        System.setIn(bais);
+        Help.main(null);
+        assertEquals("0.5403023058681398\nStop", output.toString().trim());
     }
 
     @Test
-    void powInfException() throws EndException {
-        final ByteArrayInputStream input = new ByteArrayInputStream("pow 0 -1\nstop".getBytes());
-        System.setIn(input);
-        Help.getInputString();
-        assertEquals("It's infinity\nWrong Format", output.toString().trim());
+    void wowSinWorks() throws EndException {
+        final ByteArrayInputStream bais =
+                new ByteArrayInputStream("sin -1\nstop".getBytes());
+        System.setIn(bais);
+        Help.main(null);
+        assertEquals("-0.8414709848078965\nStop", output.toString().trim());
     }
 
     @Test
-    void powFewArgumentsException() throws EndException {
-        final ByteArrayInputStream input = new ByteArrayInputStream("pow 234\nstop".getBytes());
-        System.setIn(input);
-        Help.getInputString();
-        assertEquals("Wrong Format", output.toString().trim());
+    void wowPlusWorks() throws EndException {
+        final ByteArrayInputStream bais =
+                new ByteArrayInputStream("+ 1.5 1\nstop".getBytes());
+        System.setIn(bais);
+        Help.main(null);
+        assertEquals("2.5\nStop", output.toString().trim());
     }
 
     @Test
-    void plusFewArgumentsException() throws EndException {
-        final ByteArrayInputStream input = new ByteArrayInputStream("+ 234\nstop".getBytes());
-        System.setIn(input);
-        Help.getInputString();
-        assertEquals("Wrong Format", output.toString().trim());
+    void wowMinusWorks() throws EndException {
+        final ByteArrayInputStream bais =
+                new ByteArrayInputStream("- 1 1.3\nstop".getBytes());
+        System.setIn(bais);
+        Help.main(null);
+        assertEquals("-0.3\nStop", output.toString().trim());
     }
 
     @Test
-    void minusFewArgumentsException() throws EndException {
-        final ByteArrayInputStream input = new ByteArrayInputStream("- 234\nstop".getBytes());
-        System.setIn(input);
-        Help.getInputString();
-        assertEquals("Wrong Format", output.toString().trim());
+    void wowMultWorks() throws EndException {
+        final ByteArrayInputStream bais =
+                new ByteArrayInputStream("* 123 1\nstop".getBytes());
+        System.setIn(bais);
+        Help.main(null);
+        assertEquals("123.0\nStop", output.toString().trim());
     }
 
     @Test
-    void multFewArgumentsException() throws EndException {
-        final ByteArrayInputStream input = new ByteArrayInputStream("* 234\nstop".getBytes());
-        System.setIn(input);
-        Help.getInputString();
-        assertEquals("Wrong Format", output.toString().trim());
+    void wowDivWorks() throws EndException {
+        final ByteArrayInputStream bais =
+                new ByteArrayInputStream("/ 122 2\nstop".getBytes());
+        System.setIn(bais);
+        Help.main(null);
+        assertEquals("61.0\nStop", output.toString().trim());
     }
 
     @Test
-    void divisionFewArgumentsException() throws EndException {
-        final ByteArrayInputStream input = new ByteArrayInputStream("/ 234\nstop".getBytes());
-        System.setIn(input);
-        Help.getInputString();
-        assertEquals("Wrong Format", output.toString().trim());
+    void wowPowWorks() throws EndException {
+        final ByteArrayInputStream bais =
+                new ByteArrayInputStream("pow 122 2.5\nstop".getBytes());
+        System.setIn(bais);
+        Help.main(null);
+        assertEquals("164399.1533798152\nStop", output.toString().trim());
     }
 
     @Test
-    void notAnumInArgsException() throws EndException {
-        final ByteArrayInputStream input = new ByteArrayInputStream("/ a\nstop".getBytes());
-        System.setIn(input);
-        Help.getInputString();
-        assertEquals("Wrong Format", output.toString().trim());
+    void wowWorks() throws EndException {
+        final ByteArrayInputStream bais =
+                new ByteArrayInputStream("sin pow 122 2\nstop".getBytes());
+        System.setIn(bais);
+        Help.main(null);
+        assertEquals("-0.7617387990249458\nStop", output.toString().trim());
+    }
+
+    @Test
+    void wrongFormat() throws EndException {
+        final ByteArrayInputStream bais =
+                new ByteArrayInputStream("son 2\nstop".getBytes());
+        System.setIn(bais);
+        Help.main(null);
+        assertEquals("Wrong Format\nStop", output.toString().trim());
+    }
+
+    @Test
+    void alotOfArguments() throws EndException {
+        final ByteArrayInputStream bais =
+                new ByteArrayInputStream("sin 1 2\nstop".getBytes());
+        System.setIn(bais);
+        Help.main(null);
+        assertEquals("Wrong Format\nStop", output.toString().trim());
+    }
+
+    @Test
+    void fewArguments() throws EndException {
+        final ByteArrayInputStream bais =
+                new ByteArrayInputStream("pow 0\nstop".getBytes());
+        System.setIn(bais);
+        Help.main(null);
+        assertEquals("Wrong Format\nStop", output.toString().trim());
+    }
+
+    @Test
+    void fewArguments2() throws EndException {
+        final ByteArrayInputStream bais =
+                new ByteArrayInputStream("sin\nstop".getBytes());
+        System.setIn(bais);
+        Help.main(null);
+        assertEquals("Wrong Format\nStop", output.toString().trim());
+    }
+
+    @Test
+    void powErrorInf() throws EndException {
+        final ByteArrayInputStream bais =
+                new ByteArrayInputStream("pow 0 -1\nstop".getBytes());
+        System.setIn(bais);
+        Help.main(null);
+        assertEquals("It's infinity\nStop", output.toString().trim());
+    }
+
+    @Test
+    void powErrorNan() throws EndException {
+        final ByteArrayInputStream bais =
+                new ByteArrayInputStream("pow -1 2.5\nstop".getBytes());
+        System.setIn(bais);
+        Help.main(null);
+        assertEquals("It's nan\nStop", output.toString().trim());
     }
 }
