@@ -1,6 +1,9 @@
 package ru.nsu.shushakov.calculator;
 
-import java.util.*;
+import java.util.ArrayDeque;
+import java.util.Deque;
+import java.util.EmptyStackException;
+import java.util.NoSuchElementException;
 
 /**
  * class that makes calculations.
@@ -15,7 +18,8 @@ public class Calculator {
      * @throws NoSuchElementException if i actually don't remember why, but i need it.
      * @throws EmptyStackException if stack is empty, for example if we put just sin in input.
      */
-    protected static void parseInputString(String inputString) throws EndException, WrongFormatException, NoSuchElementException, EmptyStackException {
+    protected static void parseInputString(String inputString) throws EndException,
+            WrongFormatException, NoSuchElementException, EmptyStackException {
         String[] tmpString = inputString.split(" ");
         Deque<Double> operands = new ArrayDeque<>();
         for (int i = tmpString.length - 1; i >= 0; i--) {
