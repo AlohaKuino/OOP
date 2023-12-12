@@ -3,12 +3,12 @@ package ru.nsu.shushakov.calculator;
 /**
  * exception to stop endless calculations.
  */
-public class EndException extends Exception {
+public class EndException extends RuntimeException {
     /**
      * SUPER MESSAGE.
      */
-    public EndException() {
-        super("\n\n\nStopped\n\n\n");
+    public EndException(String msg) {
+        super(msg);
     }
 }
 
