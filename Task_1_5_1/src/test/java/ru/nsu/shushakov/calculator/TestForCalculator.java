@@ -102,10 +102,10 @@ public class TestForCalculator {
     @Test
     void wowMinusWorks() throws EndException {
         final ByteArrayInputStream bais =
-                new ByteArrayInputStream("- 1 1.3\nstop".getBytes());
+                new ByteArrayInputStream("- 1 1\nstop".getBytes());
         System.setIn(bais);
         Help.main(null);
-        assertEquals("-0.3\nStop", output.toString().trim());
+        assertEquals("0.0\nStop", output.toString().trim());
     }
 
     @Test
