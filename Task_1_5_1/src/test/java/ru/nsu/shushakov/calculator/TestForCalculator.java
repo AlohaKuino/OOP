@@ -33,10 +33,10 @@ public class TestForCalculator {
     void verySimple() {
         assertEquals("0.0", Calculator.parseInputString("sin + - 1 2 1"));
     }
-    
+
     @Test
     void helpTest() {
-        assertEquals(0.0, Help.isNumber("0.0"));
+        assertEquals(true, Help.isNumber("0.0"));
     }
 
     @Test
