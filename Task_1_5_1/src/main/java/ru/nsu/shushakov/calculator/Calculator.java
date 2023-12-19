@@ -18,7 +18,7 @@ public class Calculator {
      * @throws NoSuchElementException if i actually don't remember why, but i need it.
      * @throws EmptyStackException if stack is empty, for example if we put just sin in input.
      */
-    protected static void parseInputString(String inputString) throws EndException,
+    protected static String parseInputString(String inputString) throws EndException,
             WrongFormatException, NoSuchElementException, EmptyStackException {
         String[] tmpString = inputString.split(" ");
         Deque<Double> operands = new ArrayDeque<>();
@@ -76,14 +76,13 @@ public class Calculator {
             }
         }
         if (operands.peek().isInfinite()) {
-            System.out.println("It's infinity");
+           return ("It's infinity");
         } else if (operands.peek().isNaN()) {
-            System.out.println("It's nan");
+            return ("It's nan");
         } else if (operands.size() == 1) {
-            System.out.println(operands.pop());
+            return (operands.pop().toString());
         } else {
             throw new WrongFormatException("Wrong Format");
         }
-        operands.clear();
     }
 }
