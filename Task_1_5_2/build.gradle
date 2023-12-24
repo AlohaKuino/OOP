@@ -10,11 +10,11 @@ repositories {
     mavenCentral()
 }
 
-java {
-    toolchain {
-        languageVersion = JavaLanguageVersion.of(20)
-    }
-}
+//java {
+//    toolchain {
+//        languageVersion = JavaLanguageVersion.of(20)
+//    }
+//}
 
 dependencies {
     testImplementation platform('org.junit:junit-bom:5.9.1')
