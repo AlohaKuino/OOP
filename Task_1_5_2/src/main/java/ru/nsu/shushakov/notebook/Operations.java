@@ -1,7 +1,6 @@
 package ru.nsu.shushakov.notebook;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Paths;
@@ -11,6 +10,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
+
 
 /**
  * enum for operations.
@@ -84,9 +84,9 @@ public enum Operations {
             }
 
             listNotes.forEach((note) -> {
-                System.out.printf("\u001b[31m\n\t\t|TITLE|\n\u001b[0m\u001b[32m\t\t%s\n\u001b[0m" +
-                        "\u001b[31m\t\t|NOTE|\n\u001b[0m\u001b[32m\t\t%s\n\u001b[0m\u001b[31m\t\t" +
-                        "|TIME|\n\u001b[0m\u001b[32m\t\t%s\n\n\u001b[0m",
+                System.out.printf("\u001b[31m\n\t\t|TITLE|\n\u001b[0m\u001b[32m\t\t%s\n\u001b[0m"
+                        + "\u001b[31m\t\t|NOTE|\n\u001b[0m\u001b[32m\t\t%s\n\u001b[0m\u001b[31m\t\t"
+                        + "|TIME|\n\u001b[0m\u001b[32m\t\t%s\n\n\u001b[0m",
                         note.getTitle(), note.getBody(), note.getTime());
             });
         }
