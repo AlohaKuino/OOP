@@ -4,14 +4,57 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="541f11cf-5ad4-4758-91a0-357be920242f" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../OOP-Task_1_2_1/Task_1_5_1/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../OOP-Task_1_2_1/Task_1_5_1/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../OOP-Task_1_2_1/Task_1_5_1/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/../OOP-Task_1_2_1/Task_1_5_1/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../OOP-Task_1_2_1/Task_1_5_1/src/main/java/ru/nsu/shushakov/calculator/Calculator.java" beforeDir="false" afterPath="$PROJECT_DIR$/../OOP-Task_1_2_1/Task_1_5_1/src/main/java/ru/nsu/shushakov/calculator/Calculator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../OOP-Task_1_2_1/Task_1_5_1/src/main/java/ru/nsu/shushakov/calculator/EndException.java" beforeDir="false" afterPath="$PROJECT_DIR$/../OOP-Task_1_2_1/Task_1_5_1/src/main/java/ru/nsu/shushakov/calculator/EndException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../OOP-Task_1_2_1/Task_1_5_1/src/main/java/ru/nsu/shushakov/calculator/Help.java" beforeDir="false" afterPath="$PROJECT_DIR$/../OOP-Task_1_2_1/Task_1_5_1/src/main/java/ru/nsu/shushakov/calculator/Help.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../OOP-Task_1_2_1/Task_1_5_1/src/main/java/ru/nsu/shushakov/calculator/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../OOP-Task_1_2_1/Task_1_5_1/src/main/java/ru/nsu/shushakov/calculator/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../OOP-Task_1_2_1/Task_1_5_1/src/test/java/ru/nsu/shushakov/calculator/TestForCalculator.java" beforeDir="false" afterPath="$PROJECT_DIR$/../OOP-Task_1_2_1/Task_1_5_1/src/test/java/ru/nsu/shushakov/calculator/TestForCalculator.java" afterDir="false" />
+    <list default="true" id="426b17bd-35e7-4de4-91da-3726502e18b7" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../Task_1_3_1/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Task_1_3_1/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Task_1_3_1/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Task_1_3_1/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Task_1_3_1/.idea/uiDesigner.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Task_1_3_1/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Task_1_3_1/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Task_1_3_1/src/main/java/ru/nsu/shushakov/substring/Hunter.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Task_1_3_1/src/main/java/ru/nsu/shushakov/substring/Hunter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Task_1_3_1/src/test/java/ru/nsu/shushakov/substring/TestSubstring.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Task_1_3_1/src/test/java/ru/nsu/shushakov/substring/TestSubstring.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.2/checksums/checksums.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.2/checksums/checksums.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.2/checksums/md5-checksums.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.2/checksums/sha1-checksums.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.2/dependencies-accessors/dependencies-accessors.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.2/dependencies-accessors/dependencies-accessors.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.2/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.2/executionHistory/executionHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.2/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.2/executionHistory/executionHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.2/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.2/fileHashes/fileHashes.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.2/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.2/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.2/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.2/fileHashes/resourceHashesCache.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/cache.properties" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/cache.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/file-system.probe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/ru/nsu/shushakov/notebook/Note.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/ru/nsu/shushakov/notebook/Note.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/ru/nsu/shushakov/notebook/Notebook.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/ru/nsu/shushakov/notebook/Notebook.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/ru/nsu/shushakov/notebook/Operations$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/ru/nsu/shushakov/notebook/Operations$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/ru/nsu/shushakov/notebook/Operations$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/ru/nsu/shushakov/notebook/Operations$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/ru/nsu/shushakov/notebook/Operations$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/ru/nsu/shushakov/notebook/Operations$3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/ru/nsu/shushakov/notebook/Operations.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/ru/nsu/shushakov/notebook/Operations.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/test/ru/nsu/shushakov/notebook/TestForNotebook.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/jacoco/test.exec" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/libs/Notebook-work.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/tests/test/classes/ru.nsu.shushakov.notebook.TestForNotebook.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/tests/test/css/base-style.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/tests/test/css/style.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/tests/test/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/tests/test/js/report.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/tests/test/packages/ru.nsu.shushakov.notebook.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/test-results/test/TEST-ru.nsu.shushakov.notebook.TestForNotebook.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/test-results/test/binary/output.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/test-results/test/binary/output.bin.idx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/test-results/test/binary/results.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/.cache/expanded/expanded.lock" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/.cache/expanded/expanded.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/.cache/expanded/zip_0bd0851504e6286cb5fc6f37a81e25cc/META-INF/MANIFEST.MF" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/.cache/expanded/zip_0bd0851504e6286cb5fc6f37a81e25cc/META-INF/maven/org.jacoco/org.jacoco.agent/pom.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/.cache/expanded/zip_0bd0851504e6286cb5fc6f37a81e25cc/META-INF/maven/org.jacoco/org.jacoco.agent/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/.cache/expanded/zip_0bd0851504e6286cb5fc6f37a81e25cc/about.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/.cache/expanded/zip_0bd0851504e6286cb5fc6f37a81e25cc/jacocoagent.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/.cache/expanded/zip_0bd0851504e6286cb5fc6f37a81e25cc/org/jacoco/agent/AgentJar.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/.cache/expanded/zip_0bd0851504e6286cb5fc6f37a81e25cc/org/jacoco/agent/package-info.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/Notebook.class.uniqueId0" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileTestJava/previous-compilation-data.bin" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,7 +79,7 @@
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 5
 }</component>
-  <component name="ProjectId" id="2ZhcMvey4mGKga7fiU8cWD3WVEa" />
+  <component name="ProjectId" id="2ZwEf5JAsTFPZonTPyyrRFqiqXH" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -45,21 +88,34 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "Task__1__5__1",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2"
+    "git-widget-placeholder": "Task__1__5__2",
+    "settings.editor.selected.configurable": "preferences.sourceCode.Java"
   }
 }]]></component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="541f11cf-5ad4-4758-91a0-357be920242f" name="Changes" comment="" />
-      <created>1702877708749</created>
+      <changelist id="426b17bd-35e7-4de4-91da-3726502e18b7" name="Changes" comment="" />
+      <created>1703324846706</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1702877708749</updated>
+      <updated>1703324846706</updated>
     </task>
     <servers />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/ru/nsu/shushakov/notebook/Operations.java</url>
+          <line>78</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>
