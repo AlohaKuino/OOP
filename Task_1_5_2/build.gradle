@@ -27,16 +27,16 @@ dependencies {
     implementation group: 'args4j',    name: 'args4j-site',    version: '2.33'
 }
 
-jar {
-    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
-    manifest {
-        attributes 'Main-Class': 'ru.nsu.shushakov.notebook.Notebook'
-    }
-    archiveBaseName = 'Notebook'
-    from {
-        configurations.runtimeClasspath.findAll { it.name.endsWith('jar') }.collect { zipTree(it) }
-    }
-}
+//jar {
+//    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+//    manifest {
+//        attributes 'Main-Class': 'ru.nsu.shushakov.notebook.Notebook'
+//    }
+//    archiveBaseName = 'Notebook'
+//    from {
+//        configurations.runtimeClasspath.findAll { it.name.endsWith('jar') }.collect { zipTree(it) }
+//    }
+//}
 
 test {
     useJUnitPlatform()
