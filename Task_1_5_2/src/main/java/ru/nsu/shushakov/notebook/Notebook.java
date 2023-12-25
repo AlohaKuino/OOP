@@ -4,10 +4,15 @@ import java.io.IOException;
 import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
+
+import com.fasterxml.jackson.databind.ObjectReader;
 import org.kohsuke.args4j.Argument;
 import org.kohsuke.args4j.CmdLineException;
 import org.kohsuke.args4j.CmdLineParser;
 import org.kohsuke.args4j.Option;
+
+import javax.swing.plaf.nimbus.NimbusStyle;
 
 /**
  * main class.
@@ -42,21 +47,21 @@ public class Notebook {
      * just like in args4j github.
      *
      * @param args line of args.
-     * @throws IOException exception.
+     * @throws IOException    exception.
      * @throws ParseException exception.
      */
-    public static void main(String[] args) throws IOException, ParseException {
-        (new Notebook()).doMain(args);
+    public static List<Note> main(String[] args) throws IOException, ParseException {
+        return (new Notebook()).doMain(args);
     }
 
     /**
      * just like in args4j github.
      *
      * @param args line of args.
-     * @throws IOException  exception.
-     * @throws ParseException  exception.
+     * @throws IOException    exception.
+     * @throws ParseException exception.
      */
-    public void doMain(String[] args) throws IOException, ParseException {
+    public List<Note> doMain(String[] args) throws IOException, ParseException {
         CmdLineParser parser = new CmdLineParser(this);
 
         try {
@@ -66,7 +71,7 @@ public class Notebook {
             }
         } catch (CmdLineException var4) {
             parser.printUsage(System.err);
-            return;
+            return null;
         }
 
         Operations todo = null;
@@ -84,7 +89,7 @@ public class Notebook {
 
         assert todo != null;
 
-        todo.action(this.arguments);
-        this.arguments.clear();
+        return todo.action(this.arguments);
     }
+
 }
