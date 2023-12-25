@@ -1,6 +1,7 @@
 package ru.nsu.shushakov.notebook;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Paths;
@@ -20,7 +21,7 @@ public enum Operations {
      * adds note.
      */
     ADD {
-        void action(List<String> args) throws IOException {
+        List<Note> action(List<String> args) throws IOException {
             SimpleDateFormat format = new SimpleDateFormat("dd.MM.yyyy hh:mm:ss");
             Note newNote = new Note();
             newNote.setTitle((String) args.get(0));
@@ -32,13 +33,14 @@ public enum Operations {
                     .readValue(json, Note[].class)));
             listNotes.add(newNote);
             mapper.writerWithDefaultPrettyPrinter().writeValue(json, listNotes);
+            return listNotes;
         }
     },
     /**
      * removes note.
      */
     RM {
-        void action(List<String> args) throws IOException {
+        List<Note> action(List<String> args) throws IOException {
             File json = Paths.get("notes.json").toFile();
             ObjectMapper mapper = new ObjectMapper();
             List<Note> listNotes = new ArrayList(Arrays.asList((Note[]) mapper
@@ -47,6 +49,7 @@ public enum Operations {
                 return !note.getTitle().equals(args.get(0));
             }).toList();
             mapper.writerWithDefaultPrettyPrinter().writeValue(json, removed);
+            return removed;
         }
     },
     /**
@@ -57,7 +60,7 @@ public enum Operations {
         public static final String ANSI_RED = "\u001b[31m";
         public static final String ANSI_GREEN = "\u001b[32m";
 
-        void action(List<String> args) throws IOException, ParseException {
+        List<Note> action(List<String> args) throws IOException, ParseException {
             File json = Paths.get("notes.json").toFile();
             ObjectMapper mapper = new ObjectMapper();
             List<Note> listNotes = new ArrayList(Arrays.asList((Note[]) mapper
@@ -84,11 +87,12 @@ public enum Operations {
             }
 
             listNotes.forEach((note) -> {
-                System.out.printf("\u001b[31m\n\t\t|TITLE|\n\u001b[0m\u001b[32m\t\t%s\n\u001b[0m"
-                        + "\u001b[31m\t\t|NOTE|\n\u001b[0m\u001b[32m\t\t%s\n\u001b[0m\u001b[31m\t\t"
-                        + "|TIME|\n\u001b[0m\u001b[32m\t\t%s\n\n\u001b[0m",
+                System.out.printf("\u001b[31m\n\t\t\u001b[31m|TITLE|\n\u001b[0m\u001b[32m\t\t%s\n\u001b[0m"
+                                + "\u001b[31m\t\t|NOTE|\n\u001b[0m\u001b[32m\t\t%s\n\u001b[0m\u001b[31m\t\t"
+                                + "|TIME|\n\u001b[0m\u001b[32m\t\t%s\n\n\u001b[0m",
                         note.getTitle(), note.getBody(), note.getTime());
             });
+            return listNotes;
         }
     };
 
@@ -102,8 +106,8 @@ public enum Operations {
      * signature of function.
      *
      * @param var1 operation.
-     * @throws IOException exception.
+     * @throws IOException    exception.
      * @throws ParseException exception.
      */
-    abstract void action(List<String> var1) throws IOException, ParseException;
+    abstract List<Note> action(List<String> var1) throws IOException, ParseException;
 }
