@@ -1,0 +1,84 @@
+package ru.nsu.shushakov.notebook;
+
+import org.junit.jupiter.api.Test;
+
+import java.io.IOException;
+import java.text.ParseException;
+import java.util.List;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+public class NoteBookTest {
+
+    @Test
+    void showTest() throws IOException, ParseException {
+        List<Note> tmp = Notebook.main(new String[]{"-show"});
+        assertEquals("1AbC | 2aBc | 3AbC", tmp.get(0).getTitle() + " | " + tmp.get(1).getTitle() + " | " + tmp.get(2).getTitle());
+    }
+
+    @Test
+    void showFilterTest() throws IOException, ParseException {
+        List<Note> tmp = Notebook.main(new String[]{"-show", "23.12.2023 05:55:00", "23.12.2023 05:58:00", "2ABC"});
+        assertEquals("2aBc", tmp.get(0).getTitle());
+    }
+
+    @Test
+    void addTest() throws IOException, ParseException {
+        List<Note> tmp = Notebook.main(new String[]{"-add", "4aBc", "4th note"});
+        assertEquals("4aBc", tmp.get(3).getTitle());
+        Notebook.main(new String[]{"-rm", "4aBc"});
+    }
+
+    @Test
+    void rmTest() throws IOException, ParseException {
+        List<Note> tmp = Notebook.main(new String[]{"-add", "4aBc", "4th note"});
+        assertEquals(4, tmp.size());
+        tmp = Notebook.main(new String[]{"-rm", "4aBc"});
+        assertEquals(3, tmp.size());
+        assertEquals("3AbC", tmp.get(2).getTitle());
+    }
+
+    @Test
+    void addTestFewArgs() throws IOException, ParseException {
+        List<Note> tmp = Notebook.main(new String[]{"-show"});
+        assertEquals(3, tmp.size());
+        Exception exception = assertThrows(IndexOutOfBoundsException.class, () -> {
+            List<Note> atmp = Notebook.main(new String[]{"-add", "4aBc"});
+        });
+        assertEquals(3, tmp.size());
+    }
+
+    @Test
+    void addTestAlotOfArgs() throws IOException, ParseException {
+        List<Note> tmp = Notebook.main(new String[]{"-show"});
+        assertEquals(3, tmp.size());
+        tmp = Notebook.main(new String[]{"-add", "4aBc", "4th body", "hehehehe"});
+        assertEquals(4, tmp.size());
+        tmp = Notebook.main(new String[]{"-rm", "4aBc"});
+    }
+
+    @Test
+    void rmTestFewArgs() throws IOException, ParseException {
+        List<Note> tmp = Notebook.main(new String[]{"-show"});
+        assertEquals(3, tmp.size());
+        tmp = Notebook.main(new String[]{"-rm"});
+        assertEquals(null, tmp);
+    }
+
+    @Test
+    void rmTestAlotOfArgs() throws IOException, ParseException {
+        List<Note> tmp = Notebook.main(new String[]{"-show"});
+        assertEquals(3, tmp.size());
+        tmp = Notebook.main(new String[]{"-add", "4aBc", "4th note"});
+        assertEquals(4, tmp.size());
+        tmp = Notebook.main(new String[]{"-rm", "4aBc", "smth"});
+        assertEquals(3, tmp.size());
+        tmp = Notebook.main(new String[]{"-rm", "4aBc"});
+    }
+
+    @Test
+    void emptyTest() throws IOException, ParseException {
+        List<Note> tmp = Notebook.main(new String[]{});
+        assertEquals(null, tmp);
+    }
+}
