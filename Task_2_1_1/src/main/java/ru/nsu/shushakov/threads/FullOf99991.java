@@ -2,17 +2,28 @@ package ru.nsu.shushakov.threads;
 
 import java.util.ArrayList;
 
+/**
+ * putting smth.
+ */
 public class FullOf99991 {
 
     private ArrayList<Integer> whereToput;
 
-    public FullOf99991(ArrayList<Integer> input){
+    /**
+     * simple constructor.
+     *
+     * @param input array.
+     */
+    public FullOf99991(ArrayList<Integer> input) {
         this.whereToput = input;
         this.putter();
     }
 
-    public void putter(){
-        for(long i = 0; i < 10000000; i ++) {
+    /**
+     * puts numbers to array.
+     */
+    public void putter() {
+        for (long i = 0; i < 10000000; i++) {
             this.whereToput.add(99991);
         }
     }
