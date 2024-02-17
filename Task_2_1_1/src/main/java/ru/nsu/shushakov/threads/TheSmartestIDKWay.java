@@ -5,7 +5,7 @@ import java.util.List;
 /**
  * the smartest way.
  */
-public class TheSmartestIDKWay {
+public class TheSmartestIdkWay {
 
     private boolean nonPrimeFlag;
     private final List<Integer> mainArray;
@@ -15,7 +15,7 @@ public class TheSmartestIDKWay {
      *
      * @param mainArray where to find.
      */
-    public TheSmartestIDKWay(List<Integer> mainArray){
+    public TheSmartestIdkWay(List<Integer> mainArray){
         this.mainArray = mainArray;
     }
 
