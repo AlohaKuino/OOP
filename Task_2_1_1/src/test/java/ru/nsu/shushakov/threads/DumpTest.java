@@ -1,8 +1,6 @@
 package ru.nsu.shushakov.threads;
 
-import java.io.IOException;
 import java.util.ArrayList;
-
 import org.junit.jupiter.api.Test;
 
 /**
@@ -11,42 +9,42 @@ import org.junit.jupiter.api.Test;
 public class DumpTest {
 
     ArrayList<Integer> experimental = new ArrayList<>();
-    FullOf99991 v = new FullOf99991(experimental);
+    FullOf99991 put = new FullOf99991(experimental);
 
     @Test
-    void firstTest() throws IOException {
+    void firstTest() {
         long startTime = System.currentTimeMillis();
 
         DumpWay a = new DumpWay(experimental);
         System.out.println(a.dumpWayAlgorithm());
 
-        System.out.println("Elapsed time: " + (System.currentTimeMillis() - startTime) + " milliseconds");
-
+        System.out.println("Elapsed time: " + (System.currentTimeMillis() - startTime)
+                + " milliseconds");
     }
 
     @Test
-    void secondTest() throws IllegalArgumentException, IOException {
+    void secondTest() throws IllegalArgumentException {
         long startTime = System.currentTimeMillis();
 
         SmarterWay a = new SmarterWay(experimental);
         boolean b = a.threaderAndCutter(100000);
         System.out.println(b);
 
-        System.out.println("Elapsed time: " + (System.currentTimeMillis() - startTime) + " milliseconds");
+        System.out.println("Elapsed time: " + (System.currentTimeMillis() - startTime)
+                + " milliseconds");
 
     }
 
     @Test
-    void thirdTest() throws IOException {
+    void thirdTest() {
 
         long startTime = System.currentTimeMillis();
-
 
         TheSmartestIdkWay a = new TheSmartestIdkWay(experimental);
         boolean b = a.magicParallelStreams();
         System.out.println(b);
 
-        System.out.println("Elapsed time: " + (System.currentTimeMillis() - startTime) + " milliseconds");
-
+        System.out.println("Elapsed time: " + (System.currentTimeMillis() - startTime)
+                + " milliseconds");
     }
 }
