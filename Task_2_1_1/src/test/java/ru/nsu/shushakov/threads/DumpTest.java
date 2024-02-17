@@ -1,10 +1,13 @@
 package ru.nsu.shushakov.threads;
 
-import org.junit.jupiter.api.Test;
-
 import java.io.IOException;
 import java.util.ArrayList;
 
+import org.junit.jupiter.api.Test;
+
+/**
+ * tests.
+ */
 public class DumpTest {
 
     ArrayList<Integer> experimental = new ArrayList<>();
@@ -39,17 +42,11 @@ public class DumpTest {
         long startTime = System.currentTimeMillis();
 
 
-        TheSmartestIDKWay a = new TheSmartestIDKWay(experimental);
+        TheSmartestIdkWay a = new TheSmartestIdkWay(experimental);
         boolean b = a.magicParallelStreams();
         System.out.println(b);
 
         System.out.println("Elapsed time: " + (System.currentTimeMillis() - startTime) + " milliseconds");
 
     }
-//    @Test
-//    void hehe(){
-//        System.out.println(Math.round(8./3));
-//        System.out.println(Math.ceil(8./3));
-//        System.out.println(Math.floor(8./3));
-//    }
 }
