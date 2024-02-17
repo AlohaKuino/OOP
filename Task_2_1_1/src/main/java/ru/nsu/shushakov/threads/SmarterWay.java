@@ -61,14 +61,14 @@ public class SmarterWay {
 
         int step = stepper(numberOfThreads);
         if (numberOfThreads == 1) {
-            threads[numberOfThreads - 1] = new Thread(new checkInThread(this.mainArray
+            threads[numberOfThreads - 1] = new Thread(new CheckInThread(this.mainArray
                     .subList(0, this.mainArray.size())));
         } else {
             for (int i = 0; i < numberOfThreads - 1; i++) {
-                threads[i] = new Thread(new checkInThread(this.mainArray
+                threads[i] = new Thread(new CheckInThread(this.mainArray
                         .subList(i * step, (i + 1) * step)));
             }
-            threads[numberOfThreads - 1] = new Thread(new checkInThread(this.mainArray
+            threads[numberOfThreads - 1] = new Thread(new CheckInThread(this.mainArray
                     .subList((numberOfThreads - 2) * step, this.mainArray.size())));
         }
         leeeetsGoo(threads);
@@ -86,7 +86,7 @@ public class SmarterWay {
     /**
      * something for every thread.
      */
-    class checkInThread implements Runnable {
+    class CheckInThread implements Runnable {
         private final List<Integer> subListToCheck;
 
         /**
@@ -94,7 +94,7 @@ public class SmarterWay {
          *
          * @param subListToCheck what to check.
          */
-        public checkInThread(List<Integer> subListToCheck) {
+        public CheckInThread(List<Integer> subListToCheck) {
             this.subListToCheck = subListToCheck;
         }
 
@@ -117,6 +117,3 @@ public class SmarterWay {
         }
     }
 }
-
-
-
