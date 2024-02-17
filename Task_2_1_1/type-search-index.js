@@ -1,0 +1,1 @@
+typeSearchIndex = [{"l":"All Classes","url":"allclasses-index.html"},{"p":"ru.nsu.shushakov.threads","l":"DumpWay"},{"p":"ru.nsu.shushakov.threads","l":"FullOf99991"},{"p":"ru.nsu.shushakov.threads","l":"SmarterWay"},{"p":"ru.nsu.shushakov.threads","l":"TheSmartestIdkWay"}]
