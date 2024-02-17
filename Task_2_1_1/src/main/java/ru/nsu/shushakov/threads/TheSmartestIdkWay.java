@@ -15,7 +15,7 @@ public class TheSmartestIdkWay {
      *
      * @param mainArray where to find.
      */
-    public TheSmartestIdkWay(List<Integer> mainArray){
+    public TheSmartestIdkWay(List<Integer> mainArray) {
         this.mainArray = mainArray;
     }
 
@@ -24,7 +24,7 @@ public class TheSmartestIdkWay {
      *
      * @param number which to check.
      */
-    private void nonPrimeChecker(int number){
+    private void nonPrimeChecker(int number) {
         for (int j = 2; j < Math.sqrt(number) + 1; j++) {
             if (number % j == 0) {
                 nonPrimeFlag = true;
@@ -38,7 +38,7 @@ public class TheSmartestIdkWay {
      *
      * @return true if non-prime.
      */
-    public boolean magicParallelStreams(){
+    public boolean magicParallelStreams() {
         mainArray.parallelStream().forEach(this::nonPrimeChecker);
         return nonPrimeFlag;
     }
