@@ -7,7 +7,6 @@ import java.util.List;
  */
 public class TheSmartestIdkWay {
 
-    private boolean nonPrimeFlag;
     private final List<Integer> mainArray;
 
     /**
@@ -24,13 +23,13 @@ public class TheSmartestIdkWay {
      *
      * @param number which to check.
      */
-    private void nonPrimeChecker(int number) {
+    private boolean nonPrimeChecker(int number) {
         for (int j = 2; j < Math.sqrt(number) + 1; j++) {
             if (number % j == 0) {
-                nonPrimeFlag = true;
-                break;
+                return true;
             }
         }
+        return false;
     }
 
     /**
@@ -39,7 +38,6 @@ public class TheSmartestIdkWay {
      * @return true if non-prime.
      */
     public boolean magicParallelStreams() {
-        mainArray.parallelStream().forEach(this::nonPrimeChecker);
-        return nonPrimeFlag;
+       return mainArray.parallelStream().anyMatch(this::nonPrimeChecker);
     }
 }
