@@ -3,7 +3,7 @@ package ru.nsu.shushakov.threads;
 import java.util.ArrayList;
 
 /**
- * putting smth.
+ * putting smth(its really putting some numbers in an arrayList).
  */
 public class FullOf99991 {
 
