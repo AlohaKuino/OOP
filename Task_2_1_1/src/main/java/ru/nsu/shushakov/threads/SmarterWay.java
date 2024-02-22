@@ -8,6 +8,7 @@ import java.util.List;
  */
 public class SmarterWay {
 
+    private Thread[] threads;
     private final List<Integer> mainArray;
     private volatile boolean nonPrimeFlag;
 
@@ -50,6 +51,15 @@ public class SmarterWay {
     }
 
     /**
+     * interrupts all threads.
+     */
+    private void interruptor() {
+        for (Thread thread : threads) {
+            thread.interrupt();
+        }
+    }
+
+    /**
      * cuts array in some pieces (numberOfThreads) and gives every thread some numbers.
      *
      * @param numberOfThreads number threads you want to make.
@@ -61,7 +71,7 @@ public class SmarterWay {
 
         int step = stepper(numberOfThreads);
         if (numberOfThreads == 1) {
-            threads[numberOfThreads - 1] = new Thread(new CheckInThread(this.mainArray
+            threads[0] = new Thread(new CheckInThread(this.mainArray
                     .subList(0, this.mainArray.size())));
         } else {
             for (int i = 0; i < numberOfThreads - 1; i++) {
@@ -110,6 +120,10 @@ public class SmarterWay {
                 for (int j = 2; j < Math.sqrt(number) + 1; j++) {
                     if (number % j == 0) {
                         nonPrimeFlag = true;
+                        interruptor();
+                        break;
+                    }
+                    if (Thread.currentThread().isInterrupted()) {
                         break;
                     }
                 }
