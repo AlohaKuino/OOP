@@ -6,7 +6,7 @@ import java.util.ArrayList;
  * the most simple way to find a non-prime number.
  */
 public class DumpWay {
-    private static ArrayList<Integer> mainArray;
+    private ArrayList<Integer> mainArray;
 
     /**
      * simple constructor.
