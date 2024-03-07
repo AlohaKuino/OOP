@@ -1,0 +1,31 @@
+{
+  "bakers": [
+    {
+      "id": 1, "speed":  5000
+    },
+    {
+      "id": 2, "speed":  5000
+    }
+  ],
+  "couriers": [
+    {
+      "id": 1, "capacity":  2, "speed": 5000
+    },
+    {
+      "id": 2, "capacity":  20, "speed": 5000
+    }
+  ],
+  "warehouse": {
+    "capacity": 2
+  },
+  "orders": [
+    {
+      "id": 1
+    },
+    {
+      "id": 2
+    },    {
+      "id": 3
+    }
+  ]
+}
