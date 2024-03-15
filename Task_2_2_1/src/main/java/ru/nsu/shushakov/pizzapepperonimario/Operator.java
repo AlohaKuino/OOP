@@ -31,12 +31,21 @@ public class Operator implements Runnable {
     }
 
     /**
-     * method to get orders.
+     * method to get orders to bake.
+     *
+     * @return orders.
+     */
+    public List<Order> getOrders() {
+        return this.orderQueue;
+    }
+
+    /**
+     * gives all order.
      *
      * @return all orders.
      */
-    public List<Order> getOrders(){
-        return this.orderQueue;
+    public List<Order> getOrderQueueForOperator() {
+        return orderQueueForOperator;
     }
 
     /**
@@ -48,19 +57,19 @@ public class Operator implements Runnable {
 
         while (!Main.isPizzeriaClose()) {
 
-            int numberOfOrders = random.nextInt(2) + 1;
+            int numberOfOrders = random.nextInt(getOrderQueueForOperator().size() - 2) + 2;
             for (int i = 0; i < numberOfOrders; i++) {
                 try {
                     Order order = this.orderQueueForOperator.remove(0);
 
                     synchronized (this.orderQueue) {
                         this.orderQueue.add(order);
-                        System.out.println("                                           " +
-                                " Operator added order: " + order.getId());
+                        System.out.println("                                           "
+                                + " Operator added order: " + order.getId());
                         orderQueue.notifyAll();
                     }
 
-                } catch (IndexOutOfBoundsException e){
+                } catch (IndexOutOfBoundsException e) {
                     Thread.currentThread().interrupt();
                     System.out.println("enough");
                     return;

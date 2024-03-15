@@ -39,15 +39,14 @@ public class CourierThread extends Thread {
      * constructor.
      *
      * @param courier courier from json.
-     * @param warehouse warehouse with data from json.
      * @param pizzeriaData class full of json data.
      */
-    public CourierThread(Courier courier, Warehouse warehouse, PizzeriaData pizzeriaData, Operator operator, int ha) {
+    public CourierThread(Courier courier, PizzeriaData pizzeriaData, Operator operator) {
         this.courier = courier;
-        this.warehouse = warehouse;
+        this.warehouse = pizzeriaData.getWarehouse();
         this.pizzeriaData = pizzeriaData;
         this.operator = operator;
-        this.ha = ha;
+        this.ha = operator.getOrders().size() + pizzeriaData.getOrders().size();
     }
 
     /**
@@ -112,7 +111,6 @@ public class CourierThread extends Thread {
                                 + " is delivered by courier " + courier.getId());
                         setDelivering(false);
                     } catch (InterruptedException e) {
-                        System.out.println("it's always a chance to die while delivering pizza");
                         Thread.currentThread().interrupt();
                         return;
                     }
@@ -120,12 +118,14 @@ public class CourierThread extends Thread {
                 pizzeriaData.incrementCompletedOrders(pizzasToTake);
                 warehouse.notifyAll();
             }
-            if (pizzeriaData.getCompletedOrders() == this.ha) {
-                Main.timerThread.interrupt();
-                Main.closePizzeria();
+            if (pizzeriaData.getCompletedOrders() == this.ha || Main.pizzeriaClose) {
+                if(Main.timerThread.isAlive()) {
+                    Main.timerThread.interrupt();
+                    Main.closePizzeria();
+                }
                 interruptCouriers();
                 Main.saveRemainingOrders(pizzeriaData, operator);
-                break;
+                return;
             }
         }
     }

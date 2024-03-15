@@ -15,7 +15,6 @@ public class Main {
     protected static Thread[] bakers;
     protected static Thread[] couriers;
     protected static Thread timerThread;
-
     protected static volatile boolean pizzeriaClose = false;
 
     /**
@@ -59,11 +58,11 @@ public class Main {
 
             for (int i = 0; i < pizzeriaData.getBakers().size(); i++) {
                 bakers[i] = new BakerThread(pizzeriaData.getBakers().get(i),
-                        operator.getOrders(), pizzeriaData.getWarehouse(), pizzeriaData);
+                        operator.getOrders(), pizzeriaData);
             }
             for (int i = 0; i < pizzeriaData.getCouriers().size(); i++) {
                 couriers[i] = new CourierThread(pizzeriaData.getCouriers().get(i),
-                        pizzeriaData.getWarehouse(), pizzeriaData, operator, operator.getOrders().size() + pizzeriaData.getOrders().size());
+                        pizzeriaData, operator);
             }
 
             startThreads(bakers);
@@ -144,7 +143,7 @@ public class Main {
      * @param pizzeriaData object where we get all pizzeria data from.
      */
     protected static void saveRemainingOrders(PizzeriaData pizzeriaData, Operator operator) {
-        pizzeriaData.setOrders(operator.getOrders());
+        pizzeriaData.setOrders(operator.getOrderQueueForOperator());
         try (FileWriter writer = new FileWriter("input.json")) {
             Gson gson = new GsonBuilder().setPrettyPrinting().create();
             gson.toJson(pizzeriaData, writer);

@@ -272,6 +272,10 @@ public class PizzeriaData {
             this.pizzaList = new ArrayList<>();
         }
     }
+
+    /**
+     * class for order.
+     */
     public static class Order {
         int id;
         /**

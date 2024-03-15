@@ -1,10 +1,10 @@
 package ru.nsu.shushakov.pizzapepperonimario;
 
+import java.util.List;
+
 import ru.nsu.shushakov.pizzapepperonimario.PizzeriaData.Baker;
 import ru.nsu.shushakov.pizzapepperonimario.PizzeriaData.Order;
 import ru.nsu.shushakov.pizzapepperonimario.PizzeriaData.Warehouse;
-
-import java.util.List;
 
 /**
  * Class that represents bakers behaviour in thread.
@@ -37,15 +37,16 @@ public class BakerThread extends Thread {
     }
 
     /**
-     * @param baker baker from json.
-     * @param orderQueue order list.
-     * @param warehouse warehouse from json.
+     * class that represents baker.
+     *
+     * @param baker        baker from json.
+     * @param orderQueue   order list.
      * @param pizzeriaData all data from json.
      */
-    public BakerThread(Baker baker, List<Order> orderQueue, Warehouse warehouse, PizzeriaData pizzeriaData) {
+    public BakerThread(Baker baker, List<Order> orderQueue, PizzeriaData pizzeriaData) {
         this.baker = baker;
         this.orderQueue = orderQueue;
-        this.warehouse = warehouse;
+        this.warehouse = pizzeriaData.getWarehouse();
         this.pizzeriaData = pizzeriaData;
     }
 
@@ -55,7 +56,7 @@ public class BakerThread extends Thread {
     public void interruptBakers() {
         for (int i = 0; i < pizzeriaData.getBakers().size(); i++) {
             if (Main.bakers[i].isAlive() && !Main.bakers[i].isInterrupted()
-                    && !((BakerThread)Main.bakers[i]).isBaking()) {
+                    && !((BakerThread) Main.bakers[i]).isBaking()) {
                 Main.bakers[i].interrupt();
             }
         }
@@ -63,23 +64,21 @@ public class BakerThread extends Thread {
 
     /**
      * <p>
-     *     override method for a baker.
-     *     if order list is empty than work is over.
-     *     when pizza is ready baker tries to put it in a warehouse.
-     *     if all orders were completed or pizzeria should be closed then interrupt all threads
+     * override method for a baker.
+     * if order list is empty than work is over.
+     * when pizza is ready baker tries to put it in a warehouse.
+     * if all orders were completed or pizzeria should be closed then interrupt all threads
      * </p>
      */
     @Override
     public void run() {
-        System.out.println("hello im " + baker.getId());
         while (!Main.isPizzeriaClose()) {
             Order order;
             synchronized (orderQueue) {
-                if(orderQueue.isEmpty()) {
+                if (orderQueue.isEmpty()) {
                     try {
                         orderQueue.wait();
                     } catch (InterruptedException e) {
-                        System.out.println("it's always a chance to die while baking pizza " + baker.getId() + " fst");
                         Thread.currentThread().interrupt();
                         return;
                     }
@@ -94,7 +93,6 @@ public class BakerThread extends Thread {
                 //"baking" pizza
                 sleep(baker.getSpeed());
             } catch (InterruptedException e) {
-                System.out.println("it's always a chance to die while baking pizza " + baker.getId()+ " snd");
                 Thread.currentThread().interrupt();
                 return;
             }
@@ -104,7 +102,6 @@ public class BakerThread extends Thread {
                     try {
                         warehouse.wait();
                     } catch (InterruptedException e) {
-                        System.out.println("it's always a chance to die while baking pizza " + baker.getId());
                         Thread.currentThread().interrupt();
                         return;
                     }
@@ -127,11 +124,12 @@ public class BakerThread extends Thread {
                 System.out.println("perekur");
                 sleep(1000);
             } catch (InterruptedException ignored) {
+                System.out.println("I was perekurival");
             }
             //condition for the end of the work
             if (Main.isPizzeriaClose()) {
                 interruptBakers();
-                break;
+                return;
             }
         }
     }
