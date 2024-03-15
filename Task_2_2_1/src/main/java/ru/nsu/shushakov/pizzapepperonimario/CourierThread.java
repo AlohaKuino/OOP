@@ -1,43 +1,70 @@
 package ru.nsu.shushakov.pizzapepperonimario;
 
-import ru.nsu.shushakov.pizzapepperonimario.PizzeriaData.Courier;
-import ru.nsu.shushakov.pizzapepperonimario.PizzeriaData.Warehouse;
-import ru.nsu.shushakov.pizzapepperonimario.PizzeriaData.Order;
-
 import java.util.ArrayList;
 import java.util.List;
+import ru.nsu.shushakov.pizzapepperonimario.PizzeriaData.Courier;
+import ru.nsu.shushakov.pizzapepperonimario.PizzeriaData.Order;
+import ru.nsu.shushakov.pizzapepperonimario.PizzeriaData.Warehouse;
 
+/**
+ * class that represents courier behaviour in thread.
+ */
 public class CourierThread extends Thread {
-
     private final PizzeriaData pizzeriaData;
     private final Courier courier;
     private final Warehouse warehouse;
     private boolean isDelivering = true;
 
 
+    /**
+     * @return bool if courier is delivering.
+     *
+     * simple getter.
+     */
     public synchronized boolean isDelivering() {
         return isDelivering;
     }
 
+    /**
+     * @param delivering sets true if courier is delivering.
+     *
+     *  simple setter.
+     */
     public synchronized void setDelivering(boolean delivering) {
         isDelivering = delivering;
     }
 
+    /**
+     * @param courier courier from json.
+     * @param warehouse warehouse with data from json.
+     * @param pizzeriaData class full of json data.
+     */
     public CourierThread(Courier courier, Warehouse warehouse, PizzeriaData pizzeriaData) {
         this.courier = courier;
         this.warehouse = warehouse;
         this.pizzeriaData = pizzeriaData;
     }
 
+    /**
+     * method that will interrupt couriers when i need to.
+     */
     public void interruptCouriers() {
         for (int i = 0; i < pizzeriaData.getCouriers().size(); i++) {
             if (Main.couriers[i].isAlive() && !Main.couriers[i].isInterrupted()
-                    && !((CourierThread) Main.couriers[i]).isDelivering) {
+                    && !((CourierThread) Main.couriers[i]).isDelivering()) {
                 Main.couriers[i].interrupt();
             }
         }
     }
 
+    /**
+     * <p>
+     *     override method for a courier.
+     *     if warehouse is empty than he need to wait.
+     *     when pizza is ready courier tries to take it from a warehouse.
+     *     if all orders were completed or pizzeria should be closed then interrupt all threads
+     * </p>
+     */
     @Override
     public void run() {
         while (!Main.pizzeriaOpen) {

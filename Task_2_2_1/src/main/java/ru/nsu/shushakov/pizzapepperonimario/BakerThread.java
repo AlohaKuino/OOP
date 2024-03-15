@@ -1,13 +1,14 @@
 package ru.nsu.shushakov.pizzapepperonimario;
 
-import ru.nsu.shushakov.pizzapepperonimario.PizzeriaData.Baker;
-import ru.nsu.shushakov.pizzapepperonimario.PizzeriaData.Warehouse;
-import ru.nsu.shushakov.pizzapepperonimario.PizzeriaData.Order;
-
 import java.util.List;
+import ru.nsu.shushakov.pizzapepperonimario.PizzeriaData.Baker;
+import ru.nsu.shushakov.pizzapepperonimario.PizzeriaData.Order;
+import ru.nsu.shushakov.pizzapepperonimario.PizzeriaData.Warehouse;
 
+/**
+ * Class that represents bakers behaviour in thread.
+ */
 public class BakerThread extends Thread {
-
     private final Baker baker;
     private final List<Order> orderQueue;
     private final Warehouse warehouse;
@@ -16,14 +17,32 @@ public class BakerThread extends Thread {
     private boolean isBaking = false;
 
 
+    /**
+     * @return true if baker is baking.
+     *
+     * flag to know if I can interrupt baker correctly.
+     */
     public synchronized boolean isBaking() {
         return isBaking;
     }
 
+    /**
+     * @param baking baker status.
+     *
+     * simple setter to update baker status.
+     */
     public synchronized void setBaking(boolean baking) {
         isBaking = baking;
     }
 
+    /**
+     * @param baker baker from json with id and speed.
+     * @param orderQueue list of orders for bakers to do.
+     * @param warehouse storage for bakers to put pizza there when its ready.
+     * @param pizzeriaData class with json data.
+     *
+     * constructor.
+     */
     public BakerThread(Baker baker, List<Order> orderQueue, Warehouse warehouse,
                        PizzeriaData pizzeriaData) {
         this.baker = baker;
@@ -32,15 +51,26 @@ public class BakerThread extends Thread {
         this.pizzeriaData = pizzeriaData;
     }
 
+    /**
+     * method that will interrupt all bakers correctly when I need.
+     */
     public void interruptBakers() {
         for (int i = 0; i < pizzeriaData.getBakers().size(); i++) {
-            if (Main.bakers[i].isAlive()) {
+            if (Main.bakers[i].isAlive() && !((BakerThread)Main.bakers[i]).isBaking()) {
                 Main.bakers[i].interrupt();
             }
         }
         Main.saveRemainingOrders(pizzeriaData);
     }
 
+    /**
+     * <p>
+     *     override method for a baker.
+     *     if order list is empty than work is over.
+     *     when pizza is ready baker tries to put it in a warehouse.
+     *     if all orders were completed or pizzeria should be closed then interrupt all threads
+     * </p>
+     */
     @Override
     public void run() {
         while (!Main.pizzeriaOpen) {
@@ -50,20 +80,22 @@ public class BakerThread extends Thread {
                     Thread.currentThread().interrupt();
                     return;
                 }
+                //get order
                 order = orderQueue.remove(0);
             }
             System.out.println("Baker " + baker.getId() + " is preparing pizza for order " + order
                     .getId());
             try {
                 setBaking(true);
+                //"baking" pizza
                 sleep(baker.getSpeed());
-                setBaking(false);
             } catch (InterruptedException e) {
                 System.out.println("it's always a chance to die while baking pizza");
                 Thread.currentThread().interrupt();
                 return;
             }
             synchronized (warehouse) {
+                //trying to put pizza in a warehouse
                 while (warehouse.isFull()) {
                     try {
                         warehouse.wait();
@@ -79,11 +111,14 @@ public class BakerThread extends Thread {
                     throw new RuntimeException(e);
                 }
 
+                setBaking(false);
+
                 pizzeriaData.incrementBakedOrders(1);
                 System.out.println("    Pizza for order " + order.getId() + " is ready.");
                 warehouse.notifyAll();
 
             }
+            //condition for the end of the work
             if (pizzeriaData.getBakedOrders() == pizzeriaData.getAllOrders()
                     || Main.isPizzeriaOpen()) {
                 interruptBakers();

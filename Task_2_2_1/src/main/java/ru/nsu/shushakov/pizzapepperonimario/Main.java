@@ -2,12 +2,15 @@ package ru.nsu.shushakov.pizzapepperonimario;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
+/**
+ * main class.
+ *
+ */
 public class Main {
 
     protected static Thread[] bakers;
@@ -16,10 +19,19 @@ public class Main {
 
     protected static volatile boolean pizzeriaOpen = false;
 
+    /**
+     * @return flag function to know if pizzeria closed.
+     *
+     * getter.
+     */
     public static boolean isPizzeriaOpen() {
         return pizzeriaOpen;
     }
 
+    /**
+     * @param args default params.
+     * main function it reads json anp put it in a class also it starts all thread and timer thread.
+     */
     public static void main(String[] args) {
         try {
             String filePath = "input.json";
@@ -71,17 +83,30 @@ public class Main {
         }
     }
 
+    /**
+     * setter that closing pizzeria.
+     */
     private static void closePizzeria() {
         pizzeriaOpen = false;
         System.out.println("Pizzeria should be closed");
     }
 
+    /**
+     * @param threads array of threads to start.
+     *
+     * starts all threads in array.
+     */
     private static void startThreads(Thread[] threads) {
         for (Thread thread : threads) {
             thread.start();
         }
     }
 
+    /**
+     * @param threads array of threads to join.
+     *
+     * join all the array's threads.
+     */
     private static void joinThreads(Thread[] threads) {
         for (Thread thread : threads) {
             try {
@@ -92,6 +117,12 @@ public class Main {
         }
     }
 
+    /**
+     * @param timeLimit time that pizzeria should work.
+     * @return thread that will be responsible for closing pizzeria in time.
+     *
+     * starts a thread that will be sleeping for a working time.
+     */
     protected static Thread startTimer(long timeLimit) {
         Thread timerThread = new Thread(() -> {
             try {
@@ -99,12 +130,19 @@ public class Main {
                 closePizzeria();
             } catch (InterruptedException e) {
                 System.out.println("They are really good at baking pizza");
+                closePizzeria();
+                System.exit(0);
             }
         });
         timerThread.start();
         return timerThread;
     }
 
+    /**
+     * @param pizzeriaData object where we get all pizzeria data from.
+     *
+     * saves unfinished orders back to order list in inputJSON.
+     */
     protected static void saveRemainingOrders(PizzeriaData pizzeriaData) {
         try (FileWriter writer = new FileWriter("input.json")) {
             Gson gson = new GsonBuilder().setPrettyPrinting().create();
