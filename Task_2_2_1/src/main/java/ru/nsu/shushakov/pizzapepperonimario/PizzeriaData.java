@@ -7,8 +7,18 @@ public class PizzeriaData {
     List<Courier> couriers = new ArrayList<>();
     List<Baker> bakers = new ArrayList<>();
     List<Order> orders = new ArrayList<>();
-    int allOrders;
+    transient int allOrders;
     Warehouse warehouse;
+
+    int time;
+
+    public void setTime(int time) {
+        this.time = time;
+    }
+
+    public int getTime() {
+        return time;
+    }
 
     public List<Baker> getBakers() {
         return bakers;
@@ -18,7 +28,7 @@ public class PizzeriaData {
         return couriers;
     }
 
-    public Warehouse getWarehouse(){
+    public Warehouse getWarehouse() {
         return this.warehouse;
     }
 
@@ -34,16 +44,25 @@ public class PizzeriaData {
         return orders;
     }
 
+    public int getBakedOrders() {
+        return bakedOrders;
+    }
 
-    private int completedOrders = 0;
+    private transient int completedOrders = 0;
+    private transient int bakedOrders = 0;
 
     public synchronized void incrementCompletedOrders(int added) {
         completedOrders += added;
     }
 
+    public synchronized void incrementBakedOrders(int added) {
+        bakedOrders += added;
+    }
+
     public synchronized int getCompletedOrders() {
         return completedOrders;
     }
+
     public class Baker {
         int id;
         int speed;
@@ -62,7 +81,8 @@ public class PizzeriaData {
             return speed;
         }
     }
-    public class Courier{
+
+    public class Courier {
 
         int id;
         int capacity;
@@ -75,30 +95,24 @@ public class PizzeriaData {
             couriers.add(this);
         }
 
-        public void setCapacity(int capacity) {
-            this.capacity = capacity;
-        }
-
         public int getId() {
             return id;
         }
 
-         public int getCapacity() {
-             return capacity;
-         }
+        public int getCapacity() {
+            return capacity;
+        }
 
         public int getSpeed() {
             return speed;
         }
     }
+
     public class Warehouse {
         private int capacity;
 
-        private List<Order> pizzaList;
+        private transient List<Order> pizzaList;
 
-        public void setCapacity(int capacity) {
-            this.capacity = capacity;
-        }
 
         public synchronized void addPizza(Order pizza) throws InterruptedException {
             while (isFull()) {
@@ -138,7 +152,7 @@ public class PizzeriaData {
         }
     }
 
-    public class Order{
+    public class Order {
         int id;
 
         public void setOrder(int id) {

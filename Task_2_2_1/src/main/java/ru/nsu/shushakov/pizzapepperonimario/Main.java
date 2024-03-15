@@ -1,41 +1,116 @@
 package ru.nsu.shushakov.pizzapepperonimario;
 
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 
 import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.concurrent.TimeUnit;
 
 public class Main {
-    public static void main(String[] args) {
 
+    protected static Thread[] bakers;
+    protected static Thread[] couriers;
+    protected static Thread timerThread;
+
+    protected static volatile boolean pizzeriaOpen = false;
+
+    public static boolean isPizzeriaOpen() {
+        return pizzeriaOpen;
+    }
+
+    public static void main(String[] args) {
         try {
             String filePath = "input.json";
-
             Gson gson = new Gson();
-
             FileReader reader = new FileReader(filePath);
-
             PizzeriaData pizzeriaData = gson.fromJson(reader, PizzeriaData.class);
 
+            System.out.println("Time before closing: " + pizzeriaData.getTime());
             System.out.println("Number of bakers: " + pizzeriaData.getBakers().size());
             System.out.println("Number of couriers: " + pizzeriaData.getCouriers().size());
-            System.out.println("Maximum pizzas in warehouse: " + pizzeriaData.getWarehouse().getCapacity());
+            System.out.println("Maximum pizzas in warehouse: " + pizzeriaData.getWarehouse()
+                    .getCapacity());
             System.out.println("Orders:" + pizzeriaData.getOrders().size());
             reader.close();
 
             pizzeriaData.setAllOrders(pizzeriaData.getOrders().size());
             pizzeriaData.getWarehouse().setPizzaList();
 
+            if (pizzeriaData.getOrders().isEmpty()) {
+                System.out.println("nothing to do");
+                System.exit(0);
+            }
 
-            for (PizzeriaData.Baker baker : pizzeriaData.getBakers()) {
-                Thread bakerThread = new BakerThread(baker, pizzeriaData.getOrders(), pizzeriaData.getWarehouse());
-                bakerThread.start();
+            bakers = new Thread[pizzeriaData.getBakers().size()];
+            couriers = new Thread[pizzeriaData.getCouriers().size()];
+
+            for (int i = 0; i < pizzeriaData.getBakers().size(); i++) {
+                bakers[i] = new BakerThread(pizzeriaData.getBakers().get(i),
+                        pizzeriaData.getOrders(), pizzeriaData.getWarehouse(), pizzeriaData);
             }
-            for (PizzeriaData.Courier courier : pizzeriaData.getCouriers()) {
-                Thread courierThread = new CourierThread(courier, pizzeriaData.getWarehouse(), pizzeriaData);
-                courierThread.start();
+            for (int i = 0; i < pizzeriaData.getCouriers().size(); i++) {
+                couriers[i] = new CourierThread(pizzeriaData.getCouriers().get(i),
+                        pizzeriaData.getWarehouse(), pizzeriaData);
             }
+
+            startThreads(bakers);
+            startThreads(couriers);
+
+            timerThread = startTimer(pizzeriaData.getTime());
+
+            timerThread.join();
+
+            joinThreads(bakers);
+            joinThreads(couriers);
+
+            System.out.println("Pizzeria closed");
         } catch (Exception e) {
             System.out.println("oops");
+        }
+    }
+
+    private static void closePizzeria() {
+        pizzeriaOpen = false;
+        System.out.println("Pizzeria should be closed");
+    }
+
+    private static void startThreads(Thread[] threads) {
+        for (Thread thread : threads) {
+            thread.start();
+        }
+    }
+
+    private static void joinThreads(Thread[] threads) {
+        for (Thread thread : threads) {
+            try {
+                thread.join();
+            } catch (InterruptedException e) {
+                System.out.println("Failed to join thread: " + thread.getName());
+            }
+        }
+    }
+
+    protected static Thread startTimer(long timeLimit) {
+        Thread timerThread = new Thread(() -> {
+            try {
+                TimeUnit.MILLISECONDS.sleep(timeLimit);
+                closePizzeria();
+            } catch (InterruptedException e) {
+                System.out.println("They are really good at baking pizza");
+            }
+        });
+        timerThread.start();
+        return timerThread;
+    }
+
+    protected static void saveRemainingOrders(PizzeriaData pizzeriaData) {
+        try (FileWriter writer = new FileWriter("input.json")) {
+            Gson gson = new GsonBuilder().setPrettyPrinting().create();
+            gson.toJson(pizzeriaData, writer);
+        } catch (IOException e) {
+            System.out.println("Failed to save unfinished orders: " + e.getMessage());
         }
     }
 }

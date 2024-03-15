@@ -12,56 +12,42 @@ public class CourierThread extends Thread {
     private final PizzeriaData pizzeriaData;
     private final Courier courier;
     private final Warehouse warehouse;
-    private List<Order> pizzasTaken;
+    private boolean isDelivering = true;
+
+
+    public synchronized boolean isDelivering() {
+        return isDelivering;
+    }
+
+    public synchronized void setDelivering(boolean delivering) {
+        isDelivering = delivering;
+    }
 
     public CourierThread(Courier courier, Warehouse warehouse, PizzeriaData pizzeriaData) {
         this.courier = courier;
         this.warehouse = warehouse;
         this.pizzeriaData = pizzeriaData;
-        this.pizzasTaken = new ArrayList<>();
     }
 
-//    @Override
-//    public void run() {
-//        while (true) {
-//            synchronized (warehouse) {
-//                while (warehouse.isEmpty()) {
-//                    try {
-//                        warehouse.wait();
-//                    } catch (InterruptedException e) {
-//                        e.printStackTrace();
-//                    }
-//                }
-//
-//                try {
-//                    Order pizza = warehouse.takePizza();
-//                    System.out.println("Courier " + courier.getId() + " is delivering pizza " + pizza.getId());
-//
-//                    sleep(courier.getSpeed());
-//
-//                    System.out.println("Pizza " + pizza.getId() + " is delivered by courier " + courier.getId());
-//
-//                    pizzeriaData.incrementCompletedOrders();
-//                    if (pizzeriaData.getCompletedOrders() == pizzeriaData.getAllOrders()) {
-//                        System.out.println("All orders completed. Exiting program.");
-//                        System.exit(0);
-//                    }
-//                } catch (InterruptedException e) {
-//                    throw new RuntimeException(e);
-//                }
-//                warehouse.notifyAll();
-//            }
-//        }
-//    }
+    public void interruptCouriers() {
+        for (int i = 0; i < pizzeriaData.getCouriers().size(); i++) {
+            if (Main.couriers[i].isAlive() && !Main.couriers[i].isInterrupted()
+                    && !((CourierThread) Main.couriers[i]).isDelivering) {
+                Main.couriers[i].interrupt();
+            }
+        }
+    }
+
     @Override
     public void run() {
-        while (true) {
+        while (!Main.pizzeriaOpen) {
             synchronized (warehouse) {
-                while (warehouse.isEmpty() || courier.getCapacity() <= 0) {
+                while ((warehouse.isEmpty() || courier.getCapacity() <= 0)) {
                     try {
                         warehouse.wait();
                     } catch (InterruptedException e) {
-                        e.printStackTrace();
+                        Thread.currentThread().interrupt();
+                        return;
                     }
                 }
 
@@ -71,7 +57,10 @@ public class CourierThread extends Thread {
                     continue;
                 }
 
+                setDelivering(true);
+
                 List<Order> pizzasToDeliver = new ArrayList<>();
+
                 for (int i = 0; i < pizzasToTake; i++) {
                     try {
                         pizzasToDeliver.add(warehouse.takePizza());
@@ -79,27 +68,32 @@ public class CourierThread extends Thread {
                         throw new RuntimeException(e);
                     }
                 }
-                System.out.println("Courier " + courier.getId() + " going to deliver " + pizzasToDeliver.size() + " pizzas");
+
+                System.out.println("        Courier " + courier.getId() + " going to deliver "
+                        + pizzasToDeliver.size() + " pizzas");
                 for (Order pizza : pizzasToDeliver) {
                     try {
-                        System.out.println("Courier " + courier.getId() + " is delivering pizza " + pizza.getId());
+                        System.out.println("            Courier " + courier.getId()
+                                + " is delivering pizza " + pizza.getId());
                         Thread.sleep(courier.getSpeed());
-                        System.out.println("Pizza " + pizza.getId() + " is delivered by courier " + courier.getId());
+                        System.out.println("                Pizza " + pizza.getId()
+                                + " is delivered by courier " + courier.getId());
+                        setDelivering(false);
                     } catch (InterruptedException e) {
-                        e.printStackTrace();
+                        System.out.println("it's always a chance to die while delivering pizza");
+                        Thread.currentThread().interrupt();
+                        return;
                     }
                 }
-
                 pizzeriaData.incrementCompletedOrders(pizzasToTake);
-
-                if (pizzeriaData.getCompletedOrders() == pizzeriaData.getAllOrders()) {
-                    System.out.println("All orders completed. Closing Pizzeria.");
-                    System.exit(0);
-                }
-
                 warehouse.notifyAll();
+            }
+            if (pizzeriaData.getCompletedOrders() == pizzeriaData.getAllOrders()
+                    || Main.isPizzeriaOpen()) {
+                Main.timerThread.interrupt();
+                interruptCouriers();
+                break;
             }
         }
     }
 }
-

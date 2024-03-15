@@ -25,9 +25,20 @@
       "speed": 5000
     }
   ],
-  "orders": [],
+  "orders": [
+    {
+      "id": 4
+    },
+    {
+      "id": 5
+    }
+  ],
+  "allOrders": 5,
   "warehouse": {
-    "capacity": 1000
+    "capacity": 1000,
+    "pizzaList": []
   },
-  "time": 15000
+  "time": 10,
+  "completedOrders": 1,
+  "bakedOrders": 3
 }
