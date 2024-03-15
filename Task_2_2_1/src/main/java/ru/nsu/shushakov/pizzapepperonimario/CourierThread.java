@@ -119,7 +119,7 @@ public class CourierThread extends Thread {
                 warehouse.notifyAll();
             }
             if (pizzeriaData.getCompletedOrders() == this.ha || Main.pizzeriaClose) {
-                if(Main.timerThread.isAlive()) {
+                if (Main.timerThread.isAlive()) {
                     Main.timerThread.interrupt();
                     Main.closePizzeria();
                 }
