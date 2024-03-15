@@ -16,15 +16,15 @@ public class Main {
     protected static Thread[] couriers;
     protected static Thread timerThread;
 
-    protected static volatile boolean pizzeriaOpen = false;
+    protected static volatile boolean pizzeriaClose = false;
 
     /**
      * getter.
      *
      * @return flag function to know if pizzeria closed.
      */
-    public static boolean isPizzeriaOpen() {
-        return pizzeriaOpen;
+    public static boolean isPizzeriaClose() {
+        return pizzeriaClose;
     }
 
     /**
@@ -39,6 +39,10 @@ public class Main {
             FileReader reader = new FileReader(filePath);
             PizzeriaData pizzeriaData = gson.fromJson(reader, PizzeriaData.class);
 
+            Operator operator = new Operator(pizzeriaData.getOrders());
+            Thread operatorThread = new Thread(operator);
+            operatorThread.start();
+
             System.out.println("Time before closing: " + pizzeriaData.getTime());
             System.out.println("Number of bakers: " + pizzeriaData.getBakers().size());
             System.out.println("Number of couriers: " + pizzeriaData.getCouriers().size());
@@ -50,21 +54,16 @@ public class Main {
             pizzeriaData.setAllOrders(pizzeriaData.getOrders().size());
             pizzeriaData.getWarehouse().setPizzaList();
 
-            if (pizzeriaData.getOrders().isEmpty()) {
-                System.out.println("nothing to do");
-                System.exit(0);
-            }
-
             bakers = new Thread[pizzeriaData.getBakers().size()];
             couriers = new Thread[pizzeriaData.getCouriers().size()];
 
             for (int i = 0; i < pizzeriaData.getBakers().size(); i++) {
                 bakers[i] = new BakerThread(pizzeriaData.getBakers().get(i),
-                        pizzeriaData.getOrders(), pizzeriaData.getWarehouse(), pizzeriaData);
+                        operator.getOrders(), pizzeriaData.getWarehouse(), pizzeriaData);
             }
             for (int i = 0; i < pizzeriaData.getCouriers().size(); i++) {
                 couriers[i] = new CourierThread(pizzeriaData.getCouriers().get(i),
-                        pizzeriaData.getWarehouse(), pizzeriaData);
+                        pizzeriaData.getWarehouse(), pizzeriaData, operator, operator.getOrders().size() + pizzeriaData.getOrders().size());
             }
 
             startThreads(bakers);
@@ -77,7 +76,10 @@ public class Main {
             joinThreads(bakers);
             joinThreads(couriers);
 
+            operatorThread.join();
+
             System.out.println("Pizzeria closed");
+
         } catch (Exception e) {
             System.out.println("oops");
         }
@@ -86,8 +88,8 @@ public class Main {
     /**
      * setter that closing pizzeria.
      */
-    private static void closePizzeria() {
-        pizzeriaOpen = false;
+    public static void closePizzeria() {
+        pizzeriaClose = true;
         System.out.println("Pizzeria should be closed");
     }
 
@@ -112,7 +114,7 @@ public class Main {
             try {
                 thread.join();
             } catch (InterruptedException e) {
-                System.out.println("Failed to join thread: " + thread.getName());
+                System.out.println("Failed to join thread");
             }
         }
     }
@@ -130,8 +132,6 @@ public class Main {
                 closePizzeria();
             } catch (InterruptedException e) {
                 System.out.println("They are really good at baking pizza");
-                closePizzeria();
-                System.exit(0);
             }
         });
         timerThread.start();
@@ -143,7 +143,8 @@ public class Main {
      *
      * @param pizzeriaData object where we get all pizzeria data from.
      */
-    protected static void saveRemainingOrders(PizzeriaData pizzeriaData) {
+    protected static void saveRemainingOrders(PizzeriaData pizzeriaData, Operator operator) {
+        pizzeriaData.setOrders(operator.getOrders());
         try (FileWriter writer = new FileWriter("input.json")) {
             Gson gson = new GsonBuilder().setPrettyPrinting().create();
             gson.toJson(pizzeriaData, writer);

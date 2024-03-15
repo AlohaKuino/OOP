@@ -3,7 +3,7 @@
     {
       "id": 1,
       "capacity": 2,
-      "speed": 100
+      "speed": 1000
     },
     {
       "id": 2,
@@ -14,20 +14,26 @@
   "bakers": [
     {
       "id": 1,
-      "speed": 5000
+      "speed": 10000
     },
     {
       "id": 2,
-      "speed": 5000
+      "speed": 10000
     },
     {
       "id": 3,
-      "speed": 5000
+      "speed": 10000
     }
   ],
-  "orders": [],
+  "orders": [
+    {"id" : 1},
+    {"id" : 2},
+    {"id" : 4},
+    {"id" : 3},
+    {"id" : 5}
+  ],
   "warehouse": {
     "capacity": 1000
   },
-  "time": 15000
+  "time": 150000
 }

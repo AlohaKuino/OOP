@@ -10,7 +10,7 @@ public class PizzeriaData {
 
     List<Courier> couriers = new ArrayList<>();
     List<Baker> bakers = new ArrayList<>();
-    List<Order> orders = new ArrayList<>();
+    public List<Order> orders = new ArrayList<>();
     transient int allOrders;
     Warehouse warehouse;
     int time;
@@ -76,6 +76,10 @@ public class PizzeriaData {
      */
     public List<Order> getOrders() {
         return orders;
+    }
+
+    public void setOrders(List<Order> orders) {
+        this.orders = orders;
     }
 
     /**
@@ -268,13 +272,8 @@ public class PizzeriaData {
             this.pizzaList = new ArrayList<>();
         }
     }
-
-    /**
-     * order class.
-     */
     public static class Order {
         int id;
-
         /**
          * simple getter.
          *

@@ -1,9 +1,10 @@
 package ru.nsu.shushakov.pizzapepperonimario;
 
-import java.util.List;
 import ru.nsu.shushakov.pizzapepperonimario.PizzeriaData.Baker;
 import ru.nsu.shushakov.pizzapepperonimario.PizzeriaData.Order;
 import ru.nsu.shushakov.pizzapepperonimario.PizzeriaData.Warehouse;
+
+import java.util.List;
 
 /**
  * Class that represents bakers behaviour in thread.
@@ -36,15 +37,12 @@ public class BakerThread extends Thread {
     }
 
     /**
-     * constructor.
-     *
-     * @param baker baker from json with id and speed.
-     * @param orderQueue list of orders for bakers to do.
-     * @param warehouse storage for bakers to put pizza there when its ready.
-     * @param pizzeriaData class with json data.
+     * @param baker baker from json.
+     * @param orderQueue order list.
+     * @param warehouse warehouse from json.
+     * @param pizzeriaData all data from json.
      */
-    public BakerThread(Baker baker, List<Order> orderQueue, Warehouse warehouse,
-                       PizzeriaData pizzeriaData) {
+    public BakerThread(Baker baker, List<Order> orderQueue, Warehouse warehouse, PizzeriaData pizzeriaData) {
         this.baker = baker;
         this.orderQueue = orderQueue;
         this.warehouse = warehouse;
@@ -56,11 +54,11 @@ public class BakerThread extends Thread {
      */
     public void interruptBakers() {
         for (int i = 0; i < pizzeriaData.getBakers().size(); i++) {
-            if (Main.bakers[i].isAlive() && !((BakerThread)Main.bakers[i]).isBaking()) {
+            if (Main.bakers[i].isAlive() && !Main.bakers[i].isInterrupted()
+                    && !((BakerThread)Main.bakers[i]).isBaking()) {
                 Main.bakers[i].interrupt();
             }
         }
-        Main.saveRemainingOrders(pizzeriaData);
     }
 
     /**
@@ -73,24 +71,30 @@ public class BakerThread extends Thread {
      */
     @Override
     public void run() {
-        while (!Main.pizzeriaOpen) {
+        System.out.println("hello im " + baker.getId());
+        while (!Main.isPizzeriaClose()) {
             Order order;
             synchronized (orderQueue) {
-                if (orderQueue.isEmpty()) {
-                    Thread.currentThread().interrupt();
-                    return;
+                if(orderQueue.isEmpty()) {
+                    try {
+                        orderQueue.wait();
+                    } catch (InterruptedException e) {
+                        System.out.println("it's always a chance to die while baking pizza " + baker.getId() + " fst");
+                        Thread.currentThread().interrupt();
+                        return;
+                    }
                 }
-                //get order
                 order = orderQueue.remove(0);
             }
+
+            setBaking(true);
             System.out.println("Baker " + baker.getId() + " is preparing pizza for order " + order
                     .getId());
             try {
-                setBaking(true);
                 //"baking" pizza
                 sleep(baker.getSpeed());
             } catch (InterruptedException e) {
-                System.out.println("it's always a chance to die while baking pizza");
+                System.out.println("it's always a chance to die while baking pizza " + baker.getId()+ " snd");
                 Thread.currentThread().interrupt();
                 return;
             }
@@ -100,11 +104,12 @@ public class BakerThread extends Thread {
                     try {
                         warehouse.wait();
                     } catch (InterruptedException e) {
-                        System.out.println("it's always a chance to die while baking pizza");
+                        System.out.println("it's always a chance to die while baking pizza " + baker.getId());
                         Thread.currentThread().interrupt();
                         return;
                     }
                 }
+
                 try {
                     warehouse.addPizza(order);
                 } catch (InterruptedException e) {
@@ -118,9 +123,13 @@ public class BakerThread extends Thread {
                 warehouse.notifyAll();
 
             }
+            try {
+                System.out.println("perekur");
+                sleep(1000);
+            } catch (InterruptedException ignored) {
+            }
             //condition for the end of the work
-            if (pizzeriaData.getBakedOrders() == pizzeriaData.getAllOrders()
-                    || Main.isPizzeriaOpen()) {
+            if (Main.isPizzeriaClose()) {
                 interruptBakers();
                 break;
             }

@@ -13,7 +13,9 @@ public class CourierThread extends Thread {
     private final PizzeriaData pizzeriaData;
     private final Courier courier;
     private final Warehouse warehouse;
+    private final Operator operator;
     private boolean isDelivering = true;
+    int ha;
 
     /**
      * simple getter.
@@ -40,10 +42,12 @@ public class CourierThread extends Thread {
      * @param warehouse warehouse with data from json.
      * @param pizzeriaData class full of json data.
      */
-    public CourierThread(Courier courier, Warehouse warehouse, PizzeriaData pizzeriaData) {
+    public CourierThread(Courier courier, Warehouse warehouse, PizzeriaData pizzeriaData, Operator operator, int ha) {
         this.courier = courier;
         this.warehouse = warehouse;
         this.pizzeriaData = pizzeriaData;
+        this.operator = operator;
+        this.ha = ha;
     }
 
     /**
@@ -68,7 +72,7 @@ public class CourierThread extends Thread {
      */
     @Override
     public void run() {
-        while (!Main.pizzeriaOpen) {
+        while (!Main.isPizzeriaClose()) {
             synchronized (warehouse) {
                 while ((warehouse.isEmpty() || courier.getCapacity() <= 0)) {
                     try {
@@ -116,10 +120,11 @@ public class CourierThread extends Thread {
                 pizzeriaData.incrementCompletedOrders(pizzasToTake);
                 warehouse.notifyAll();
             }
-            if (pizzeriaData.getCompletedOrders() == pizzeriaData.getAllOrders()
-                    || Main.isPizzeriaOpen()) {
+            if (pizzeriaData.getCompletedOrders() == this.ha) {
                 Main.timerThread.interrupt();
+                Main.closePizzeria();
                 interruptCouriers();
+                Main.saveRemainingOrders(pizzeriaData, operator);
                 break;
             }
         }
