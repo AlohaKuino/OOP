@@ -15,26 +15,27 @@ public class CourierThread extends Thread {
     private final Warehouse warehouse;
     private boolean isDelivering = true;
 
-
     /**
-     * @return bool if courier is delivering.
-     *
      * simple getter.
+     *
+     * @return bool if courier is delivering.
      */
     public synchronized boolean isDelivering() {
         return isDelivering;
     }
 
     /**
-     * @param delivering sets true if courier is delivering.
+     * simple setter.
      *
-     *  simple setter.
+     * @param delivering sets true if courier is delivering.
      */
     public synchronized void setDelivering(boolean delivering) {
         isDelivering = delivering;
     }
 
     /**
+     * constructor.
+     *
      * @param courier courier from json.
      * @param warehouse warehouse with data from json.
      * @param pizzeriaData class full of json data.

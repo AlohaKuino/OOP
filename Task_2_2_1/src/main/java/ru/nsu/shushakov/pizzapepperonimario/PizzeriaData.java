@@ -16,72 +16,72 @@ public class PizzeriaData {
     int time;
 
     /**
-     * @return time that pizzeria should work.
-     *
      * simple getter.
+     *
+     * @return time that pizzeria should work.
      */
     public int getTime() {
         return time;
     }
 
     /**
-     * @return arrayList of objects type Baker read from json.
-     *
      * simple getter.
+     *
+     * @return arrayList of objects type Baker read from json.
      */
     public List<Baker> getBakers() {
         return bakers;
     }
 
     /**
-     * @return arrayList of objects type Courier read from json.
-     *
      * simple getter.
+     *
+     * @return arrayList of objects type Courier read from json.
      */
     public List<Courier> getCouriers() {
         return couriers;
     }
 
     /**
-     * @return warehouse with capacity.
-     *
      * simple getter.
+     *
+     * @return warehouse with capacity.
      */
     public Warehouse getWarehouse() {
         return this.warehouse;
     }
 
     /**
-     * @return number of all orders that pizzeria has.
-     *
      * simple getter.
+     *
+     * @return number of all orders that pizzeria has.
      */
     public int getAllOrders() {
         return allOrders;
     }
 
     /**
-     * @param allOrders number of all orders that pizzeria has.
-     *
      * simple getter.
+     *
+     * @param allOrders number of all orders that pizzeria has.
      */
     public void setAllOrders(int allOrders) {
         this.allOrders = allOrders;
     }
 
     /**
-     * @return arrayList of objects type Order from json.
-     *
      * simple getter.
+     *
+     * @return arrayList of objects type Order from json.
      */
     public List<Order> getOrders() {
         return orders;
     }
 
     /**
-     * @return number of order that was already baked.
-     *
      * baked orders they are orders that was made by bakers but not by couriers.
+     *
+     * @return number of order that was already baked.
      */
     public int getBakedOrders() {
         return bakedOrders;
@@ -91,27 +91,27 @@ public class PizzeriaData {
     private transient int bakedOrders = 0;
 
     /**
-     * @param added amount of orders that courier has delivered.
-     *
      * simple adder.
+     *
+     * @param added amount of orders that courier has delivered.
      */
     public synchronized void incrementCompletedOrders(int added) {
         completedOrders += added;
     }
 
     /**
-     * @param added one because every baker can bake one pizza in a moment.
-     *
      * adds one every time when baker puts pizza to a warehouse.
+     *
+     * @param added one because every baker can bake one pizza in a moment.
      */
     public synchronized void incrementBakedOrders(int added) {
         bakedOrders += added;
     }
 
     /**
-     * @return orders that was baked and delivered.
-     *
      * simple getter.
+     *
+     * @return orders that was baked and delivered.
      */
     public synchronized int getCompletedOrders() {
         return completedOrders;
@@ -125,18 +125,18 @@ public class PizzeriaData {
         int speed;
 
         /**
-         * @return id of a baker.
-         *
          * simple getter.
+         *
+         * @return id of a baker.
          */
         public int getId() {
             return id;
         }
 
         /**
-         * @return baker's speed in milliseconds that he will sleep while baking.
-         *
          * simple getter.
+         *
+         * @return baker's speed in milliseconds that he will sleep while baking.
          */
         public int getSpeed() {
             return speed;
@@ -153,27 +153,27 @@ public class PizzeriaData {
         int speed;
 
         /**
-         * @return id of a courier.
-         *
          * simple getter.
+         *
+         * @return id of a courier.
          */
         public int getId() {
             return id;
         }
 
         /**
-         * @return number of pizzas courier can deliver in one ride.
-         *
          * simple getter.
+         *
+         * @return number of pizzas courier can deliver in one ride.
          */
         public int getCapacity() {
             return capacity;
         }
 
         /**
-         * @return milliseconds that courier will be sleeping while delivering an order.
-         *
          * simple getter.
+         *
+         * @return milliseconds that courier will be sleeping while delivering an order.
          */
         public int getSpeed() {
             return speed;
@@ -189,13 +189,14 @@ public class PizzeriaData {
 
 
         /**
-         * @param pizza order from order list.
-         * @throws InterruptedException wait want to throw InterruptedException.
          * <p>
          *    method that tries to add pizza in a warehouse storage for couriers can take it.
          *    it waits for a place in a warehouse.
          *    only bakers can add pizzas.
          * </p>
+         *
+         * @param pizza order from order list.
+         * @throws InterruptedException wait want to throw InterruptedException.
          */
         public synchronized void addPizza(Order pizza) throws InterruptedException {
             while (isFull()) {
@@ -206,13 +207,14 @@ public class PizzeriaData {
         }
 
         /**
+         * <p>
+         *    method tries to take pizza from warehouse's storage.
+         *    it waits for any pizza that can appear in a storage.
+         *    only couriers can take orders.
+         * </p>
+         *
          * @return order from warehouse's storage.
          * @throws InterruptedException wait want to throw InterruptedException.
-         * <p>
-         *     method tries to take pizza from warehouse's storage.
-         *     it waits for any pizza that can appear in a storage.
-         *     only couriers can take orders.
-         * </p>
          */
         public synchronized Order takePizza() throws InterruptedException {
             while (this.pizzaList.isEmpty()) {
@@ -224,36 +226,36 @@ public class PizzeriaData {
         }
 
         /**
-         * @return bool if warehouse's storage is full
-         *
          * simple getter.
+         *
+         * @return bool if warehouse's storage is full
          */
         public synchronized boolean isFull() {
             return this.pizzaList.size() >= this.capacity;
         }
 
         /**
-         * @return capacity of a warehouse.
-         *
          * simple getter.
+         *
+         * @return capacity of a warehouse.
          */
         public int getCapacity() {
             return this.capacity;
         }
 
         /**
-         * @return bool if warehouse is empty.
-         *
          * simple getter.
+         *
+         * @return bool if warehouse is empty.
          */
         public boolean isEmpty() {
             return this.pizzaList.isEmpty();
         }
 
         /**
-         * @return how many pizzas are already in a warehouse.
-         *
          * simple getter.
+         *
+         * @return how many pizzas are already in a warehouse.
          */
         public int getCurrentOccupancy() {
             return this.pizzaList.size();
@@ -274,9 +276,9 @@ public class PizzeriaData {
         int id;
 
         /**
-         * @return order id.
-         *
          * simple getter.
+         *
+         * @return order id.
          */
         public int getId() {
             return id;

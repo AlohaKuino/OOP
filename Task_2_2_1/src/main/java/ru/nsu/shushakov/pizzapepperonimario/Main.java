@@ -9,7 +9,6 @@ import java.util.concurrent.TimeUnit;
 
 /**
  * main class.
- *
  */
 public class Main {
 
@@ -20,17 +19,18 @@ public class Main {
     protected static volatile boolean pizzeriaOpen = false;
 
     /**
-     * @return flag function to know if pizzeria closed.
-     *
      * getter.
+     *
+     * @return flag function to know if pizzeria closed.
      */
     public static boolean isPizzeriaOpen() {
         return pizzeriaOpen;
     }
 
     /**
-     * @param args default params.
      * main function it reads json anp put it in a class also it starts all thread and timer thread.
+     *
+     * @param args default params.
      */
     public static void main(String[] args) {
         try {
@@ -92,9 +92,9 @@ public class Main {
     }
 
     /**
-     * @param threads array of threads to start.
-     *
      * starts all threads in array.
+     *
+     * @param threads array of threads to start.
      */
     private static void startThreads(Thread[] threads) {
         for (Thread thread : threads) {
@@ -103,9 +103,9 @@ public class Main {
     }
 
     /**
-     * @param threads array of threads to join.
-     *
      * join all the array's threads.
+     *
+     * @param threads array of threads to join.
      */
     private static void joinThreads(Thread[] threads) {
         for (Thread thread : threads) {
@@ -118,10 +118,10 @@ public class Main {
     }
 
     /**
+     * starts a thread that will be sleeping for a working time.
+     *
      * @param timeLimit time that pizzeria should work.
      * @return thread that will be responsible for closing pizzeria in time.
-     *
-     * starts a thread that will be sleeping for a working time.
      */
     protected static Thread startTimer(long timeLimit) {
         Thread timerThread = new Thread(() -> {
@@ -139,9 +139,9 @@ public class Main {
     }
 
     /**
-     * @param pizzeriaData object where we get all pizzeria data from.
-     *
      * saves unfinished orders back to order list in inputJSON.
+     *
+     * @param pizzeriaData object where we get all pizzeria data from.
      */
     protected static void saveRemainingOrders(PizzeriaData pizzeriaData) {
         try (FileWriter writer = new FileWriter("input.json")) {

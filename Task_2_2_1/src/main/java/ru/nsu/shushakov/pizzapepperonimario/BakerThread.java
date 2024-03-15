@@ -18,30 +18,30 @@ public class BakerThread extends Thread {
 
 
     /**
-     * @return true if baker is baking.
-     *
      * flag to know if I can interrupt baker correctly.
+     *
+     * @return true if baker is baking.
      */
     public synchronized boolean isBaking() {
         return isBaking;
     }
 
     /**
-     * @param baking baker status.
-     *
      * simple setter to update baker status.
+     *
+     * @param baking baker status.
      */
     public synchronized void setBaking(boolean baking) {
         isBaking = baking;
     }
 
     /**
+     * constructor.
+     *
      * @param baker baker from json with id and speed.
      * @param orderQueue list of orders for bakers to do.
      * @param warehouse storage for bakers to put pizza there when its ready.
      * @param pizzeriaData class with json data.
-     *
-     * constructor.
      */
     public BakerThread(Baker baker, List<Order> orderQueue, Warehouse warehouse,
                        PizzeriaData pizzeriaData) {
