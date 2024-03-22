@@ -120,7 +120,6 @@ public class CourierThread extends Thread {
                 warehouse.notifyAll();
             }
             if (pizzeriaData.getBakedOrders() == pizzeriaData.getCompletedOrders()) {
-                Main.timerThread.interrupt();
                 Main.closePizzeria();
                 interruptCouriers();
                 return;
