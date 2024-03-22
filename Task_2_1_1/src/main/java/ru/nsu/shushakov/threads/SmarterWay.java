@@ -54,7 +54,7 @@ public class SmarterWay {
      * interrupts all threads.
      */
     private void interruptor() {
-        for (Thread thread : threads) {
+        for (Thread thread : this.threads) {
             thread.interrupt();
         }
     }
@@ -67,7 +67,8 @@ public class SmarterWay {
      */
     public boolean threaderAndCutter(int numberOfThreads) {
 
-        Thread[] threads = new Thread[numberOfThreads];
+        this.threads = new Thread[numberOfThreads];
+//        Thread[] threads = new Thread[numberOfThreads];
 
         int step = stepper(numberOfThreads);
         if (numberOfThreads == 1) {

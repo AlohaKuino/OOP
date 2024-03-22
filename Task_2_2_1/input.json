@@ -25,14 +25,7 @@
       "speed": 10000
     }
   ],
-  "orders": [
-    {
-      "id": 3
-    },
-    {
-      "id": 5
-    }
-  ],
+  "orders": [],
   "warehouse": {
     "capacity": 1000
   },

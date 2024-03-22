@@ -57,7 +57,8 @@ public class Operator implements Runnable {
 
         while (!Main.isPizzeriaClose()) {
 
-            int numberOfOrders = random.nextInt(getOrderQueueForOperator().size() - 2) + 2;
+//            int numberOfOrders = random.nextInt(getOrderQueueForOperator().size() - 2) + 2;
+            int numberOfOrders = 3;
             for (int i = 0; i < numberOfOrders; i++) {
                 try {
                     Order order = this.orderQueueForOperator.remove(0);

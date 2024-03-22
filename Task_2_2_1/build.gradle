@@ -1,8 +1,9 @@
 plugins {
-    id("java")
+    id 'java'
+    id 'jacoco'
 }
 
-group = "org.example"
+group = "ru.nsu.shushakov.pizzapepperonimario"
 version = "1.0-SNAPSHOT"
 
 repositories {
@@ -10,11 +11,19 @@ repositories {
 }
 
 dependencies {
-    testImplementation(platform("org.junit:junit-bom:5.9.1"))
-    testImplementation("org.junit.jupiter:junit-jupiter")
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
     implementation 'com.google.code.gson:gson:2.8.8'
 }
 
-tasks.test {
+test {
     useJUnitPlatform()
+}
+javadoc {
+    destinationDir = file("${buildDir}/docs/javadoc")
+}
+jacocoTestReport {
+    reports {
+        xml.required = true
+    }
 }

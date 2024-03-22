@@ -25,9 +25,9 @@ public class DumpTest {
     @Test
     void secondTest() throws IllegalArgumentException {
         long startTime = System.currentTimeMillis();
-
+// 3681
         SmarterWay a = new SmarterWay(experimental);
-        boolean b = a.threaderAndCutter(100000);
+        boolean b = a.threaderAndCutter(20);
         System.out.println(b);
 
         System.out.println("Elapsed time: " + (System.currentTimeMillis() - startTime)
