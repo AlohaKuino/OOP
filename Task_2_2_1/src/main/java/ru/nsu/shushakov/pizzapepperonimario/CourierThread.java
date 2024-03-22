@@ -14,7 +14,7 @@ public class CourierThread extends Thread {
     private final Courier courier;
     private final Warehouse warehouse;
     private final Operator operator;
-    private boolean isDelivering = true;
+    private boolean isDelivering = false;
     int ha;
 
     /**
@@ -71,7 +71,7 @@ public class CourierThread extends Thread {
      */
     @Override
     public void run() {
-        while (!Main.isPizzeriaClose()) {
+        while (!(pizzeriaData.getBakedOrders() == pizzeriaData.getCompletedOrders())) {
             synchronized (warehouse) {
                 while ((warehouse.isEmpty() || courier.getCapacity() <= 0)) {
                     try {
@@ -109,22 +109,22 @@ public class CourierThread extends Thread {
                         Thread.sleep(courier.getSpeed());
                         System.out.println("                Pizza " + pizza.getId()
                                 + " is delivered by courier " + courier.getId());
-                        setDelivering(false);
                     } catch (InterruptedException e) {
-                        Thread.currentThread().interrupt();
                         return;
                     }
                 }
+                setDelivering(false);
+                operator.getOrderQueueForOperator().remove(0);
                 pizzeriaData.incrementCompletedOrders(pizzasToTake);
                 warehouse.notifyAll();
             }
-            if (pizzeriaData.getCompletedOrders() == this.ha || Main.pizzeriaClose) {
+            if (pizzeriaData.getBakedOrders() == pizzeriaData.getCompletedOrders()) {
                 if (Main.timerThread.isAlive()) {
                     Main.timerThread.interrupt();
                     Main.closePizzeria();
                 }
-                interruptCouriers();
                 Main.saveRemainingOrders(pizzeriaData, operator);
+                interruptCouriers();
                 return;
             }
         }

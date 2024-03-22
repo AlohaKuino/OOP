@@ -47,21 +47,21 @@ public class Operator implements Runnable {
     public List<Order> getOrderQueueForOperator() {
         return orderQueueForOperator;
     }
+    public int orderNum = 0;
 
     /**
-     * thread for a operator/customer.
+     * thread for an operator/customer.
      */
     @Override
     public void run() {
         System.out.println("operator on");
 
         while (!Main.isPizzeriaClose()) {
-
-//            int numberOfOrders = random.nextInt(getOrderQueueForOperator().size() - 2) + 2;
-            int numberOfOrders = 3;
+            int numberOfOrders = random.nextInt(getOrderQueueForOperator().size() - 2) + 1;
             for (int i = 0; i < numberOfOrders; i++) {
                 try {
-                    Order order = this.orderQueueForOperator.remove(0);
+                    Order order = this.orderQueueForOperator.get(orderNum);
+                    orderNum ++;
 
                     synchronized (this.orderQueue) {
                         this.orderQueue.add(order);
@@ -71,7 +71,6 @@ public class Operator implements Runnable {
                     }
 
                 } catch (IndexOutOfBoundsException e) {
-                    Thread.currentThread().interrupt();
                     System.out.println("enough");
                     return;
                 }
@@ -80,8 +79,8 @@ public class Operator implements Runnable {
                 int interval = random.nextInt(5000) + 5000;
                 Thread.sleep(interval);
             } catch (InterruptedException e) {
-                System.out.println("it's always a chance to die while operating pizza");
                 Thread.currentThread().interrupt();
+                System.out.println("it's always a chance to die while operating pizza");
                 return;
             }
         }

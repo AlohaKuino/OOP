@@ -102,6 +102,11 @@ public class TestPizzeria {
                     pizzeriaData, operator);
         }
 
+        if(pizzeriaData.getOrders().isEmpty()){
+            System.out.println("nothing to do");
+            System.exit(0);
+        }
+
         startThreads(bakers);
         startThreads(couriers);
 

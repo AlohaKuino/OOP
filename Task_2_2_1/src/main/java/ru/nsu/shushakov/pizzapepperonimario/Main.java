@@ -15,6 +15,7 @@ public class Main {
     protected static Thread[] bakers;
     protected static Thread[] couriers;
     protected static Thread timerThread;
+    protected static Thread operatorThread;
     protected static volatile boolean pizzeriaClose = false;
 
     /**
@@ -39,7 +40,7 @@ public class Main {
             PizzeriaData pizzeriaData = gson.fromJson(reader, PizzeriaData.class);
 
             Operator operator = new Operator(pizzeriaData.getOrders());
-            Thread operatorThread = new Thread(operator);
+            operatorThread = new Thread(operator);
             operatorThread.start();
 
             System.out.println("Time before closing: " + pizzeriaData.getTime());
@@ -56,6 +57,11 @@ public class Main {
             bakers = new Thread[pizzeriaData.getBakers().size()];
             couriers = new Thread[pizzeriaData.getCouriers().size()];
 
+            if(pizzeriaData.getOrders().isEmpty()){
+                System.out.println("nothing to do");
+                closePizzeria();
+            }
+
             for (int i = 0; i < pizzeriaData.getBakers().size(); i++) {
                 bakers[i] = new BakerThread(pizzeriaData.getBakers().get(i),
                         operator.getOrders(), pizzeriaData);
@@ -69,14 +75,11 @@ public class Main {
             startThreads(couriers);
 
             timerThread = startTimer(pizzeriaData.getTime());
-
             timerThread.join();
 
             joinThreads(bakers);
-            joinThreads(couriers);
-
             operatorThread.join();
-
+            joinThreads(couriers);
             System.out.println("Pizzeria closed");
 
         } catch (Exception e) {

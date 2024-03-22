@@ -85,6 +85,7 @@ public class BakerThread extends Thread {
                 order = orderQueue.remove(0);
             }
 
+            pizzeriaData.incrementBakedOrders(1);
             setBaking(true);
             System.out.println("Baker " + baker.getId() + " is preparing pizza for order " + order
                     .getId());
@@ -92,7 +93,6 @@ public class BakerThread extends Thread {
                 //"baking" pizza
                 sleep(baker.getSpeed());
             } catch (InterruptedException e) {
-                Thread.currentThread().interrupt();
                 return;
             }
             synchronized (warehouse) {
@@ -101,7 +101,6 @@ public class BakerThread extends Thread {
                     try {
                         warehouse.wait();
                     } catch (InterruptedException e) {
-                        Thread.currentThread().interrupt();
                         return;
                     }
                 }
@@ -114,7 +113,6 @@ public class BakerThread extends Thread {
 
                 setBaking(false);
 
-                pizzeriaData.incrementBakedOrders(1);
                 System.out.println("    Pizza for order " + order.getId() + " is ready.");
                 warehouse.notifyAll();
 
@@ -127,6 +125,7 @@ public class BakerThread extends Thread {
             }
             //condition for the end of the work
             if (Main.isPizzeriaClose()) {
+                Main.operatorThread.interrupt();
                 interruptBakers();
                 return;
             }
