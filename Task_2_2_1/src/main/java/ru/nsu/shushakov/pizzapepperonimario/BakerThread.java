@@ -71,7 +71,7 @@ public class BakerThread extends Thread {
      */
     @Override
     public void run() {
-        while (!Main.isPizzeriaClose()) {
+        while (!Main.pizzeriaClose) {
             Order order;
             synchronized (orderQueue) {
                 if (orderQueue.isEmpty()) {
@@ -116,12 +116,6 @@ public class BakerThread extends Thread {
                 System.out.println("    Pizza for order " + order.getId() + " is ready.");
                 warehouse.notifyAll();
 
-            }
-            try {
-                System.out.println("perekur");
-                sleep(1000);
-            } catch (InterruptedException ignored) {
-                System.out.println("I was perekurival");
             }
             //condition for the end of the work
             if (Main.isPizzeriaClose()) {

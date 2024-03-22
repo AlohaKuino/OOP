@@ -80,6 +80,7 @@ public class Main {
             joinThreads(bakers);
             operatorThread.join();
             joinThreads(couriers);
+            saveRemainingOrders(pizzeriaData, operator);
             System.out.println("Pizzeria closed");
 
         } catch (Exception e) {

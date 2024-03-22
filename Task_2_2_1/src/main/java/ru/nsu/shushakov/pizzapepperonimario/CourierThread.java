@@ -71,7 +71,8 @@ public class CourierThread extends Thread {
      */
     @Override
     public void run() {
-        while (!(pizzeriaData.getBakedOrders() == pizzeriaData.getCompletedOrders())) {
+        while (!(pizzeriaData.getBakedOrders() == pizzeriaData.getCompletedOrders())
+                || !Main.pizzeriaClose) {
             synchronized (warehouse) {
                 while ((warehouse.isEmpty() || courier.getCapacity() <= 0)) {
                     try {
@@ -113,17 +114,14 @@ public class CourierThread extends Thread {
                         return;
                     }
                 }
-                setDelivering(false);
                 operator.getOrderQueueForOperator().remove(0);
+                setDelivering(false);
                 pizzeriaData.incrementCompletedOrders(pizzasToTake);
                 warehouse.notifyAll();
             }
             if (pizzeriaData.getBakedOrders() == pizzeriaData.getCompletedOrders()) {
-                if (Main.timerThread.isAlive()) {
-                    Main.timerThread.interrupt();
-                    Main.closePizzeria();
-                }
-                Main.saveRemainingOrders(pizzeriaData, operator);
+                Main.timerThread.interrupt();
+                Main.closePizzeria();
                 interruptCouriers();
                 return;
             }
